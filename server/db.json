@@ -1,0 +1,22 @@
+{
+  "user": [
+    {
+      "firstName": "neha",
+      "lastName": "butola",
+      "email": "nehabutola14@gmail.com",
+      "password": "123456",
+      "password2": "123456",
+      "phoneNumber": 232231123,
+      "id": 1
+    },
+    {
+      "firstName": "neo",
+      "lastName": "butola",
+      "email": "nehabutola14@gmail.com",
+      "password": "123456",
+      "password2": "123456",
+      "phoneNumber": 2424324,
+      "id": 2
+    }
+  ]
+}
