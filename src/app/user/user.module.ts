@@ -6,7 +6,9 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { MaterialModule } from '../material.module';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
@@ -15,7 +17,9 @@ import { RouterModule } from '@angular/router';
     UserRoutingModule,
     MaterialModule,
     FormsModule,
-    RouterModule,
+    HttpClientModule,
   ],
+  exports: [],
+  providers: [AuthService],
 })
 export class UserModule {}

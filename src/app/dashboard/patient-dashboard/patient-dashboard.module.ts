@@ -8,5 +8,6 @@ import { CoreModule } from 'src/app/core/core.module';
 @NgModule({
   declarations: [PatientDashboardComponent, PatientProfileComponent],
   imports: [CommonModule, CoreModule],
+  providers: [],
 })
 export class PatientDashboardModule {}
