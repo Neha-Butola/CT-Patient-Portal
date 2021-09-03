@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 import { PatientDashboardComponent } from './components/patient-dashboard/patient-dashboard.component';
 import { PatientProfileComponent } from './components/patient-profile/patient-profile.component';
 import { CoreModule } from 'src/app/core/core.module';
+import { PatientDashboardRoutingModule } from './patient-dashboard-routing.module';
 
 @NgModule({
   declarations: [PatientDashboardComponent, PatientProfileComponent],
-  imports: [CommonModule, CoreModule],
-  providers: [],
+  imports: [CommonModule, CoreModule, PatientDashboardRoutingModule],
 })
 export class PatientDashboardModule {}
