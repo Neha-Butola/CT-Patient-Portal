@@ -1,1 +1,191 @@
-<p>demographics works!</p>
+<section class="container my-5">
+  <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-header class="bg-primary text-white mb-2 py-1 rounded"
+        >Paitent Demographics
+      </mat-card-header>
+      <mat-card class="mb-2">
+        <mat-card-header class="text-primary"
+          >Paitent General Information</mat-card-header
+        >
+        <div fxLayout="row">
+          <mat-form-field fxLayoutAlign="space-between">
+            <mat-label for="first-name">First Name </mat-label>
+            <input
+              id="first-name"
+              matInput
+              type="text"
+              formControlName="firstname"
+              name="firstname"
+            />
+          </mat-form-field>
+
+          <mat-form-field fxLayoutAlign="space-between">
+            <mat-label for="last-name">Last Name </mat-label>
+            <input
+              id="last-name"
+              type="text"
+              matInput
+              formControlName="lastname"
+            />
+          </mat-form-field>
+
+          <mat-form-field fxLayoutAlign="space-between">
+            <mat-label>D.O.B(DD/MM/YY)</mat-label>
+            <input matInput [matDatepicker]="picker" />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field fxLayoutAlign="space-between">
+            <mat-label>Gender</mat-label>
+            <mat-select>
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">female</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card>
+
+      <mat-card class="mb-2">
+        <mat-card-header class="text-primary">Patient Address </mat-card-header>
+
+        <div class="w-100 column">
+          <mat-form-field>
+            <mat-label for="address" class="col-sm-2 col-form-label"
+              >Address</mat-label
+            >
+
+            <input
+              id="address"
+              type="text"
+              matInput
+              formControlName="address"
+            />
+          </mat-form-field>
+        </div>
+        <div fxLayout="row">
+          <div class="col-4" fxLayoutAlign="space-between">
+            <mat-form-field style="width: 80%">
+              <mat-label for="phone" class="col-sm-2 col-form-label"
+                >Contact Information
+              </mat-label>
+              <input
+                id="phone"
+                type="text"
+                matInput
+                formControlName="phone"
+                (keypress)="keyPress($event)"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-4" fxLayoutAlign="space-between">
+            <mat-form-field style="width: 80%">
+              <mat-label for="Education" class="col-sm-2 col-form-label"
+                >Education</mat-label
+              >
+
+              <input
+                id="Education"
+                type="text"
+                matInput
+                formControlName="education"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-4" fxLayoutAlign="space-between">
+            <mat-form-field style="width: 80%">
+              <mat-label for="occupation" class="col-sm-2 col-form-label"
+                >Occupation/Employment
+              </mat-label>
+              <input
+                id="occupation"
+                type="text"
+                matInput
+                formControlName="occupation"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card>
+      <mat-card class="mb-2">
+        <mat-card-header class="text-primary"
+          >Patient Medical History
+        </mat-card-header>
+        <div fxLayout="row">
+          <div class="col-4" fxLayoutAlign="space-between">
+            <mat-form-field style="width: 80%">
+              <mat-label for="Ethnicity" class="col-sm-2 col-form-label"
+                >Ethnicity/Race
+              </mat-label>
+              <input
+                id="Ethnicity"
+                type="text"
+                matInput
+                formControlName="ethnicity"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-4" fxLayoutAlign="space-between">
+            <mat-form-field style="width: 80%">
+              <mat-label for="medical" class="col-sm-2 col-form-label"
+                >Medical History</mat-label
+              >
+              <input
+                id="medical"
+                type="text"
+                matInput
+                formControlName="medical"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-4" fxLayoutAlign="space-between">
+            <mat-form-field style="width: 80%">
+              <mat-label for="familymedical" class="col-sm-2 col-form-label"
+                >Family medical history</mat-label
+              >
+              <input
+                id="familymedical"
+                type="text"
+                matInput
+                formControlName="familymedical"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div class="col-4" fxLayoutAlign="space-between">
+            <mat-form-field style="width: 80%">
+              <mat-label for="surgeries" class="col-sm-2 col-form-label"
+                >Surgeries</mat-label
+              >
+              <input
+                id="surgeries"
+                type="text"
+                matInput
+                formControlName="surgeries"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-4" fxLayoutAlign="space-between">
+            <mat-form-field style="width: 80%">
+              <mat-label for="insurance" class="col-sm-2 col-form-label"
+                >Insurance provider</mat-label
+              >
+              <input
+                id="insurance"
+                type="text"
+                matInput
+                formControlName="insurance"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-card>
+    </mat-card>
+  </form>
+</section>
