@@ -1,8 +1,4 @@
-<button
-  mat-icon-button
-  *ngIf="sidenav.mode === 'over'"
-  (click)="sidenav.toggle()"
->
-  <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-  <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+<button mat-icon-button (click)="onToggleSidenav()">
+  <mat-icon *ngIf="!isOpened"> menu </mat-icon>
+  <mat-icon *ngIf="isOpened"> close </mat-icon>
 </button>

@@ -6,18 +6,21 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { MaterialModule } from '../material.module';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { CoreModule } from '../core/core.module';
+
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, LoadingSpinnerComponent],
   imports: [
     CommonModule,
-    CoreModule,
     UserRoutingModule,
     MaterialModule,
     FormsModule,
-    RouterModule,
+    HttpClientModule,
   ],
+  exports: [LoginComponent, RegisterComponent],
+  providers: [AuthService],
 })
 export class UserModule {}

@@ -1,11 +1,18 @@
 <section class="container my-5">
   <h1 class="text-center mb-5">Login</h1>
+  <div class="alert alert-danger" *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+  <div *ngIf="isLoading" class="text-center">
+    <app-loader></app-loader>
+  </div>
   <form
     fxLayout="column"
     fxLayoutAlign="center center"
     #loginForm="ngForm"
     (ngSubmit)="onSubmit(loginForm)"
     class="form-card d-flex flex-column align-items-center"
+    *ngIf="!isLoading"
   >
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
