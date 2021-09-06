@@ -5,9 +5,15 @@ import { PatientDashboardComponent } from './components/patient-dashboard/patien
 import { PatientProfileComponent } from './components/patient-profile/patient-profile.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { PatientDashboardRoutingModule } from './patient-dashboard-routing.module';
+import { MaterialModule } from 'src/app/material.module';
 
 @NgModule({
   declarations: [PatientDashboardComponent, PatientProfileComponent],
-  imports: [CommonModule, CoreModule, PatientDashboardRoutingModule],
+  imports: [
+    CommonModule,
+    CoreModule,
+    MaterialModule,
+    PatientDashboardRoutingModule,
+  ],
 })
 export class PatientDashboardModule {}

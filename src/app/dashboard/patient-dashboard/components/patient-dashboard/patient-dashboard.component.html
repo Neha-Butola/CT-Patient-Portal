@@ -1,3 +1,11 @@
-<app-header></app-header>
-<app-sidebar></app-sidebar>
-<p>patient-dashboard works!</p>
+<mat-toolbar class="mat-elevation-z8">
+  <app-header></app-header>
+  Responsive side navigation
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <app-sidebar></app-sidebar>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">Main content here!</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
