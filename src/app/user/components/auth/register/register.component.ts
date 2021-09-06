@@ -23,8 +23,14 @@ export class RegisterComponent implements OnInit {
   error: string = '';
 
   constructor(private authServive: AuthService) {}
-
-  ngOnInit(): void {}
+  maxDate: any;
+  minDate: any;
+  ngOnInit(): void {
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
+    this.minDate = new Date();
+    this.minDate.setFullYear(this.minDate.getFullYear() - 200);
+  }
 
   onSubmit(form: NgForm) {
     this.isLoading = true;

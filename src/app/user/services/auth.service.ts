@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subject, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { LoginData, RegisterData } from '../model/auth.model';
 import { User } from '../model/user.model';
@@ -20,7 +20,7 @@ export interface AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
-  user = new Subject<User>();
+  user = new BehaviorSubject<User>(null);
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -33,7 +33,7 @@ export class AuthService {
       .pipe(
         catchError(this.handleError),
         tap((resData) => {
-          +this.handelAuthentication(
+          this.handelAuthentication(
             resData.email,
             resData.localId,
             resData.idToken,
@@ -53,7 +53,7 @@ export class AuthService {
       .pipe(
         catchError(this.handleError),
         tap((resData) => {
-          +this.handelAuthentication(
+          this.handelAuthentication(
             resData.email,
             resData.localId,
             resData.idToken,
@@ -87,8 +87,10 @@ export class AuthService {
     token: string,
     expiresIn: number
   ) {
+    console.log('handelAuthentication');
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
     this.user.next(user);
+    console.log(this.user);
   }
 }
