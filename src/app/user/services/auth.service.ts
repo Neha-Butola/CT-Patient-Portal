@@ -3,94 +3,58 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { baseUrl } from 'src/environments/environment';
 import { LoginData, RegisterData } from '../model/auth.model';
 import { User } from '../model/user.model';
 
-export interface AuthResponseData {
-  kind: string;
-  idToken: string;
-  email: string;
-  refreshToken: string;
-  expiresIn: string;
-  localId: string;
-  registered?: boolean;
-}
+export const AUTH_TOKEN_KEY = 'auth-token';
+export const AUTH_USER_DATA = 'user-data';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  user = new BehaviorSubject<User>(null);
+  // user: BehaviorSubject<User> = new BehaviorSubject(null);
+  public autToken: string | null = null;
+  public userData: User | null = null;
 
-  constructor(private http: HttpClient, private router: Router) {}
-
-  registerUser(email: string, password: string) {
-    return this.http
-      .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDrSO4i1Ze8OtRJY4yCE0GFROy3d4_IHpM',
-        { email: email, password: password, returnSecureToken: true }
-      )
-      .pipe(
-        catchError(this.handleError),
-        tap((resData) => {
-          this.handelAuthentication(
-            resData.email,
-            resData.localId,
-            resData.idToken,
-            +resData.expiresIn
-          );
-        })
-      );
-    this.router.navigate(['/user/login']);
+  constructor(private http: HttpClient, private router: Router) {
+    this.checkStorage();
   }
 
-  login(email: string, password: string) {
-    return this.http
-      .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDrSO4i1Ze8OtRJY4yCE0GFROy3d4_IHpM',
-        { email: email, password: password, returnSecureToken: true }
-      )
-      .pipe(
-        catchError(this.handleError),
-        tap((resData) => {
-          this.handelAuthentication(
-            resData.email,
-            resData.localId,
-            resData.idToken,
-            +resData.expiresIn
-          );
-        })
-      );
+  registerUser(authData: User) {
+    // sessionStorage.setItem(AUTH_TOKEN_KEY, authData.email + 'RANDOM_STRING')
+    // return this.http.post(`${baseUrl}user`, authData);
+    this.router.navigate(['/']);
   }
 
-  private handleError(errRes: HttpErrorResponse) {
-    let errMessage = 'An unknown error occures!';
-    if (!errRes.error || !errRes.error.error) {
-      return throwError(errMessage);
+  login(authData: User): Observable<any> {
+    localStorage.setItem(AUTH_TOKEN_KEY, authData.email + 'RANDOM_STRING');
+    localStorage.setItem(AUTH_USER_DATA, JSON.stringify(authData));
+    console.log(localStorage);
+    this.checkStorage();
+    return this.http.post(`${baseUrl}user`, authData);
+  }
+
+  checkStorage() {
+    const authToken = localStorage.getItem(AUTH_TOKEN_KEY);
+    const userData = localStorage.getItem(AUTH_USER_DATA);
+    this.autToken = authToken;
+    if (userData) {
+      this.userData = JSON.parse(userData) as any;
+    } else {
+      this.userData = null;
     }
-    switch (errRes.error.error.message) {
-      case 'EMAIL_EXISTS':
-        errMessage = 'This email exists already';
-        break;
-      case 'EMAIL_NOT_FOUND':
-        errMessage = 'This email does not exist';
-        break;
-      case 'INVALID_PASSWORD':
-        errMessage = 'The password is not correct';
-    }
-    return throwError(errMessage);
   }
 
-  private handelAuthentication(
-    email: string,
-    userId: string,
-    token: string,
-    expiresIn: number
-  ) {
-    console.log('handelAuthentication');
-    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
-    const user = new User(email, userId, token, expirationDate);
-    this.user.next(user);
-    console.log(this.user);
+  public isLoggedIn() {
+    console.log(this.autToken);
+    return this.autToken !== null;
+  }
+
+  public logout() {
+    if (!this.isLoggedIn()) return;
+    localStorage.clear();
+    this.checkStorage();
   }
 }

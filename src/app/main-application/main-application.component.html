@@ -1,12 +1,22 @@
-<mat-toolbar class="p-0">
-  <app-header class="w-100" (sidenavToggle)="sidenav.toggle()"></app-header>
+<mat-toolbar class="p-0" *ngIf="isAuthenticated">
+  <app-header
+    class="w-100"
+    (sidenavToggle)="sidenav.toggle()"
+    (logout)="logOut()"
+  ></app-header>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation" mode="side">
+  <mat-sidenav
+    #sidenav
+    role="navigation"
+    mode="side"
+    opened="true"
+    disableClose="true"
+  >
     <app-sidebar (closeSidenav)="sidenav.close()"></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>
-    <main>
+    <main class="p-4">
       <router-outlet></router-outlet>
     </main>
   </mat-sidenav-content>

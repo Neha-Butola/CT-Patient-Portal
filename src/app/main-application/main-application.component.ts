@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+
 import { AuthService } from '../user/services/auth.service';
 
 @Component({
@@ -9,19 +10,22 @@ import { AuthService } from '../user/services/auth.service';
 })
 export class MainApplicationComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
-  private useSub: Subscription;
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
-    console.log('user is');
-    this.useSub = this.authService.user.subscribe((user) => {
-      this.isAuthenticated = !!user;
-      console.log('user is ' + this.isAuthenticated);
-      console.log('user is ' + this.isAuthenticated);
-    });
+  ngOnInit(): void {}
+
+  ngDoCheck(): void {
+    this.authService.checkStorage();
+    if (this.authService.isLoggedIn()) {
+      this.isAuthenticated = true;
+    }
   }
 
-  ngOnDestroy() {
-    this.useSub.unsubscribe();
+  logOut() {
+    this.authService.logout();
+    this.router.navigate(['/']);
+    this.isAuthenticated = false;
   }
+
+  ngOnDestroy() {}
 }

@@ -1,5 +1,5 @@
 <nav
-  class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+  class="navbar navbar-expand navbar-light bg-white topbar static-top shadow"
 >
   <button mat-icon-button (click)="onToggleSidenav()">
     <mat-icon *ngIf="!isOpened"> menu </mat-icon>
@@ -25,9 +25,30 @@
     </div>
   </form>
 
-  <ul class="navbar-nav ml-aut">
-    <li>
-      <a href="#">Logout</a>
-    </li>
-  </ul>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+  >
+    <img
+      class="rounded-circle"
+      undraw_posting_photo.svg
+      src="/assets/images/undraw_profile.svg"
+      alt="..."
+    />
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+    <button mat-menu-item (click)="onLogOut()">
+      <mat-icon>voicemail</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
 </nav>

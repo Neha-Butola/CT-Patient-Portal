@@ -34,18 +34,9 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.isLoading = true;
-    this.authServive
-      .registerUser(this.register.email, this.register.password)
-      .subscribe(
-        (res) => {
-          console.log(res);
-          this.isLoading = false;
-        },
-        (errMessage) => {
-          console.log(errMessage);
-          this.error = errMessage;
-          this.isLoading = false;
-        }
-      );
+    this.authServive.registerUser({
+      email: this.register.email,
+      password: this.register.password,
+    });
   }
 }
