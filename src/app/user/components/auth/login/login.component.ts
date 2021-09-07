@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { Observable } from 'rxjs';
+import {
+  AuthResponseData,
+  AuthService,
+} from 'src/app/user/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +14,26 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  isLoading = false;
+  error: string = '';
+
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
+
   onSubmit(form: NgForm) {
-    console.log(form);
+    this.isLoading = true;
+    this.authService.login(form.value.email, form.value.password).subscribe(
+      (res) => {
+        console.log(res);
+        this.isLoading = false;
+        this.router.navigate(['/dashboard/patient-dashboard']);
+      },
+      (errMessage) => {
+        console.log(errMessage);
+        this.error = errMessage;
+        this.isLoading = false;
+      }
+    );
   }
 }

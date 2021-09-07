@@ -10,6 +10,18 @@ const routes: Routes = [
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
+  {
+    path: 'medication-and-allergies',
+    loadChildren: () =>
+      import('./medication-and-allergies/medication-and-allergies.module').then(
+        (m) => m.MedicationAndAllergiesModule
+      ),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
 ];
 
 @NgModule({
