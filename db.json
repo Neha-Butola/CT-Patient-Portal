@@ -1,0 +1,11 @@
+{
+  "medication-and-allergies": [
+    {
+      "currentmedication": "NA",
+      "otcmedication": "NA",
+      "herbsmineralandvitamin": "NA",
+      "socialdrug": "NA",
+      "pastprescribedmedication": "NA"
+    }
+  ]
+}
