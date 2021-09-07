@@ -1,13 +1,1 @@
-<mat-toolbar>
-  <app-header class="w-100" (sidenavToggle)="sidenav.toggle()"></app-header>
-</mat-toolbar>
-<mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation" mode="side">
-    <app-sidebar (closeSidenav)="sidenav.close()"></app-sidebar>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<app-main-application></app-main-application>

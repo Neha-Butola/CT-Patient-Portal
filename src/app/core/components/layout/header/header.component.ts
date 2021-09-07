@@ -7,6 +7,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() sidenavToggle = new EventEmitter<void>();
+  @Output() logout = new EventEmitter<void>();
+
   isOpened = false;
   constructor() {}
 
@@ -15,5 +17,9 @@ export class HeaderComponent implements OnInit {
   onToggleSidenav() {
     this.isOpened = false;
     this.sidenavToggle.emit();
+  }
+
+  onLogOut() {
+    this.logout.emit();
   }
 }
