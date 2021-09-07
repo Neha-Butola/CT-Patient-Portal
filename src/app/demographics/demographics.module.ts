@@ -7,7 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,7 +21,6 @@ import { DemographicsService } from './services/demographics.service';
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
     MatDatepickerModule,
     MatButtonModule,
     HttpClientModule,

@@ -17,6 +17,18 @@ const routes: Routes = [
         (m) => m.DemographicsModule
       ),
   },
+  {
+    path: 'medication-and-allergies',
+    loadChildren: () =>
+      import('./medication-and-allergies/medication-and-allergies.module').then(
+        (m) => m.MedicationAndAllergiesModule
+      ),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
 ];
 
 @NgModule({

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { RegisterData } from 'src/app/user/model/auth.model';
+import { AuthService } from 'src/app/user/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,11 +9,34 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  constructor() {}
+  register: RegisterData = {
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    password2: '',
+    dob: new Date(),
+    phoneNo: 0,
+  };
 
-  ngOnInit(): void {}
+  isLoading = false;
+  error: string = '';
+
+  constructor(private authServive: AuthService) {}
+  maxDate: any;
+  minDate: any;
+  ngOnInit(): void {
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
+    this.minDate = new Date();
+    this.minDate.setFullYear(this.minDate.getFullYear() - 200);
+  }
 
   onSubmit(form: NgForm) {
-    console.log(form);
+    this.isLoading = true;
+    this.authServive.registerUser({
+      email: this.register.email,
+      password: this.register.password,
+    });
   }
 }

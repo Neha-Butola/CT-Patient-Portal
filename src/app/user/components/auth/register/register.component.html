@@ -1,11 +1,16 @@
 <section class="container my-5">
   <h1 class="text-center mb-3">Create an account</h1>
+  <div class="alert alert-danger" *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+  <div *ngIf="isLoading" class="text-center">
+    <app-loader></app-loader>
+  </div>
   <form
-    fxLayout="column"
-    fxLayoutAlign="center center"
     #signup="ngForm"
     (ngSubmit)="onSubmit(signup)"
     class="form-card d-flex flex-column align-items-center"
+    *ngIf="!isLoading"
   >
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
@@ -13,7 +18,7 @@
         type="text"
         matInput
         placeholder="Your First name"
-        ngModel
+        [(ngModel)]="register.firstname"
         name="firstName"
         required
         #lName="ngModel"
@@ -28,8 +33,8 @@
         type="text"
         matInput
         placeholder="Your Last name"
-        ngModel
-        name="lastName"
+        [(ngModel)]="register.lastname"
+        name="lastname"
         required
         #fName="ngModel"
       />
@@ -43,7 +48,7 @@
         type="text"
         matInput
         placeholder="Your Email"
-        ngModel
+        [(ngModel)]="register.email"
         name="email"
         email
         required
@@ -65,7 +70,7 @@
         type="password"
         matInput
         placeholder="Your Password"
-        ngModel
+        [(ngModel)]="register.password"
         name="password"
         minlength="6"
         required
@@ -80,7 +85,7 @@
         type="password"
         matInput
         placeholder="Retype Password"
-        ngModel
+        [(ngModel)]="register.password2"
         name="password2"
         minlength="6"
         required
@@ -88,8 +93,15 @@
       />
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker" />
+      <mat-label>Date of Birth</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="register.dob"
+        name="birthdate"
+        [max]="maxDate"
+        [min]="minDate"
+      />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -99,7 +111,7 @@
         type="number"
         matInput
         placeholder="Your Mobile Number"
-        ngModel
+        [(ngModel)]="register.phoneNo"
         name="phoneNumber"
         required
         #pNo="ngModel"
