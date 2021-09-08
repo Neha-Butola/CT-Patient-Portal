@@ -3,10 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
-import {
-  AuthResponseData,
-  AuthService,
-} from 'src/app/user/services/auth.service';
+import { AuthService } from 'src/app/user/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,17 +20,19 @@ export class LoginComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.isLoading = true;
-    this.authService.login(form.value.email, form.value.password).subscribe(
-      (res) => {
-        console.log(res);
-        this.isLoading = false;
-        this.router.navigate(['/dashboard/patient-dashboard']);
-      },
-      (errMessage) => {
-        console.log(errMessage);
-        this.error = errMessage;
-        this.isLoading = false;
-      }
-    );
+    this.authService
+      .login({ email: form.value.email, password: form.value.password })
+      .subscribe(
+        (res) => {
+          console.log(res);
+          this.isLoading = false;
+          this.router.navigate(['/dashboard/patient-dashboard']);
+        },
+        (errMessage) => {
+          console.log(errMessage);
+          this.error = errMessage;
+          this.isLoading = false;
+        }
+      );
   }
 }
