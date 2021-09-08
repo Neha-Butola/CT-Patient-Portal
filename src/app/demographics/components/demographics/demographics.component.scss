@@ -5,3 +5,14 @@ mat-form-field {
 mat-hint {
   color: red !important;
 }
+
+:host {
+  ::ng-deep {
+    .bg-primary .mat-card-header-text {
+      margin: 0 8px;
+    }
+    .text-primary .mat-card-header-text {
+      margin: 0;
+    }
+  }
+}
