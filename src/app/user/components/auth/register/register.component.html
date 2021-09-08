@@ -1,5 +1,7 @@
-<section class="container my-5">
-  <h1 class="text-center mb-3">Create an account</h1>
+<section class="container">
+  <a [routerLink]="['/']" class="text-center d-block mb-4"
+    ><img src="../../../../../assets/images/pp-logo.jpg" alt="" />
+  </a>
   <div class="alert alert-danger" *ngIf="error">
     <p>{{ error }}</p>
   </div>
@@ -7,119 +9,143 @@
     <app-loader></app-loader>
   </div>
   <form
-    #signup="ngForm"
-    (ngSubmit)="onSubmit(signup)"
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
     class="form-card d-flex flex-column align-items-center"
     *ngIf="!isLoading"
   >
-    <mat-form-field appearance="outline">
+    <h2 class="text-center mb-4">Create an account</h2>
+
+    <mat-form-field appearance="standard">
       <mat-label>First Name</mat-label>
       <input
         type="text"
         matInput
         placeholder="Your First name"
-        [(ngModel)]="register.firstname"
-        name="firstName"
-        required
-        #lName="ngModel"
+        formControlName="firstName"
       />
-      <mat-error *ngIf="fName.hasError('required')"
-        >Field must not be empty</mat-error
+      <mat-icon matSuffix>perm_identity</mat-icon>
+      <mat-error *ngIf="f.firstName.errors?.required"
+        >Firstname must not be empty</mat-error
       >
     </mat-form-field>
-    <mat-form-field appearance="outline">
+
+    <mat-form-field appearance="standard">
       <mat-label>Last Name</mat-label>
       <input
         type="text"
         matInput
         placeholder="Your Last name"
-        [(ngModel)]="register.lastname"
-        name="lastname"
-        required
-        #fName="ngModel"
+        formControlName="lastName"
       />
-      <mat-error *ngIf="fName.hasError('required')"
-        >Field must not be empty</mat-error
+      <mat-icon matSuffix>perm_identity</mat-icon>
+      <mat-error *ngIf="f.lastName.errors?.required"
+        >Lastname must not be empty</mat-error
       >
     </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input
-        type="text"
-        matInput
-        placeholder="Your Email"
-        [(ngModel)]="register.email"
-        name="email"
-        email
-        required
-        #emailInput="ngModel"
-      />
-      <mat-error *ngIf="emailInput.hasError('required')"
-        >Field must not be empty</mat-error
-      >
-      <mat-error *ngIf="!emailInput.hasError('required')"
-        >Error is invalid</mat-error
-      >
-    </mat-form-field>
-    <mat-form-field
-      appearance="outline"
-      hintLabel="Should be atleast 6 characters long"
-    >
-      <mat-label>Password</mat-label>
-      <input
-        type="password"
-        matInput
-        placeholder="Your Password"
-        [(ngModel)]="register.password"
-        name="password"
-        minlength="6"
-        required
-        #pwd="ngModel"
-      />
-      <mat-hint align="end">{{ pwd.value?.length }}/6</mat-hint>
-      <mat-error>Has to be 6 characters long</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Confirm Password</mat-label>
-      <input
-        type="password"
-        matInput
-        placeholder="Retype Password"
-        [(ngModel)]="register.password2"
-        name="password2"
-        minlength="6"
-        required
-        #pwd2="ngModel"
-      />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
+
+    <mat-form-field appearance="standard">
       <mat-label>Date of Birth</mat-label>
       <input
         matInput
         [matDatepicker]="picker"
-        [(ngModel)]="register.dob"
-        name="birthdate"
+        formControlName="dob"
         [max]="maxDate"
         [min]="minDate"
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+
+    <mat-form-field appearance="standard">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option *ngFor="let user of roles" [value]="user">
+          {{ user }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Email</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Your Email"
+        formControlName="email"
+      />
+      <mat-icon matSuffix>mail </mat-icon>
+
+      <mat-error *ngIf="f.email.errors?.required">Email is required</mat-error>
+      <mat-error *ngIf="f.email.errors?.email">Email is invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field
+      appearance="standard"
+      hintLabel="Should be atleast 6 characters long"
+    >
+      <mat-label>Password</mat-label>
+      <input
+        [type]="hide ? 'password' : 'text'"
+        matInput
+        placeholder="Your Password"
+        formControlName="password"
+      />
+      <button
+        class="px-0"
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-hint align="end">{{ f.password.value?.length }}/6</mat-hint>
+      <mat-error *ngIf="f.password.errors?.required"
+        >Password is required</mat-error
+      >
+      <mat-error *ngIf="f.password.errors?.minLength"
+        >Has to be 6 characters long</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Confirm Password</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="Retype Password"
+        formControlName="confirmPassword"
+      />
+      <mat-error *ngIf="f.confirmPassword.errors?.required"
+        >Confirm Password is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
       <mat-label>Mobile Number</mat-label>
       <input
         type="number"
         matInput
         placeholder="Your Mobile Number"
-        [(ngModel)]="register.phoneNo"
-        name="phoneNumber"
-        required
-        #pNo="ngModel"
+        formControlName="phoneNumber"
       />
-      <mat-error *ngIf="pNo.hasError('required')"
-        >Field must not be empty</mat-error
+      <mat-icon matSuffix>settings_phone</mat-icon>
+      <mat-error *ngIf="f.phoneNumber.errors?.required"
+        >Mobile number is required</mat-error
       >
     </mat-form-field>
-    <button type="submit" mat-raised-button color="primary">Submit</button>
+    <button
+      class="my-4"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="registerForm.invalid"
+    >
+      Register
+    </button>
+    <p>
+      Already an account?
+      <a routerLink="/user/login"> Login here </a>
+    </p>
   </form>
 </section>

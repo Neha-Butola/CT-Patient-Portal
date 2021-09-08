@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/user/services/auth.service';
 export class LoginComponent implements OnInit {
   isLoading = false;
   error: string = '';
+  hide = true;
 
   constructor(private authService: AuthService, private router: Router) {}
 

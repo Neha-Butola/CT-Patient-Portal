@@ -17,15 +17,15 @@ export class AuthService {
   // user: BehaviorSubject<User> = new BehaviorSubject(null);
   public autToken: string | null = null;
   public userData: User | null = null;
-
+  user: any;
   constructor(private http: HttpClient, private router: Router) {
     this.checkStorage();
   }
 
-  registerUser(authData: User) {
+  registerUser(authData: RegisterData) {
     // sessionStorage.setItem(AUTH_TOKEN_KEY, authData.email + 'RANDOM_STRING')
-    // return this.http.post(`${baseUrl}user`, authData);
     this.router.navigate(['/']);
+    return this.http.post(`${baseUrl}user`, authData);
   }
 
   login(authData: User): Observable<any> {
@@ -33,7 +33,7 @@ export class AuthService {
     localStorage.setItem(AUTH_USER_DATA, JSON.stringify(authData));
     console.log(localStorage);
     this.checkStorage();
-    return this.http.post(`${baseUrl}user`, authData);
+    return (this.user = this.http.get(`${baseUrl}user`));
   }
 
   checkStorage() {
@@ -48,7 +48,6 @@ export class AuthService {
   }
 
   public isLoggedIn() {
-    console.log(this.autToken);
     return this.autToken !== null;
   }
 
@@ -56,5 +55,9 @@ export class AuthService {
     if (!this.isLoggedIn()) return;
     localStorage.clear();
     this.checkStorage();
+  }
+
+  public getuser() {
+    return;
   }
 }

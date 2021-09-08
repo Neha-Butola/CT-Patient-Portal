@@ -1,15 +1,26 @@
 mat-form-field {
   width: 350px;
+  max-width: 100%;
   .mat-form-field-label {
     font-weight: 500;
+  }
+}
+
+.mat-form-field-suffix {
+  .mat-icon-button {
+    width: auto !important;
   }
 }
 
 .form-card {
   width: 500px;
   text-align: center;
-  padding: 4rem 15px 2rem;
+  padding: 3rem 15px 2rem;
   margin: 0 auto;
   background: #fff;
   box-shadow: 5px 5px 25px rgb(0 0 0 / 10%);
+}
+
+.mat-form-field-appearance-standard .mat-form-field-flex {
+  padding-top: 5px;
 }

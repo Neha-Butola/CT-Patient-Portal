@@ -11,13 +11,14 @@ import { AuthService } from '../user/services/auth.service';
 export class MainApplicationComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   constructor(private authService: AuthService, private router: Router) {}
-
+  user_name: string;
   ngOnInit(): void {}
 
   ngDoCheck(): void {
     this.authService.checkStorage();
     if (this.authService.isLoggedIn()) {
       this.isAuthenticated = true;
+      this.user_name = this.authService.userData.email;
     }
   }
 

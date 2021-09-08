@@ -14,19 +14,15 @@ import { AuthService } from 'src/app/user/services/auth.service';
 })
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    // const boolVal = validateToken();
-    // console.log('validateToken::' + boolVal);
-    if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/dashboard/patient-dashboard']);
+  ): Observable<boolean> | Promise<boolean> | boolean {
+    if (this.authService.isLoggedIn()) return true;
+    else {
+      this.router.navigate(['/']);
+      return false;
     }
-    return !this.authService.isLoggedIn();
   }
 }
