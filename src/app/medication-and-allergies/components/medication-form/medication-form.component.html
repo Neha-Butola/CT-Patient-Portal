@@ -490,11 +490,12 @@
               <input
                 type="text"
                 matInput
-                placeholder="Your First name"
+                placeholder="Current Medication"
                 ngModel
-                name="firstName"
+                name="currentmedication"
                 required
                 #lName="ngModel"
+                [(ngModel)]="medication.currentmedication"
               />
               <mat-error *ngIf="fName.hasError('required')"
                 >Field must not be empty</mat-error
@@ -509,9 +510,10 @@
                 matInput
                 placeholder="Your Last name"
                 ngModel
-                name="lastName"
+                name="otcmedication"
                 required
                 #fName="ngModel"
+                [ngModel]="medication.otcmedication"
               />
               <mat-error *ngIf="fName.hasError('required')"
                 >Field must not be empty</mat-error
@@ -524,12 +526,13 @@
               <input
                 type="text"
                 matInput
-                placeholder="Your Email"
+                placeholder="Herbs/Minerals/Vitamin/Antibiotic"
                 ngModel
-                name="email"
+                name="herbsmineralandvitamin"
                 email
                 required
                 #emailInput="ngModel"
+                [(ngModel)]="medication.herbsmineralandvitamin"
               />
               <mat-error *ngIf="emailInput.hasError('required')"
                 >Field must not be empty</mat-error
@@ -547,9 +550,10 @@
                 matInput
                 placeholder="Social Drugs"
                 ngModel
-                name="password"
+                name="socialdrug"
                 required
                 #pwd="ngModel"
+                [(ngModel)]="medication.socialdrug"
               />
             </mat-form-field>
           </div>
@@ -561,22 +565,20 @@
                 matInput
                 placeholder="Past Prescribed Medication"
                 ngModel
-                name="password2"
-                minlength="6"
+                name="pastprescribedmedication"
                 required
                 #pwd2="ngModel"
+                [(ngModel)]="medication.pastprescribedmedication"
               />
             </mat-form-field>
           </div>
           <div class="col-md-6">
-            <button
+            <input
               class="btn btn-primary mt-2 custom_btn"
               type="submit"
               mat-raised-button
               color="primary"
-            >
-              Submit
-            </button>
+            />
           </div>
         </div>
       </form>

@@ -6,6 +6,7 @@ import { MedicationAndAllergiesRoutingModule } from './medication-and-allergies-
 import { MedicationFormComponent } from './components/medication-form/medication-form.component';
 import { MedicationHistoryComponent } from './components/medication-history/medication-history.component';
 import { MedicationDetailsComponent } from './components/medication-details/medication-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MedicationDetailsComponent } from './components/medication-details/medi
     CommonModule,
     MedicationAndAllergiesRoutingModule,
     FormsModule,
+    HttpClientModule,
     MaterialModule,
   ],
 })

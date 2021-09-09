@@ -7,12 +7,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
+// to handle post request for medicatio & Allegies
 export class FetchpostService {
-  api = '/api/medication-and-allergies/';
+  api = '/medication-and-allergies/';
   constructor(private httpClient: HttpClient) {}
   createMedicationAndAllergies(
     medicationData: MedicationFormDetails
   ): Observable<any> {
-    return this.httpClient.post(this.api, medicationData);
+    return this.httpClient.post(this.api, medicationData, {
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }
