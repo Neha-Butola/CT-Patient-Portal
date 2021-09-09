@@ -69,7 +69,7 @@ export class DemographicsComponent implements OnInit {
       insurance: new FormControl('', [Validators.required]),
     });
   }
-
+  //demo form key fetch for error message
   getControl(key: string): AbstractControl | null {
     return this.demoForm.get(key);
   }
@@ -84,15 +84,16 @@ export class DemographicsComponent implements OnInit {
     }
     return true;
   }
+  //demographics form submit after validation
   onSubmit(formData: any, formDirective: FormGroupDirective): void {
     // TODO: Use EventEmitter with form value
-    console.log(this.demoForm.value);
+    //console.log(this.demoForm.value);
     if (this.demoForm.valid) {
       this.demographicsService.saveDemography(this.demoForm.value).subscribe(
         (res: any) => {
           formDirective.resetForm();
           this.demoForm.reset();
-          console.log(JSON.stringify(res));
+          // console.log(JSON.stringify(res));
         },
         (err: any) => {
           console.log(JSON.stringify(err));
@@ -104,6 +105,7 @@ export class DemographicsComponent implements OnInit {
       this.demoForm.markAsTouched();
     }
   }
+  //dob validation
   maxDate: any;
   minDate: any;
   ngOnInit(): void {
