@@ -1,6 +1,11 @@
 <!-- <section class="container my-5"> -->
 <div class="container">
-  <form [formGroup]="demoForm" (ngSubmit)="onSubmit()" class="p-3 w-100">
+  <form
+    [formGroup]="demoForm"
+    (ngSubmit)="onSubmit(demoForm, formDirective)"
+    class="p-3 w-100"
+    #formDirective="ngForm"
+  >
     <mat-card>
       <mat-card-header class="bg-primary text-white mb-2 py-1 rounded"
         >Paitent Demographics
@@ -48,7 +53,13 @@
 
           <mat-form-field class="col-sm-12 col-md-6">
             <mat-label>D.O.B(DD/MM/YY)</mat-label>
-            <input matInput [matDatepicker]="picker" />
+            <input
+              matInput
+              readonly
+              [matDatepicker]="picker"
+              [min]="minDate"
+              [max]="maxDate"
+            />
             <mat-datepicker-toggle
               matSuffix
               [for]="picker"
@@ -70,7 +81,7 @@
         <mat-card-header class="text-primary">Patient Address </mat-card-header>
         <div class="row">
           <!-- <div class="w-100 column"> -->
-          <mat-form-field class="col-sm-12 col-md-6">
+          <mat-form-field class="col-sm-12 col-md-12">
             <mat-label for="address">Address</mat-label>
 
             <input

@@ -6,6 +6,7 @@ import {
   Validators,
   NgForm,
   AbstractControl,
+  FormGroupDirective,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Demographics } from '../../model/demographics';
@@ -83,12 +84,13 @@ export class DemographicsComponent implements OnInit {
     }
     return true;
   }
-  onSubmit() {
+  onSubmit(formData: any, formDirective: FormGroupDirective): void {
     // TODO: Use EventEmitter with form value
     console.log(this.demoForm.value);
     if (this.demoForm.valid) {
       this.demographicsService.saveDemography(this.demoForm.value).subscribe(
         (res: any) => {
+          formDirective.resetForm();
           this.demoForm.reset();
           console.log(JSON.stringify(res));
         },
@@ -98,10 +100,16 @@ export class DemographicsComponent implements OnInit {
         }
       );
     } else {
-      this.demoForm.reset();
+      //this.demoForm.reset();
       this.demoForm.markAsTouched();
     }
   }
-
-  ngOnInit(): void {}
+  maxDate: any;
+  minDate: any;
+  ngOnInit(): void {
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
+    this.minDate = new Date();
+    this.minDate.setFullYear(this.minDate.getFullYear() - 200);
+  }
 }
