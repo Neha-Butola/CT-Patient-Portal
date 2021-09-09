@@ -7,7 +7,11 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <form [formGroup]="demoForm" (ngSubmit)="onSubmit()" class="w-100">
+      <form
+        [formGroup]="demoForm"
+        (ngSubmit)="onSubmit(demoForm, formDirective)"
+        class="w-100"
+      >
         <mat-card>
           <nav aria-label="breadcrumb" style="background-color: #007bff">
             <ol class="breadcrumb" style="background-color: #007bff">
@@ -56,9 +60,14 @@
                 </mat-form-field>
               </div>
               <div class="col">
-                <mat-form-field fxLayoutAlign="space-between">
+                <mat-form-field>
                   <mat-label>D.O.B(DD/MM/YY)</mat-label>
-                  <input matInput [matDatepicker]="picker" />
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    [min]="minDate"
+                    [max]="maxDate"
+                  />
                   <mat-datepicker-toggle
                     matSuffix
                     [for]="picker"
@@ -67,7 +76,7 @@
                 </mat-form-field>
               </div>
               <div class="col">
-                <mat-form-field fxLayoutAlign="space-between">
+                <mat-form-field>
                   <mat-label>Gender</mat-label>
                   <mat-select formControlName="gender">
                     <mat-option value="male">Male</mat-option>

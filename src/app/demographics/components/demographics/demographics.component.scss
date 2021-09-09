@@ -9,3 +9,14 @@ mat-form-field {
   width: 480px;
   max-width: 100%;
 }
+
+:host {
+  ::ng-deep {
+    .bg-primary .mat-card-header-text {
+      margin: 0 8px;
+    }
+    .text-primary .mat-card-header-text {
+      margin: 0;
+    }
+  }
+}

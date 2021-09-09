@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { baseUrl } from 'src/environments/environment';
+// import { baseUrl } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 import { LoginData, RegisterData } from '../model/auth.model';
 import { User } from '../model/user.model';
 
@@ -14,6 +15,7 @@ export const AUTH_USER_DATA = 'user-data';
   providedIn: 'root',
 })
 export class AuthService {
+  api = environment.baseUrl + 'user';
   // user: BehaviorSubject<User> = new BehaviorSubject(null);
   public autToken: string | null = null;
   public userData: User | null = null;
@@ -25,15 +27,18 @@ export class AuthService {
   registerUser(authData: RegisterData) {
     // sessionStorage.setItem(AUTH_TOKEN_KEY, authData.email + 'RANDOM_STRING')
     this.router.navigate(['/']);
-    return this.http.post(`${baseUrl}user`, authData);
+    return this.http.post(this.api, authData);
   }
 
   login(authData: User): Observable<any> {
+    // return this.http.post(`${baseUrl}user`, authData);
+    return this.http.post(this.api, authData);
+  }
+
+  setStorage(authData: User) {
     localStorage.setItem(AUTH_TOKEN_KEY, authData.email + 'RANDOM_STRING');
     localStorage.setItem(AUTH_USER_DATA, JSON.stringify(authData));
     console.log(localStorage);
-    this.checkStorage();
-    return (this.user = this.http.get(`${baseUrl}user`));
   }
 
   checkStorage() {
@@ -48,6 +53,7 @@ export class AuthService {
   }
 
   public isLoggedIn() {
+    // console.log(this.autToken);
     return this.autToken !== null;
   }
 
