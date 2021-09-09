@@ -9,10 +9,8 @@
     <app-loader></app-loader>
   </div>
   <form
-    fxLayout="column"
-    fxLayoutAlign="center center"
-    #loginForm="ngForm"
-    (ngSubmit)="onSubmit(loginForm)"
+    #form="ngForm"
+    (ngSubmit)="onSubmit(form)"
     class="form-card d-flex flex-column align-items-center"
     *ngIf="!isLoading"
   >
@@ -31,6 +29,9 @@
       />
       <mat-error *ngIf="emailInput.hasError('required')"
         >Email is required</mat-error
+      >
+      <mat-error *ngIf="emailInput.hasError('email')"
+        >Email is invalid</mat-error
       >
       <mat-icon matSuffix>mail </mat-icon>
     </mat-form-field>
@@ -56,8 +57,18 @@
       >
         <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
       </button>
+      <mat-error *ngIf="pwd.hasError('required')"
+        >Password is required</mat-error
+      >
     </mat-form-field>
-    <button type="submit" class="my-4" mat-raised-button color="primary">
+
+    <button
+      type="submit"
+      class="my-4"
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+    >
       Login
     </button>
     <a routerLink="/user/register">Create an Account </a>

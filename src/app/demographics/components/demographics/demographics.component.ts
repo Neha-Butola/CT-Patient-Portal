@@ -17,19 +17,19 @@ import { DemographicsService } from '../../services/demographics.service';
   styleUrls: ['./demographics.component.scss'],
 })
 export class DemographicsComponent implements OnInit {
-  demographics: Demographics = {
-    address: '',
-    education: '',
-    ethnicity: '',
-    familymedical: '',
-    firstname: '',
-    gender: '',
-    insurance: '',
-    lastname: '',
-    medical: '',
-    occupation: '',
-    phone: '',
-  };
+  // demographics: Demographics = {
+  //   address: '',
+  //   education: '',
+  //   ethnicity: '',
+  //   familymedical: '',
+  //   firstname: '',
+  //   gender: '',
+  //   insurance: '',
+  //   lastname: '',
+  //   medical: '',
+  //   occupation: '',
+  //   phone: '',
+  // };
 
   errors: any = {};
   demoForm: FormGroup;
@@ -98,6 +98,7 @@ export class DemographicsComponent implements OnInit {
         }
       );
     } else {
+      this.demoForm.reset();
       this.demoForm.markAsTouched();
     }
   }
