@@ -1,7 +1,11 @@
-mat-form-field {
-  width: 100%;
+h4 {
+  color: #fff;
 }
-
-mat-hint {
-  color: red !important;
+mat-card-header {
+  display: block;
+  font-weight: 500;
+}
+mat-form-field {
+  width: 480px;
+  max-width: 100%;
 }

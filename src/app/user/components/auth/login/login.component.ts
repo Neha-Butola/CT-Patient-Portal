@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //Login Submit and Authenticate
   onSubmit(form: NgForm) {
     this.isLoading = true;
     this.authService

@@ -1,83 +1,17 @@
-mat-toolbar {
-  background: #004a9f;
+.nav-item a {
   color: white;
+  text-align: left;
+  padding: 12px 4px;
+  font-size: 16px;
+}
+.nav-item.active {
+  background: white;
+  border-radius: 5px;
 }
 
-mat-sidenav {
-  margin: 16px;
-  width: 200px;
-  border-right: none;
-  background: #002b5c;
-  color: white;
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
+.nav-item.active a {
+  color: black;
 }
-
-.sidebar {
-  background-color: #673ab7;
-  width: 200px;
-  min-height: 100vh;
-}
-
-.nav-link {
-  text-align: center;
-  padding: 0.75rem 1rem;
-  span {
-    font-size: 12px;
-    display: block;
-  }
-}
-.user-name {
-  font-size: 20px;
-}
-.content {
-  height: calc(100vh - 98px);
-  border-radius: 10px;
-  margin: 16px;
-  margin-left: 32px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 2rem;
-  color: lightgray;
-}
-
-mat-sidenav-container {
-  height: calc(100vh - 65px);
-}
-
-.menu-button {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 1rem;
-
-  mat-icon {
-    margin-right: 8px;
-  }
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-a:hover,
-a:active {
-  color: lightgray;
-}
-
-.navigation-items {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-caption {
-  display: inline-block;
-  padding-left: 6px;
+.material-icons {
+  font-size: 15px;
 }

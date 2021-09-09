@@ -1,13 +1,32 @@
 <nav
   class="navbar navbar-expand navbar-light bg-white topbar static-top shadow"
 >
+  <h2
+    class="
+      d-none d-sm-inline-block
+      form-inline
+      mr-auto
+      ml-md-3
+      dashboard-heading
+    "
+  >
+    PATIENT DASHBOARD
+  </h2>
   <button mat-icon-button (click)="onToggleSidenav()">
     <mat-icon *ngIf="!isOpened"> menu </mat-icon>
     <mat-icon *ngIf="isOpened"> close </mat-icon>
   </button>
 
   <form
-    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+    class="
+      d-none d-sm-inline-block
+      form-inline
+      mr-auto
+      ml-md-3
+      my-2 my-md-0
+      mw-100
+      navbar-search
+    "
   >
     <div class="input-group">
       <input
@@ -26,6 +45,7 @@
   </form>
 
   <button
+    class="profile-btn"
     mat-icon-button
     [matMenuTriggerFor]="menu"
     aria-label="Example icon-button with a menu"
@@ -39,14 +59,6 @@
     />
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>Redial</span>
-    </button>
-    <button mat-menu-item disabled>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
-    </button>
     <button mat-menu-item (click)="onLogOut()">
       <mat-icon>voicemail</mat-icon>
       <span>Logout</span>

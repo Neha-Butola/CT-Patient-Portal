@@ -1,48 +1,113 @@
-mat-toolbar {
-  background: #004a9f;
-  color: white;
-}
-
-mat-sidenav {
-  margin: 16px;
-  width: 200px;
-  border-right: none;
-  background: #002b5c;
-  color: white;
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-}
-
-.user-name {
-  font-size: 20px;
-}
-.content {
-  height: calc(100vh - 98px);
-  border-radius: 10px;
-  margin: 16px;
-  margin-left: 32px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 2rem;
-  color: lightgray;
-}
-
-mat-sidenav-container {
-  height: calc(100vh - 65px);
-}
-
-.menu-button {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 1rem;
-
-  mat-icon {
-    margin-right: 8px;
+.medication {
+  background: #47a0ff;
+  padding: 30px 40px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  h4 {
+    color: #fff;
   }
+}
+.demographics {
+  background: #f34747;
+  padding: 30px 40px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  h4 {
+    color: #fff;
+  }
+}
+.billing {
+  background: #ffab43;
+  padding: 30px 40px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  h4 {
+    color: #fff;
+  }
+}
+.immunization {
+  background: #d6d629;
+  padding: 30px 40px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  h4 {
+    color: #fff;
+  }
+}
+.plan {
+  background: #37ea65;
+  padding: 30px 40px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  h4 {
+    color: #fff;
+  }
+}
+.profile {
+  background: #a74ce0e0;
+  padding: 30px 40px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  h4 {
+    color: #fff;
+  }
+}
+h4 {
+  color: #fff;
+}
+.heading-appointment {
+  background-color: #007bff !important;
+}
+
+//***************Calander CSS*******************//
+#external-events {
+  float: left;
+  width: 150px;
+  padding: 0 10px;
+  text-align: left;
+}
+
+#external-events h4 {
+  font-size: 16px;
+  margin-top: 0;
+  padding-top: 1em;
+}
+
+.external-event {
+  /* try to mimick the look of a real event */
+  margin: 10px 0;
+  padding: 2px 4px;
+  background: #3366cc;
+  color: #fff;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+
+#external-events p {
+  margin: 1.5em 0;
+  font-size: 11px;
+  color: #666;
+}
+
+#external-events p input {
+  margin: 0;
+  vertical-align: middle;
+}
+
+#calendar {
+  /* 		float: right; */
+  margin: 0 auto;
+  width: 900px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px #c3c3c3;
+  -webkit-box-shadow: 0px 0px 21px 2px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0px 0px 21px 2px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 21px 2px rgba(0, 0, 0, 0.18);
 }
