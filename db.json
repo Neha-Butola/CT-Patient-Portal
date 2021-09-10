@@ -39,6 +39,11 @@
       "email": "nehabutola14@gmail.com",
       "password": "123456",
       "id": 3
+    },
+    {
+      "email": "nehabutola14@gmail.com",
+      "password": "1234567",
+      "id": 4
     }
   ],
   "medication-and-allergies": [

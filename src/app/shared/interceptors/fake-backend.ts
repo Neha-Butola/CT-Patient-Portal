@@ -25,9 +25,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const { url, method, headers, body } = request;
 
-    // wrap in delayed observable to simulate server api call
     return of(null).pipe(mergeMap(handleRoute));
 
+    // check route and call resp method
     function handleRoute() {
       switch (true) {
         case url.endsWith('/register') && method === 'POST':
@@ -37,8 +37,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       }
     }
 
-    // route functions
-
+    // to check if user exist and set local storage for new user
     function register() {
       console.log('inside fake backend');
       const user = body;
