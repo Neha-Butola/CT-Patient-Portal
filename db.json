@@ -19,11 +19,19 @@
   ],
   "medication-and-allergies": [
     {
+      "id": 3,
       "currentmedication": "NA",
       "otcmedication": "NA",
       "herbsmineralandvitamin": "NA",
       "socialdrug": "NA",
       "pastprescribedmedication": "NA"
+    },
+    {
+      "currentmedication": "Therapy",
+      "herbsmineralandvitamin": "two years ago",
+      "socialdrug": "not taken",
+      "pastprescribedmedication": "yes",
+      "id": 4
     }
   ],
   "demographics": []
