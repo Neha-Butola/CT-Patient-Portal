@@ -46,6 +46,21 @@
       "surgeries": "dd",
       "insurance": "dd",
       "id": 1
+    },
+    {
+      "firstname": "sneha",
+      "lastname": "dd",
+      "gender": "female",
+      "ethnicity": "dd",
+      "education": "dd",
+      "occupation": "dd",
+      "address": "ss",
+      "phone": "9834789553",
+      "medical": "dd",
+      "familymedical": "ff",
+      "surgeries": "ff",
+      "insurance": "dd",
+      "id": 2
     }
   ]
 }

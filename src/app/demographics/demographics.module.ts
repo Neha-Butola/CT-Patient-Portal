@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { DemographicsService } from './services/demographics.service';
 import { ViewDemographicsComponent } from './components/view-demographics/view-demographics.component';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [DemographicsComponent, ViewDemographicsComponent],
   imports: [
@@ -26,6 +27,7 @@ import { ViewDemographicsComponent } from './components/view-demographics/view-d
     MatButtonModule,
     HttpClientModule,
     MatCardModule,
+    MatTableModule,
   ],
   providers: [DemographicsService],
 })

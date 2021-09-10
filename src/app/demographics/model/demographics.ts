@@ -1,13 +1,15 @@
 export interface Demographics {
-  address: string;
-  education: string;
-  ethnicity: string;
-  familymedical: string;
   firstname: string;
-  gender: string;
-  insurance: string;
   lastname: string;
-  medical: string;
+  gender: string;
+  ethnicity: string;
+  education: string;
   occupation: string;
-  phone: string;
+  address: string;
+  phone: number;
+  medical: string;
+  familymedical: string;
+  surgeries: string;
+  insurance: string;
+  id: string;
 }
