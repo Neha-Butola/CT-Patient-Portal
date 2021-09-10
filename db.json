@@ -1,20 +1,44 @@
 {
-  "user": [
+  "user": [],
+  "register": [
     {
       "firstName": "neha",
       "lastName": "butola",
-      "email": "neha@demo.com",
+      "email": "nehabutola@gmail.com",
       "password": "123456",
       "confirmPassword": "123456",
-      "dob": "2003-09-02T18:30:00.000Z",
-      "phoneNumber": 2343232432,
+      "dob": "2003-08-31T18:30:00.000Z",
+      "phoneNumber": 124141,
+      "role": "Physician",
+      "id": 1
+    },
+    {
+      "firstName": "neha",
+      "lastName": "butola",
+      "email": "nehabutola14@gmail.com",
+      "password": "1231221",
+      "confirmPassword": "123213213",
+      "dob": "2003-09-01T18:30:00.000Z",
+      "phoneNumber": 12124214124,
       "role": "Patient",
+      "id": 2
+    }
+  ],
+  "login": [
+    {
+      "email": "nehabutola14@gmail.com",
+      "password": "123132414",
       "id": 1
     },
     {
       "email": "nehabutola14@gmail.com",
       "password": "123456",
       "id": 2
+    },
+    {
+      "email": "nehabutola14@gmail.com",
+      "password": "123456",
+      "id": 3
     }
   ],
   "medication-and-allergies": [
