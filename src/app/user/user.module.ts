@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinner.component';
 import { AuthService } from './services/auth.service';
+import { httpInterceptors } from '../shared/interceptors';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, LoadingSpinnerComponent],
@@ -22,5 +23,6 @@ import { AuthService } from './services/auth.service';
     HttpClientModule,
   ],
   exports: [LoginComponent, RegisterComponent],
+  providers: [AuthService, httpInterceptors],
 })
 export class UserModule {}
