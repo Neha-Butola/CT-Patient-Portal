@@ -48,9 +48,11 @@ export class DemographicsComponent implements OnInit {
         Validators.minLength(5),
       ]),
       lastname: new FormControl('', [
+        Validators.required,
         Validators.maxLength(15),
         Validators.pattern('^[a-zA-Z]+$'),
       ]),
+      dob: new FormControl('', [Validators.required]),
       gender: new FormControl('', [Validators.required]),
       ethnicity: new FormControl('', [Validators.required]),
       education: new FormControl('', [Validators.required]),
