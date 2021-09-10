@@ -3,6 +3,7 @@
     class="w-100"
     (sidenavToggle)="sidenav.toggle()"
     (logout)="logOut()"
+    [username]="user_name"
   ></app-header>
 </mat-toolbar>
 <mat-sidenav-container>
@@ -12,10 +13,14 @@
     mode="side"
     opened="true"
     disableClose="true"
+    [ngClass]="{ 'd-none': !isAuthenticated }"
+    class="bg-secondary"
   >
     <app-sidebar (closeSidenav)="sidenav.close()"></app-sidebar>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content
+    [ngStyle]="{ 'margin-left': isAuthenticated ? '201px' : '0' }"
+  >
     <main class="p-4">
       <router-outlet></router-outlet>
     </main>

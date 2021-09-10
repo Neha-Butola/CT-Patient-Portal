@@ -1,0 +1,15 @@
+mat-sidenav {
+  &::-webkit-scrollbar {
+    width: 12px; /* width of the entire scrollbar */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #c1c1c1; /* color of the tracking area */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    border-radius: 20px;
+    border: 3px solid white;
+  }
+}

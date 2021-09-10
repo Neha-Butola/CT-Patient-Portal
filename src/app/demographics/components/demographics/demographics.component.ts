@@ -6,6 +6,7 @@ import {
   Validators,
   NgForm,
   AbstractControl,
+  FormGroupDirective,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Demographics } from '../../model/demographics';
@@ -17,19 +18,19 @@ import { DemographicsService } from '../../services/demographics.service';
   styleUrls: ['./demographics.component.scss'],
 })
 export class DemographicsComponent implements OnInit {
-  demographics: Demographics = {
-    address: '',
-    education: '',
-    ethnicity: '',
-    familymedical: '',
-    firstname: '',
-    gender: '',
-    insurance: '',
-    lastname: '',
-    medical: '',
-    occupation: '',
-    phone: '',
-  };
+  // demographics: Demographics = {
+  //   address: '',
+  //   education: '',
+  //   ethnicity: '',
+  //   familymedical: '',
+  //   firstname: '',
+  //   gender: '',
+  //   insurance: '',
+  //   lastname: '',
+  //   medical: '',
+  //   occupation: '',
+  //   phone: '',
+  // };
 
   errors: any = {};
   demoForm: FormGroup;
@@ -68,7 +69,7 @@ export class DemographicsComponent implements OnInit {
       insurance: new FormControl('', [Validators.required]),
     });
   }
-
+  //demo form key fetch for error message
   getControl(key: string): AbstractControl | null {
     return this.demoForm.get(key);
   }
@@ -83,14 +84,16 @@ export class DemographicsComponent implements OnInit {
     }
     return true;
   }
-  onSubmit() {
+  //demographics form submit after validation
+  onSubmit(formData: any, formDirective: FormGroupDirective): void {
     // TODO: Use EventEmitter with form value
-    console.log(this.demoForm.value);
+    //console.log(this.demoForm.value);
     if (this.demoForm.valid) {
       this.demographicsService.saveDemography(this.demoForm.value).subscribe(
         (res: any) => {
+          formDirective.resetForm();
           this.demoForm.reset();
-          console.log(JSON.stringify(res));
+          // console.log(JSON.stringify(res));
         },
         (err: any) => {
           console.log(JSON.stringify(err));
@@ -98,9 +101,17 @@ export class DemographicsComponent implements OnInit {
         }
       );
     } else {
+      //this.demoForm.reset();
       this.demoForm.markAsTouched();
     }
   }
-
-  ngOnInit(): void {}
+  //dob validation
+  maxDate: any;
+  minDate: any;
+  ngOnInit(): void {
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
+    this.minDate = new Date();
+    this.minDate.setFullYear(this.minDate.getFullYear() - 200);
+  }
 }

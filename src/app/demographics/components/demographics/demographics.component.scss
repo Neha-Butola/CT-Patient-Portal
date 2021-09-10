@@ -1,7 +1,22 @@
+h4 {
+  color: #fff;
+}
+mat-card-header {
+  display: block;
+  font-weight: 500;
+}
 mat-form-field {
-  width: 100%;
+  width: 480px;
+  max-width: 100%;
 }
 
-mat-hint {
-  color: red !important;
+:host {
+  ::ng-deep {
+    .bg-primary .mat-card-header-text {
+      margin: 0 8px;
+    }
+    .text-primary .mat-card-header-text {
+      margin: 0;
+    }
+  }
 }

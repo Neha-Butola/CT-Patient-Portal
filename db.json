@@ -1,4 +1,27 @@
 {
+  "user": [
+    {
+      "firstName": "neha",
+      "lastName": "butola",
+      "email": "neha@demo.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "dob": "2003-09-02T18:30:00.000Z",
+      "phoneNumber": 2343232432,
+      "role": "Patient",
+      "id": 1
+    },
+    {
+      "email": "neha@demo.com",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "email": "nehabutola14@gmail.com",
+      "password": "123456",
+      "id": 3
+    }
+  ],
   "medication-and-allergies": [
     {
       "currentmedication": "NA",
@@ -7,5 +30,6 @@
       "socialdrug": "NA",
       "pastprescribedmedication": "NA"
     }
-  ]
+  ],
+  "demographics": []
 }

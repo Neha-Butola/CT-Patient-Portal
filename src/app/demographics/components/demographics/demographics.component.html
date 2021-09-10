@@ -1,288 +1,264 @@
-<section class="container my-5">
-  <form [formGroup]="demoForm" (ngSubmit)="onSubmit()" class="p-3 w-100">
-    <mat-card>
-      <mat-card-header class="bg-primary text-white mb-2 py-1 rounded"
-        >Paitent Demographics
-      </mat-card-header>
-      <mat-card class="mb-2">
-        <mat-card-header class="text-primary"
-          >Paitent General Information</mat-card-header
-        >
-        <div fxLayout="row" layout="row">
-          <mat-form-field fxLayoutAlign="space-between">
-            <mat-label for="first-name">First Name </mat-label>
-            <input
-              id="first-name"
-              matInput
-              type="text"
-              formControlName="firstname"
-              name="firstname"
-            />
-            <mat-hint
-              *ngIf="
-                getControl('firstname')?.touched &&
-                getControl('firstname')?.errors
-              "
-            >
-              <p *ngIf="getControl('firstname')?.errors?.required">
-                First Name is required
-              </p>
-              <p *ngIf="getControl('firstname')?.errors?.minlength">
-                Enter atleast 5 chars for first name
-              </p>
-            </mat-hint>
-          </mat-form-field>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb breadcumb-ol">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Demographics</li>
+  </ol>
+</nav>
+<div class="container">
+  <form
+    [formGroup]="demoForm"
+    (ngSubmit)="onSubmit(demoForm, formDirective)"
+    class="p-3 w-100"
+    #formDirective="ngForm"
+  >
+    <mat-card-header class="bg-primary text-white mb-2 p-2 rounded"
+      ><h4>Demographics</h4>
+    </mat-card-header>
+    <mat-card class="mb-2 px-lg-5">
+      <mat-card-header class="text-primary mb-2 py-1 rounded"
+        >Paitent General Information</mat-card-header
+      >
 
-          <mat-form-field fxLayoutAlign="space-between">
-            <mat-label for="last-name">Last Name </mat-label>
-            <input
-              id="last-name"
-              type="text"
-              matInput
-              formControlName="lastname"
-            />
-          </mat-form-field>
+      <div class="row">
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label for="first-name">First Name </mat-label>
+          <input
+            id="first-name"
+            matInput
+            type="text"
+            formControlName="firstname"
+            name="firstname"
+          />
+          <mat-hint
+            *ngIf="
+              getControl('firstname')?.touched &&
+              getControl('firstname')?.errors
+            "
+          >
+            <p *ngIf="getControl('firstname')?.errors?.required">
+              First Name is required
+            </p>
+            <p *ngIf="getControl('firstname')?.errors?.minlength">
+              Enter atleast 5 chars for first name
+            </p>
+          </mat-hint>
+        </mat-form-field>
 
-          <mat-form-field fxLayoutAlign="space-between">
-            <mat-label>D.O.B(DD/MM/YY)</mat-label>
-            <input matInput [matDatepicker]="picker" />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label for="last-name">Last Name </mat-label>
+          <input
+            id="last-name"
+            type="text"
+            matInput
+            formControlName="lastname"
+          />
+        </mat-form-field>
 
-          <mat-form-field fxLayoutAlign="space-between">
-            <mat-label>Gender</mat-label>
-            <mat-select formControlName="gender">
-              <mat-option value="male">Male</mat-option>
-              <mat-option value="female">female</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </mat-card>
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label>D.O.B(DD/MM/YY)</mat-label>
+          <input
+            matInput
+            readonly
+            [matDatepicker]="picker"
+            [min]="minDate"
+            [max]="maxDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
 
-      <mat-card class="mb-2">
-        <mat-card-header class="text-primary">Patient Address </mat-card-header>
-
-        <div class="w-100 column">
-          <mat-form-field>
-            <mat-label for="address" class="col-sm-2 col-form-label"
-              >Address</mat-label
-            >
-
-            <input
-              id="address"
-              type="text"
-              matInput
-              formControlName="address"
-            />
-          </mat-form-field>
-        </div>
-        <div fxLayout="row">
-          <div class="col-4" fxLayoutAlign="space-between">
-            <mat-form-field style="width: 80%">
-              <mat-label for="phone" class="col-sm-2 col-form-label"
-                >Contact Information
-              </mat-label>
-              <input
-                id="phone"
-                type="text"
-                matInput
-                formControlName="phone"
-                (keypress)="keyPress($event)"
-              />
-              <mat-hint
-                *ngIf="
-                  getControl('phone')?.touched && getControl('phone')?.errors
-                "
-              >
-                <p *ngIf="getControl('phone')?.errors?.required">
-                  Number is required
-                </p>
-                <p *ngIf="getControl('phone')?.errors?.minlength">
-                  Enter atleast 10 number for phone number
-                </p>
-              </mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="col-4" fxLayoutAlign="space-between">
-            <mat-form-field style="width: 80%">
-              <mat-label for="Education" class="col-sm-2 col-form-label"
-                >Education</mat-label
-              >
-
-              <input
-                id="Education"
-                type="text"
-                matInput
-                formControlName="education"
-              />
-              <mat-hint
-                *ngIf="
-                  getControl('education')?.touched &&
-                  getControl('education')?.errors
-                "
-              >
-                <p *ngIf="getControl('education')?.errors?.required">
-                  Education is required
-                </p>
-              </mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="col-4" fxLayoutAlign="space-between">
-            <mat-form-field style="width: 80%">
-              <mat-label for="occupation" class="col-sm-2 col-form-label"
-                >Occupation/Employment
-              </mat-label>
-              <input
-                id="occupation"
-                type="text"
-                matInput
-                formControlName="occupation"
-              />
-              <mat-hint
-                *ngIf="
-                  getControl('occupation')?.touched &&
-                  getControl('occupation')?.errors
-                "
-              >
-                <p *ngIf="getControl('occupation')?.errors?.required">
-                  Occupation is required
-                </p>
-              </mat-hint>
-            </mat-form-field>
-          </div>
-        </div>
-      </mat-card>
-      <mat-card class="mb-2">
-        <mat-card-header class="text-primary"
-          >Patient Medical History
-        </mat-card-header>
-        <div fxLayout="row">
-          <div class="col-4" fxLayoutAlign="space-between">
-            <mat-form-field style="width: 80%">
-              <mat-label for="Ethnicity" class="col-sm-2 col-form-label"
-                >Ethnicity/Race
-              </mat-label>
-              <input
-                id="Ethnicity"
-                type="text"
-                matInput
-                formControlName="ethnicity"
-              />
-              <mat-hint
-                *ngIf="
-                  getControl('ethnicity')?.touched &&
-                  getControl('ethnicity')?.errors
-                "
-              >
-                <p *ngIf="getControl('ethnicity')?.errors?.required">
-                  Ethnicity is required
-                </p>
-              </mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="col-4" fxLayoutAlign="space-between">
-            <mat-form-field style="width: 80%">
-              <mat-label for="medical" class="col-sm-2 col-form-label"
-                >Medical History</mat-label
-              >
-              <input
-                id="medical"
-                type="text"
-                matInput
-                formControlName="medical"
-              />
-              <mat-hint
-                *ngIf="
-                  getControl('medical')?.touched &&
-                  getControl('medical')?.errors
-                "
-              >
-                <p *ngIf="getControl('medical')?.errors?.required">
-                  Medical is required
-                </p>
-              </mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="col-4" fxLayoutAlign="space-between">
-            <mat-form-field style="width: 80%">
-              <mat-label for="familymedical" class="col-sm-2 col-form-label"
-                >Family medical history</mat-label
-              >
-              <input
-                id="familymedical"
-                type="text"
-                matInput
-                formControlName="familymedical"
-              />
-              <mat-hint
-                *ngIf="
-                  getControl('familymedical')?.touched &&
-                  getControl('familymedical')?.errors
-                "
-              >
-                <p *ngIf="getControl('familymedical')?.errors?.required">
-                  Family Medical History is required
-                </p>
-              </mat-hint>
-            </mat-form-field>
-          </div>
-        </div>
-        <div fxLayout="row">
-          <div class="col-4" fxLayoutAlign="space-between">
-            <mat-form-field style="width: 80%">
-              <mat-label for="surgeries" class="col-sm-2 col-form-label"
-                >Surgeries</mat-label
-              >
-              <input
-                id="surgeries"
-                type="text"
-                matInput
-                formControlName="surgeries"
-              />
-              <mat-hint
-                *ngIf="
-                  getControl('surgeries')?.touched &&
-                  getControl('surgeries')?.errors
-                "
-              >
-                <p *ngIf="getControl('surgeries')?.errors?.required">
-                  Surgeries is required
-                </p>
-              </mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="col-4" fxLayoutAlign="space-between">
-            <mat-form-field style="width: 80%">
-              <mat-label for="insurance" class="col-sm-2 col-form-label"
-                >Insurance provider</mat-label
-              >
-              <input
-                id="insurance"
-                type="text"
-                matInput
-                formControlName="insurance"
-              />
-              <mat-hint
-                *ngIf="
-                  getControl('insurance')?.touched &&
-                  getControl('insurance')?.errors
-                "
-              >
-                <p *ngIf="getControl('insurance')?.errors?.required">
-                  Insurance provider is required
-                </p>
-              </mat-hint>
-            </mat-form-field>
-          </div>
-        </div>
-        <div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </mat-card>
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">female</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </mat-card>
+
+    <mat-card class="mb-2 px-lg-5">
+      <mat-card-header class="text-primary">Patient Address </mat-card-header>
+      <div class="row">
+        <!-- <div class="w-100 column"> -->
+        <mat-form-field class="col-sm-12 col-md-12">
+          <mat-label for="address">Address</mat-label>
+
+          <input id="address" type="text" matInput formControlName="address" />
+        </mat-form-field>
+        <!-- </div> -->
+
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label for="phone">Contact Information </mat-label>
+          <input
+            id="phone"
+            type="text"
+            matInput
+            formControlName="phone"
+            (keypress)="keyPress($event)"
+          />
+          <mat-hint
+            *ngIf="getControl('phone')?.touched && getControl('phone')?.errors"
+          >
+            <p *ngIf="getControl('phone')?.errors?.required">
+              Number is required
+            </p>
+            <p *ngIf="getControl('phone')?.errors?.minlength">
+              Enter atleast 10 number for phone number
+            </p>
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label for="Education">Education</mat-label>
+
+          <input
+            id="Education"
+            type="text"
+            matInput
+            formControlName="education"
+          />
+          <mat-hint
+            *ngIf="
+              getControl('education')?.touched &&
+              getControl('education')?.errors
+            "
+          >
+            <p *ngIf="getControl('education')?.errors?.required">
+              Education is required
+            </p>
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label for="occupation">Occupation/Employment </mat-label>
+          <input
+            id="occupation"
+            type="text"
+            matInput
+            formControlName="occupation"
+          />
+          <mat-hint
+            *ngIf="
+              getControl('occupation')?.touched &&
+              getControl('occupation')?.errors
+            "
+          >
+            <p *ngIf="getControl('occupation')?.errors?.required">
+              Occupation is required
+            </p>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+    </mat-card>
+    <mat-card class="mb-2 px-lg-5">
+      <mat-card-header class="text-primary"
+        >Patient Medical History
+      </mat-card-header>
+      <div class="row">
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label for="Ethnicity">Ethnicity/Race </mat-label>
+          <input
+            id="Ethnicity"
+            type="text"
+            matInput
+            formControlName="ethnicity"
+          />
+          <mat-hint
+            *ngIf="
+              getControl('ethnicity')?.touched &&
+              getControl('ethnicity')?.errors
+            "
+          >
+            <p *ngIf="getControl('ethnicity')?.errors?.required">
+              Ethnicity is required
+            </p>
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label for="medical">Medical History</mat-label>
+          <input id="medical" type="text" matInput formControlName="medical" />
+          <mat-hint
+            *ngIf="
+              getControl('medical')?.touched && getControl('medical')?.errors
+            "
+          >
+            <p *ngIf="getControl('medical')?.errors?.required">
+              Medical is required
+            </p>
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label for="familymedical">Family medical history</mat-label>
+          <input
+            id="familymedical"
+            type="text"
+            matInput
+            formControlName="familymedical"
+          />
+          <mat-hint
+            *ngIf="
+              getControl('familymedical')?.touched &&
+              getControl('familymedical')?.errors
+            "
+          >
+            <p *ngIf="getControl('familymedical')?.errors?.required">
+              Family Medical History is required
+            </p>
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label for="surgeries">Surgeries</mat-label>
+          <input
+            id="surgeries"
+            type="text"
+            matInput
+            formControlName="surgeries"
+          />
+          <mat-hint
+            *ngIf="
+              getControl('surgeries')?.touched &&
+              getControl('surgeries')?.errors
+            "
+          >
+            <p *ngIf="getControl('surgeries')?.errors?.required">
+              Surgeries is required
+            </p>
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label for="insurance">Insurance provider</mat-label>
+          <input
+            id="insurance"
+            type="text"
+            matInput
+            formControlName="insurance"
+          />
+          <mat-hint
+            *ngIf="
+              getControl('insurance')?.touched &&
+              getControl('insurance')?.errors
+            "
+          >
+            <p *ngIf="getControl('insurance')?.errors?.required">
+              Insurance provider is required
+            </p>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+    </mat-card>
+    <div class="d-flex justify-content-center mt-4">
+      <button type="submit" class="btn" mat-raised-button color="primary">
+        Submit
+      </button>
+    </div>
   </form>
-</section>
+</div>
+<!-- </section> -->

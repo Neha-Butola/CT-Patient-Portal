@@ -1,5 +1,7 @@
 <section class="container my-5">
-  <h1 class="text-center mb-5">Login</h1>
+  <a [routerLink]="['/']" class="text-center d-block mb-4"
+    ><img src="../../../../../assets/images/pp-logo.jpg" alt="" />
+  </a>
   <div class="alert alert-danger" *ngIf="error">
     <p>{{ error }}</p>
   </div>
@@ -7,14 +9,13 @@
     <app-loader></app-loader>
   </div>
   <form
-    fxLayout="column"
-    fxLayoutAlign="center center"
-    #loginForm="ngForm"
-    (ngSubmit)="onSubmit(loginForm)"
+    #form="ngForm"
+    (ngSubmit)="onSubmit(form)"
     class="form-card d-flex flex-column align-items-center"
     *ngIf="!isLoading"
   >
-    <mat-form-field appearance="outline">
+    <h2 class="text-center mb-4">Sign in</h2>
+    <mat-form-field appearance="standard">
       <mat-label>Email</mat-label>
       <input
         type="text"
@@ -27,13 +28,17 @@
         #emailInput="ngModel"
       />
       <mat-error *ngIf="emailInput.hasError('required')"
-        >Field must not be empty</mat-error
+        >Email is required</mat-error
       >
+      <mat-error *ngIf="emailInput.hasError('email')"
+        >Email is invalid</mat-error
+      >
+      <mat-icon matSuffix>mail </mat-icon>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="standard">
       <mat-label>Password</mat-label>
       <input
-        type="password"
+        [type]="hide ? 'password' : 'text'"
         matInput
         placeholder="Your Password"
         ngModel
@@ -42,8 +47,30 @@
         required
         #pwd="ngModel"
       />
+      <button
+        class="px-0"
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-error *ngIf="pwd.hasError('required')"
+        >Password is required</mat-error
+      >
     </mat-form-field>
-    <button type="submit" mat-raised-button color="primary">Login</button>
-    <a routerLink="/user/register" class="mt-3">Create a Account</a>
+
+    <button
+      type="submit"
+      class="my-4"
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+    >
+      Login
+    </button>
+    <a routerLink="/user/register">Create an Account </a>
   </form>
 </section>
