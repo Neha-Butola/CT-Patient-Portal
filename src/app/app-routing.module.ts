@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       import('./demographics/demographics.module').then(
         (m) => m.DemographicsModule
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'medication-and-allergies',
@@ -23,11 +25,13 @@ const routes: Routes = [
       import('./medication-and-allergies/medication-and-allergies.module').then(
         (m) => m.MedicationAndAllergiesModule
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'dashboard',
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+    canActivate: [AuthGuard],
   },
 ];
 

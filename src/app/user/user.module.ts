@@ -5,11 +5,11 @@ import { UserRoutingModule } from './user-routing.module';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { MaterialModule } from '../material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
-import { AuthService } from './services/auth.service';
 import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinner.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, LoadingSpinnerComponent],
@@ -18,9 +18,9 @@ import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinn
     UserRoutingModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
   ],
   exports: [LoginComponent, RegisterComponent],
-  providers: [AuthService],
 })
 export class UserModule {}

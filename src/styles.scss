@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./styles/form.scss";
+@import "./styles/variable.scss";
 @import "./styles/typography.scss";
+@import "./styles/buttons.scss";
+@import "./styles/material.scss";
+@import "./styles/scrollbar.scss";
 
 html,
 body {
@@ -10,10 +14,79 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-.w-80 {
-  width: 80% !important;
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.mat-drawer-container {
-  height: 100%;
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  color: lightgray;
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+}
+
+.avatar {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+}
+
+.designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: lightgrey;
+}
+
+#accordionSidebar {
+  padding: 0px 4px;
+}
+.mat-drawer-inner-container {
+  overflow: auto !important;
+  //margin-left: 20px;
+}
+.mat-drawer-inner-container::-webkit-scrollbar {
+  width: 8px; /* width of the entire scrollbar */
+}
+
+.mat-drawer-inner-container::-webkit-scrollbar-track {
+  background: #007bff; /* color of the tracking area */
+}
+
+.mat-drawer-inner-container::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 20px;
+  border: 3px solid white;
+}
+.breadcumb-ol {
+  justify-content: end;
 }

@@ -13,26 +13,28 @@ import { AuthService } from 'src/app/user/services/auth.service';
 export class LoginComponent implements OnInit {
   isLoading = false;
   error: string = '';
+  hide = true;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
+  //Login Submit and Authenticate
   onSubmit(form: NgForm) {
     this.isLoading = true;
-    this.authService
-      .login({ email: form.value.email, password: form.value.password })
-      .subscribe(
-        (res) => {
-          console.log(res);
-          this.isLoading = false;
-          this.router.navigate(['/dashboard/patient-dashboard']);
-        },
-        (errMessage) => {
-          console.log(errMessage);
-          this.error = errMessage;
-          this.isLoading = false;
-        }
-      );
+    let userData = { email: form.value.email, password: form.value.password };
+    this.authService.login(userData).subscribe(
+      (res) => {
+        console.log(res);
+        this.isLoading = false;
+        this.router.navigate(['/dashboard/patient-dashboard']);
+        this.authService.setStorage(userData);
+      },
+      (err) => {
+        console.log(err);
+        this.error = err.message;
+        this.isLoading = false;
+      }
+    );
   }
 }
