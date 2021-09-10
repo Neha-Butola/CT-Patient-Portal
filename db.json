@@ -26,5 +26,21 @@
       "pastprescribedmedication": "NA"
     }
   ],
-  "demographics": []
+  "demographics": [
+    {
+      "firstname": "Swati",
+      "lastname": "Mukhija",
+      "gender": "female",
+      "ethnicity": "American",
+      "education": "MCA",
+      "occupation": "Software Engineer",
+      "address": "haryana",
+      "phone": "9238472455",
+      "medical": "aaa",
+      "familymedical": "sds",
+      "surgeries": "dd",
+      "insurance": "dd",
+      "id": 1
+    }
+  ]
 }
