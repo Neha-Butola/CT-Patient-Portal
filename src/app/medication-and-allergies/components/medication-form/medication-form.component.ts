@@ -9,13 +9,14 @@ import { FetchpostService } from '../../services/fetchpost.service';
   styleUrls: ['./medication-form.component.scss'],
 })
 export class MedicationFormComponent implements OnInit {
-  medication: MedicationFormDetails = {
-    currentmedication: '',
-    otcmedication: '',
-    herbsmineralandvitamin: '',
-    socialdrug: '',
-    pastprescribedmedication: '',
-  };
+  // medication: MedicationFormDetails = {
+  //   currentmedication: '',
+  //   otcmedication: '',
+  //   herbsmineralandvitamin: '',
+  //   socialdrug: '',
+  //   pastprescribedmedication: '',
+  // };
+  medication: any = {};
   errors: any = {};
   constructor(
     private router: Router,
@@ -24,11 +25,11 @@ export class MedicationFormComponent implements OnInit {
   //To create medication & allergiea data set
 
   medicationForm() {
-    alert('hii');
+    alert('hoo');
     this.fetchpostservice
       .createMedicationAndAllergies(this.medication)
       .subscribe(
-        (res) => {
+        (res: any) => {
           console.log(JSON.stringify(res), 'medicationform');
         }
         // (err) => {}

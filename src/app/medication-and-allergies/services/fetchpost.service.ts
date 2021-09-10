@@ -9,13 +9,9 @@ import { Observable } from 'rxjs';
 })
 // to handle post request for medicatio & Allegies
 export class FetchpostService {
-  api = '/medication-and-allergies/';
+  api = 'http://localhost:3000/medication-and-allergies';
   constructor(private httpClient: HttpClient) {}
-  createMedicationAndAllergies(
-    medicationData: MedicationFormDetails
-  ): Observable<any> {
-    return this.httpClient.post(this.api, medicationData, {
-      headers: { 'Content-Type': 'application/json' },
-    });
+  createMedicationAndAllergies(data: any): Observable<any> {
+    return this.httpClient.post(this.api, data);
   }
 }
