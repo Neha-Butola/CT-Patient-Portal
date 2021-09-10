@@ -25,10 +25,10 @@ export class LoginComponent implements OnInit {
     let userData = { email: form.value.email, password: form.value.password };
     this.authService.login(userData).subscribe(
       (res) => {
-        console.log(res);
         this.isLoading = false;
-        this.router.navigate(['/dashboard/patient-dashboard']);
         this.authService.setStorage(userData);
+        this.router.navigate(['/dashboard/patient-dashboard']);
+        console.log('result is' + res);
       },
       (err) => {
         console.log(err);
