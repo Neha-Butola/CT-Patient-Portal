@@ -12,8 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { DemographicsService } from './services/demographics.service';
+import { ViewDemographicsComponent } from './components/view-demographics/view-demographics.component';
 @NgModule({
-  declarations: [DemographicsComponent],
+  declarations: [DemographicsComponent, ViewDemographicsComponent],
   imports: [
     CommonModule,
     DemographicsRoutingModule,
