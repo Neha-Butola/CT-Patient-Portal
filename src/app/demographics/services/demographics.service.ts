@@ -15,15 +15,15 @@ export class DemographicsService {
 
   constructor(private http: HttpClient) {}
 
-  /* getDemography(): Observable<any> {
-    return this.httpclient.get(this.api);
-  }*/
   saveDemography(data: any): Observable<any> {
     // return this.http.post(`${baseUrl}demographics`, data);
     return this.http.post(this.api, data);
   }
   getDemography(): Observable<any> {
-    // return this.http.post(`${baseUrl}demographics`, data);
     return this.http.get(this.api);
+  }
+
+  deleteDemography(): Observable<any> {
+    return this.http.delete(this.api);
   }
 }

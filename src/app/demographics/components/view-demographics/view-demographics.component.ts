@@ -43,6 +43,7 @@ export class ViewDemographicsComponent implements OnInit {
   ];
 
   viewdemo: Demographics[] = [];
+  // viewdemo: any[] = [];
 
   ngOnInit(): void {
     this.demo.getDemography().subscribe(
@@ -54,5 +55,9 @@ export class ViewDemographicsComponent implements OnInit {
         console.log('error' + error);
       }
     );
+  }
+
+  deletedDemo() {
+    this.demo.deleteDemography().subscribe(() => {});
   }
 }

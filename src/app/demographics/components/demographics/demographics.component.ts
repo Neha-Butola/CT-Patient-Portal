@@ -18,6 +18,7 @@ import { DemographicsService } from '../../services/demographics.service';
   styleUrls: ['./demographics.component.scss'],
 })
 export class DemographicsComponent implements OnInit {
+  alert: boolean = false;
   // demographics: Demographics = {
   //   address: '',
   //   education: '',
@@ -95,6 +96,7 @@ export class DemographicsComponent implements OnInit {
         (res: any) => {
           formDirective.resetForm();
           this.demoForm.reset();
+          this.alert = true;
           // console.log(JSON.stringify(res));
         },
         (err: any) => {
@@ -103,10 +105,14 @@ export class DemographicsComponent implements OnInit {
         }
       );
     } else {
-      //this.demoForm.reset();
       this.demoForm.markAsTouched();
     }
   }
+
+  closeAlert() {
+    this.alert = false;
+  }
+
   //dob validation
   maxDate: any;
   minDate: any;

@@ -1,20 +1,27 @@
 <div class="demo-button-container">
-  <button mat-raised-button class="demo-button">Edit data</button>
-  <button mat-raised-button class="demo-button">Delete data</button>
+  <button mat-raised-button class="btn btn-primary mr-2">Edit data</button>
+  <button mat-raised-button class="btn btn-danger ml-2" (click)="deletedDemo()">
+    Delete data
+  </button>
 </div>
 <br />
 <div class="table-responsive">
   <table class="table table-bordered table-hover border-primary">
-    <tr class="bg-primary">
-      <th colspan="14">Patient Demographics View</th>
-    </tr>
-    <tr>
-      <th scope="column" *ngFor="let col of columns">{{ col }}</th>
-    </tr>
-    <tr *ngFor="let user of viewdemo">
-      <td scope="row" *ngFor="let col of index">
-        {{ user[col] }}
-      </td>
-    </tr>
+    <thead>
+      <tr class="bg-primary">
+        <th colspan="14">Patient Demographics View</th>
+      </tr>
+
+      <tr>
+        <th scope="column" *ngFor="let col of columns">{{ col }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of viewdemo">
+        <td scope="row" *ngFor="let col of index">
+          {{ user[col] }}
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>

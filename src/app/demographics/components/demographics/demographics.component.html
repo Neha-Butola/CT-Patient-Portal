@@ -1,7 +1,9 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb breadcumb-ol">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Demographics</li>
+    <li class="breadcrumb-item">
+      <a [routerLink]="['/dashboard/patient-dashboard']">Home</a>
+    </li>
+    <!-- <li class="breadcrumb-item active" aria-current="page">Demographics</li> -->
   </ol>
 </nav>
 <div class="container">
@@ -84,13 +86,11 @@
     <mat-card class="mb-2 px-lg-5">
       <mat-card-header class="text-primary">Patient Address </mat-card-header>
       <div class="row">
-        <!-- <div class="w-100 column"> -->
         <mat-form-field class="col-sm-12 col-md-12">
           <mat-label for="address">Address</mat-label>
 
           <input id="address" type="text" matInput formControlName="address" />
         </mat-form-field>
-        <!-- </div> -->
 
         <mat-form-field class="col-sm-12 col-md-6">
           <mat-label for="phone">Contact Information </mat-label>
@@ -261,5 +261,20 @@
       </button>
     </div>
   </form>
+  <div
+    *ngIf="alert"
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+  >
+    <strong>Success !</strong> Your data added successfully.
+    <button
+      type="button"
+      class="close"
+      (click)="closeAlert()"
+      data-dismiss="alert"
+      aria-label="Close"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 </div>
-<!-- </section> -->
