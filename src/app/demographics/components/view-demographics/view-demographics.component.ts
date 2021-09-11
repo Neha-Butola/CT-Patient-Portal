@@ -11,6 +11,7 @@ export class ViewDemographicsComponent implements OnInit {
   constructor(private demo: DemographicsService) {}
 
   columns: string[] = [
+    'Id',
     'First Name',
     'Last Name',
     'Gender',
@@ -23,10 +24,10 @@ export class ViewDemographicsComponent implements OnInit {
     'Family Medical',
     'Surgeries',
     'Insurance',
-    'Id',
   ];
 
   index = [
+    'id',
     'firstname',
     'lastname',
     'gender',
@@ -39,7 +40,6 @@ export class ViewDemographicsComponent implements OnInit {
     'familymedical',
     'surgeries',
     'insurance',
-    'id',
   ];
 
   viewdemo: Demographics[] = [];
@@ -59,5 +59,10 @@ export class ViewDemographicsComponent implements OnInit {
 
   deletedDemo() {
     this.demo.deleteDemography().subscribe(() => {});
+  }
+  editData() {
+    this.demo.putDemography(this.viewdemo).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

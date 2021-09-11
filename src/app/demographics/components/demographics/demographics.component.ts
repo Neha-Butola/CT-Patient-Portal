@@ -8,6 +8,7 @@ import {
   AbstractControl,
   FormGroupDirective,
 } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Demographics } from '../../model/demographics';
 import { DemographicsService } from '../../services/demographics.service';
@@ -41,7 +42,8 @@ export class DemographicsComponent implements OnInit {
   constructor(
     private formbuilder: FormBuilder,
     private demographicsService: DemographicsService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
     this.demoForm = formbuilder.group({
       firstname: new FormControl('', [
@@ -97,6 +99,10 @@ export class DemographicsComponent implements OnInit {
           formDirective.resetForm();
           this.demoForm.reset();
           this.alert = true;
+          this.snackBar.open(
+            'Thank you for filled the demographics form',
+            'cancel'
+          );
           // console.log(JSON.stringify(res));
         },
         (err: any) => {

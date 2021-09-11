@@ -76,22 +76,6 @@
       "surgeries": "surgies",
       "insurance": "Insurance provided",
       "id": 2
-    },
-    {
-      "firstname": "dadadd",
-      "lastname": "dd",
-      "dob": "2003-09-03T18:30:00.000Z",
-      "gender": "female",
-      "ethnicity": "dd",
-      "education": "dd",
-      "occupation": "dd",
-      "address": "ss",
-      "phone": "9283784953",
-      "medical": "dd",
-      "familymedical": "df",
-      "surgeries": "ff",
-      "insurance": "dd",
-      "id": 3
     }
   ]
 }

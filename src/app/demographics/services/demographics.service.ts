@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -25,5 +25,12 @@ export class DemographicsService {
 
   deleteDemography(): Observable<any> {
     return this.http.delete(this.api);
+  }
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+  putDemography(data: any): Observable<any> {
+    return this.http.put(this.api, data, this.httpOptions);
+    console.log(data);
   }
 }
