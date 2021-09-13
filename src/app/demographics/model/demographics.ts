@@ -5,6 +5,7 @@ export interface Demographics {
   ethnicity: string;
   education: string;
   occupation: string;
+  dob: string;
   address: string;
   phone: number;
   medical: string;

@@ -19,18 +19,21 @@ export class DemographicsService {
     // return this.http.post(`${baseUrl}demographics`, data);
     return this.http.post(this.api, data);
   }
-  getDemography(): Observable<any> {
-    return this.http.get(this.api);
+
+  getDemography(patientId: number): Observable<any> {
+    return this.http.get(this.api + '/' + patientId);
   }
 
-  deleteDemography(): Observable<any> {
-    return this.http.delete(this.api);
+  deleteDemography(patientId: any): Observable<any> {
+    return this.http.delete(this.api + '/' + patientId);
   }
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  };
-  putDemography(data: any): Observable<any> {
-    return this.http.put(this.api, data, this.httpOptions);
+
+  updateDemography(data: any, patientId: any): Observable<any> {
+    return this.http.put(this.api + '/' + patientId, data);
     console.log(data);
+  }
+
+  getDemographicList(): Observable<any> {
+    return this.http.get(this.api);
   }
 }

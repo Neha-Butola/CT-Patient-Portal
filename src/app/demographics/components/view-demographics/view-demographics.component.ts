@@ -46,7 +46,7 @@ export class ViewDemographicsComponent implements OnInit {
   // viewdemo: any[] = [];
 
   ngOnInit(): void {
-    this.demo.getDemography().subscribe(
+    this.demo.getDemographicList().subscribe(
       (res) => {
         this.viewdemo = [...res];
         console.log(res);
@@ -57,12 +57,9 @@ export class ViewDemographicsComponent implements OnInit {
     );
   }
 
-  deletedDemo() {
-    this.demo.deleteDemography().subscribe(() => {});
-  }
-  editData() {
-    this.demo.putDemography(this.viewdemo).subscribe((res) => {
-      console.log(res);
-    });
-  }
+  // editData() {
+  //   this.demo.putDemography(this.viewdemo).subscribe((res) => {
+  //     console.log(res);
+  //   });
+  // }
 }
