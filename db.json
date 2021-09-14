@@ -24,11 +24,38 @@
   ],
   "medication-and-allergies": [
     {
-      "currentmedication": "NA",
-      "otcmedication": "NA",
-      "herbsmineralandvitamin": "NA",
-      "socialdrug": "NA",
-      "pastprescribedmedication": "NA"
+      "currentmedication": "Therapy",
+      "herbsmineralandvitamin": "two years ago",
+      "socialdrug": "not taken",
+      "pastprescribedmedication": "yes",
+      "id": 4
+    },
+    {
+      "currentmedication": "no medication",
+      "herbsmineralandvitamin": "no vitamins",
+      "socialdrug": "yes taken",
+      "pastprescribedmedication": "not taken",
+      "drugallergies": "yes i have",
+      "reactionother": "no reaction",
+      "id": 5
+    },
+    {
+      "currentmedication": "vfd",
+      "herbsmineralandvitamin": "vfdvsfdvfvvf",
+      "socialdrug": "vdfvdsfsfdv",
+      "pastprescribedmedication": "vfdvfsdvvdfv",
+      "drugallergies": "vdfvsdfv",
+      "reactionother": "vdfvsdfv",
+      "id": 6
+    },
+    {
+      "currentmedication": "rver",
+      "socialdrug": "gtrgrt",
+      "herbsmineralandvitamin": "gtrgtg",
+      "pastprescribedmedication": "gtrgr",
+      "drugallergies": "regtrggtr",
+      "reactionother": "grt",
+      "id": 7
     }
   ],
   "demographics": [

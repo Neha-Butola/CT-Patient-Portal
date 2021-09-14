@@ -24,12 +24,12 @@ export class AuthService {
 
   // to post user data to api
   registerUser(userData: RegisterData) {
-    return this.http.post(this.api + 'register', userData);
+    return this.http.post(this.api + 'user', userData);
   }
 
   // to post auth data(user email and passowrd) to api
   login(authData: User): Observable<any> {
-    return this.http.post(this.api + 'login', authData);
+    return this.http.post(this.api + 'user', authData);
   }
 
   // creating fake token for user

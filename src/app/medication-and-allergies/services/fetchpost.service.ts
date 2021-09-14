@@ -14,4 +14,7 @@ export class FetchpostService {
   createMedicationAndAllergies(data: any): Observable<any> {
     return this.httpClient.post(this.api, data);
   }
+  getMedicationData(): Observable<any> {
+    return this.httpClient.get(this.api);
+  }
 }
