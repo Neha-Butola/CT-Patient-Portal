@@ -1,0 +1,36 @@
+<form [formGroup]="appointmentForm" (ngSubmit)="createAppointment()">
+  <mat-form-field appearance="standard" class="w-100">
+    <mat-label>Pick a date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard" class="w-100">
+    <mat-label>Provider</mat-label>
+    <mat-select formControlName="provider">
+      <mat-option *ngFor="let provider of providers" [value]="provider.name">
+        {{ provider.name }} - {{ provider.role }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard" class="w-100">
+    <mat-label>Available slots</mat-label>
+    <mat-select formControlName="slot">
+      <mat-option *ngFor="let slot of slots" [value]="slot">
+        {{ slot }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button
+    class="my-4"
+    type="submit"
+    mat-raised-button
+    color="primary"
+    [disabled]="appointmentForm.invalid"
+  >
+    Submit
+  </button>
+</form>

@@ -8,6 +8,12 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
   {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
@@ -28,10 +34,12 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
   },
   {
-    path: 'dashboard',
+    path: 'appointments',
     loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-    canActivate: [AuthGuard],
+      import('./appointment/appointment.module').then(
+        (m) => m.AppointmentModule
+      ),
+    // canActivate: [AuthGuard],
   },
 ];
 
