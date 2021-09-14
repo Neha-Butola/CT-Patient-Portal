@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/user/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-  isLoading = false;
+  isLoading = false; // to show/hide loader
   error: string = '';
   hide = true;
 
@@ -26,13 +26,11 @@ export class RegisterComponent implements OnInit {
   minDate: any;
 
   ngOnInit(): void {
-    this.maxDate = new Date();
-    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
-    this.minDate = new Date();
-    this.minDate.setFullYear(this.minDate.getFullYear() - 200);
     this.initForm();
+    this.setDOBVal();
   }
 
+  //initialize registration form and set validations
   initForm() {
     this.registerForm = this.fb.group(
       {
@@ -58,22 +56,34 @@ export class RegisterComponent implements OnInit {
       // }
     );
   }
+
+  // to return form control
   get f() {
     return this.registerForm.controls;
   }
 
+  // to submit registration data and get the response data or error
   onSubmit() {
+    this.isLoading = true; // show the loader after registrion form submit
     this.authServive.registerUser(this.registerForm.value).subscribe(
       (res) => {
         console.log(res);
-        this.isLoading = false;
+        this.isLoading = false; //hide the loader after request happens
         this.router.navigate(['/']);
       },
       (err) => {
         console.log(err);
         this.error = err.message;
-        this.isLoading = false;
+        this.isLoading = false; //hide the loader after request fails
       }
     );
+  }
+
+  //to set max and min values for date of birth.
+  setDOBVal() {
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
+    this.minDate = new Date();
+    this.minDate.setFullYear(this.minDate.getFullYear() - 200);
   }
 }

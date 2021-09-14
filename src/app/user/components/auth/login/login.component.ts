@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/user/services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  isLoading = false;
+  isLoading = false; // to show/hide loader
   error: string = '';
   hide = true;
 
@@ -19,21 +19,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  //Login Submit and Authenticate
+  //submit Login data and set the token
   onSubmit(form: NgForm) {
-    this.isLoading = true;
+    this.isLoading = true; // show the loader after registrion form submit
     let userData = { email: form.value.email, password: form.value.password };
     this.authService.login(userData).subscribe(
       (res) => {
-        this.isLoading = false;
-        this.authService.setStorage(userData);
         this.router.navigate(['/dashboard/patient-dashboard']);
+        this.isLoading = false; //hide the loader after request happens
+        this.authService.setStorage(userData);
         console.log('result is' + res);
       },
       (err) => {
         console.log(err);
         this.error = err.message;
-        this.isLoading = false;
+        this.isLoading = false; //hide the loader after request fails
       }
     );
   }

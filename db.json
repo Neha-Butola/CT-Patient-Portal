@@ -15,17 +15,14 @@
       "email": "nehabutola14@gmail.com",
       "password": "123456",
       "id": 2
+    },
+    {
+      "email": "vamsijkrish@gmail.com",
+      "password": "970413qw8078J$",
+      "id": 3
     }
   ],
   "medication-and-allergies": [
-    {
-      "id": 3,
-      "currentmedication": "NA",
-      "otcmedication": "NA",
-      "herbsmineralandvitamin": "NA",
-      "socialdrug": "NA",
-      "pastprescribedmedication": "NA"
-    },
     {
       "currentmedication": "Therapy",
       "herbsmineralandvitamin": "two years ago",
@@ -70,5 +67,21 @@
       "id": 8
     }
   ],
-  "demographics": []
+  "demographics": [
+    {
+      "firstname": "Swati",
+      "lastname": "Mukhija",
+      "gender": "female",
+      "ethnicity": "American",
+      "education": "MCA",
+      "occupation": "Software Engineer",
+      "address": "haryana",
+      "phone": "9238472455",
+      "medical": "aaa",
+      "familymedical": "sds",
+      "surgeries": "dd",
+      "insurance": "dd",
+      "id": 1
+    }
+  ]
 }
