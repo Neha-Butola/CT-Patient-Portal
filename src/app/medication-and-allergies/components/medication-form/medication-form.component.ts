@@ -30,6 +30,7 @@ export class MedicationFormComponent implements OnInit {
       .subscribe(
         (res: any) => {
           console.log(JSON.stringify(res), 'medicationform');
+          location.href = '/medication-and-allergies/history';
         }
         // (err) => {}
       );
