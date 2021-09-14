@@ -25,7 +25,6 @@ export class MedicationFormComponent implements OnInit {
   //To create medication & allergiea data set
 
   medicationForm() {
-    alert('hoo');
     this.fetchpostservice
       .createMedicationAndAllergies(this.medication)
       .subscribe(

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FetchpostService } from '../../services/fetchpost.service';
 
 @Component({
   selector: 'app-medication-history',
@@ -6,7 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./medication-history.component.scss'],
 })
 export class MedicationHistoryComponent implements OnInit {
-  constructor() {}
+  medicationDetails: any;
+  constructor(
+    private router: Router,
+    private fetchpostservice: FetchpostService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetchpostservice.getMedicationData().subscribe(
+      (res) => {
+        console.log(res);
+        this.medicationDetails = res;
+      },
+
+      (err) => {}
+    );
+  }
 }
