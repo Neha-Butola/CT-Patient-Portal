@@ -41,7 +41,7 @@ export class ScheduleAppointmentComponent implements OnInit {
     console.log('remove arraya');
     let index = this.appointments.indexOf(e);
     const dialogRef = this.dialog.open(DeleteAppointmentComponent, {
-      width: '300px',
+      width: '350px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {

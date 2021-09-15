@@ -479,50 +479,26 @@
     </div>
     <section class="container my-5">
       <table class="table">
-        <thead class="thead-dark">
+        <thead class="bg-primary text-white">
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Medication</th>
+            <th scope="col">OTC Medication</th>
+            <th scope="col">Herbs</th>
+            <th scope="col">Social Drug</th>
+            <th scope="col">Past Medication</th>
+            <th scope="col">Drug Allergies</th>
+            <th scope="col">Other Reaction</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+          <tr *ngFor="let m of medicationDetails">
+            <td>{{ m.currentmedication }}</td>
+            <td>{{ m.otcmedication }}</td>
+            <td>{{ m.herbsmineralandvitamin }}</td>
+            <td>{{ m.socialdrug }}</td>
+            <td>{{ m.pastprescribedmedication }}</td>
+            <td>{{ m.drugallergies }}</td>
+            <td>{{ m.reactionother }}</td>
           </tr>
         </tbody>
       </table>
