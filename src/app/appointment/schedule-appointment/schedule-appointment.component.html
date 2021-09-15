@@ -1,8 +1,10 @@
 <div class="container">
-  <button mat-raised-button (click)="openDialog()">Book you appointment</button>
+  <button mat-raised-button (click)="openDialog()" color="primary">
+    Book your appointment
+  </button>
 
   <h2 class="my-5 text-center">Your Appointments</h2>
-  <table mat-table [dataSource]="appointments" class="w-100">
+  <table *ngIf="isData" mat-table [dataSource]="appointments" class="w-100">
     Position Column
 
     <ng-container matColumnDef="date">

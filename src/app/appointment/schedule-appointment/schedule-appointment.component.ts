@@ -18,7 +18,7 @@ export class ScheduleAppointmentComponent implements OnInit {
   displayedColumns: string[] = ['date', 'provider', 'slot', 'actions'];
   dataSource = new MatTableDataSource<Appointment>(this.appointments);
   clickedRows = new Set<Appointment>();
-
+  isData = false;
   @ViewChild(MatTable) table: MatTable<Appointment>;
   ngOnInit(): void {}
 
@@ -31,6 +31,7 @@ export class ScheduleAppointmentComponent implements OnInit {
       if (result) {
         console.log(result);
         this.appointments.push(result);
+        this.isData = true;
         this.table.renderRows();
       }
     });

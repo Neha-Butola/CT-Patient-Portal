@@ -23,7 +23,7 @@ const routes: Routes = [
       import('./demographics/demographics.module').then(
         (m) => m.DemographicsModule
       ),
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'medication-and-allergies',
@@ -31,7 +31,7 @@ const routes: Routes = [
       import('./medication-and-allergies/medication-and-allergies.module').then(
         (m) => m.MedicationAndAllergiesModule
       ),
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'appointments',
@@ -39,7 +39,7 @@ const routes: Routes = [
       import('./appointment/appointment.module').then(
         (m) => m.AppointmentModule
       ),
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
 ];
 
