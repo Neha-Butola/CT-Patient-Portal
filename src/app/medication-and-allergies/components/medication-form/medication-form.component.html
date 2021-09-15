@@ -83,6 +83,28 @@
             [(ngModel)]="medication.pastprescribedmedication"
           />
         </mat-form-field>
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label>Drug Allergies</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Drug Allergies"
+            name="drugallergies"
+            required
+            [(ngModel)]="medication.drugallergies"
+          />
+        </mat-form-field>
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label>Allergies/Reaction Other</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Allergies/Reaction Other"
+            name="reactionother"
+            required
+            [(ngModel)]="medication.reactionother"
+          />
+        </mat-form-field>
       </div>
     </mat-card>
     <div class="d-flex justify-content-center mt-4">

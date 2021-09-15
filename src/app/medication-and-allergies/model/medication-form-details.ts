@@ -4,4 +4,6 @@ export interface MedicationFormDetails {
   herbsmineralandvitamin: string;
   socialdrug: string;
   pastprescribedmedication: string;
+  drugallergies: string;
+  reactionother: string;
 }

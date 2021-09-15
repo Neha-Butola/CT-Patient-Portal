@@ -27,8 +27,8 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let element">
-        <button (click)="remove(element)">
-          <mat-icon>trash</mat-icon>
+        <button class="bg-transparent border-0" (click)="remove(element)">
+          <mat-icon>delete_outline</mat-icon>
         </button>
       </td>
     </ng-container>
