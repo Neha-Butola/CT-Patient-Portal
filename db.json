@@ -25,6 +25,17 @@
       "email": "nehabutola14@gmail.com",
       "password": "123456",
       "id": 4
+    },
+    {
+      "firstName": "Vamsi",
+      "lastName": "Jakka",
+      "email": "krishnavamsi@gmail.com",
+      "password": "9848062782",
+      "confirmPassword": "9848062782",
+      "dob": "1996-07-09T18:30:00.000Z",
+      "phoneNumber": 9848062782,
+      "role": "Patient",
+      "id": 5
     }
   ],
   "medication-and-allergies": [
@@ -61,6 +72,15 @@
       "drugallergies": "regtrggtr",
       "reactionother": "grt",
       "id": 7
+    },
+    {
+      "currentmedication": "NoMEDICATION",
+      "herbsmineralandvitamin": "Herbs",
+      "socialdrug": "drugs",
+      "pastprescribedmedication": "prescribed Medication",
+      "drugallergies": "DRUGS",
+      "reactionother": "ALLERGIES",
+      "id": 8
     }
   ],
   "demographics": [
@@ -113,20 +133,68 @@
       "id": 3
     },
     {
-      "firstname": "vamsi12356",
+      "firstname": "vamsi krishna.jakka",
       "lastname": "Jakka",
       "dob": "2003-09-04T18:30:00.000Z",
       "gender": "male",
       "ethnicity": "Anglo American",
       "education": "MBA",
       "occupation": "LAB INCHARGE",
-      "address": "",
+      "address": "address sample",
       "phone": "8885948404",
       "medical": "No Medical History",
       "familymedical": "2003-09-04T18:30:00.000Z",
       "surgeries": "No Surgeries",
       "insurance": "Insurance provided",
       "id": 4
+    },
+    {
+      "firstname": "veera venkata",
+      "lastname": "jakka",
+      "dob": "2003-09-02T18:30:00.000Z",
+      "gender": "male",
+      "ethnicity": "Hyderabad",
+      "education": "MCA",
+      "occupation": "LAB INCHARGE",
+      "address": "Thrisul Quarters, Lothukunta, Alwal,",
+      "phone": 9848062782,
+      "medical": "med hist",
+      "familymedical": "fami med hist",
+      "surgeries": "surgies",
+      "insurance": "LIC POLICIES",
+      "id": 5
+    },
+    {
+      "firstname": "narasimha",
+      "lastname": "Jakka",
+      "dob": "2003-09-03T18:30:00.000Z",
+      "gender": "male",
+      "ethnicity": "Hyderabad",
+      "education": "MCA",
+      "occupation": "LAB INCHARGE",
+      "address": "Thrisul Quarters, Lothukunta, Alwal,",
+      "phone": 9848062782,
+      "medical": "med hist",
+      "familymedical": "fami med hist",
+      "surgeries": "surgies",
+      "insurance": "Insurance provided",
+      "id": 6
+    },
+    {
+      "firstname": "Mohan",
+      "lastname": "Jakka",
+      "dob": "2003-09-09T18:30:00.000Z",
+      "gender": "male",
+      "ethnicity": "Hyderabad",
+      "education": "MCA",
+      "occupation": "Farmer",
+      "address": "Thrisul Quarters, Lothukunta, Alwal,",
+      "phone": 9848062782,
+      "medical": "med hist",
+      "familymedical": "fami med hist",
+      "surgeries": "surgies",
+      "insurance": "Insurance provided",
+      "id": 7
     }
   ]
 }

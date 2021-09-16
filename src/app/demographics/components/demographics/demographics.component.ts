@@ -20,7 +20,6 @@ import { DemographicsService } from '../../services/demographics.service';
   styleUrls: ['./demographics.component.scss'],
 })
 export class DemographicsComponent implements OnInit {
-  // alert: boolean = false;
   userData: any;
   isEdit: boolean = true;
   demographics: Demographics;
@@ -136,28 +135,31 @@ export class DemographicsComponent implements OnInit {
     }
   }
 
-  // closeAlert() {
-  //   this.alert = false;
-  // }
-
   //dob validation
   maxDate: any;
   minDate: any;
   ngOnInit(): void {
     // this.userData = this.authService.getUserData();
     // if(this.userData) {
-    this.demographicsService.getDemography(6).subscribe(
-      (res) => {
-        this.demographics = res;
-        if (this.demographics) {
-          this.isEdit = false;
+
+    if ((this.isEdit = true)) {
+      // this.demographics = null;
+      this.createForm();
+    } else {
+      this.demographicsService.getDemography(4).subscribe(
+        (res) => {
+          this.demographics = res;
+          if (this.demographics) {
+            this.isEdit = false;
+          }
+          this.createForm(this.demographics);
+        },
+        (err) => {
+          this.createForm();
         }
-        this.createForm(this.demographics);
-      },
-      (err) => {
-        this.createForm();
-      }
-    );
+      );
+    }
+
     //}
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
