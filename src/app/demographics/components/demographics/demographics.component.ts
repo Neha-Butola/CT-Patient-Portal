@@ -155,6 +155,7 @@ export class DemographicsComponent implements OnInit {
           this.createForm(this.demographics);
         },
         (err) => {
+          // console.log("no data")
           this.createForm();
         }
       );
