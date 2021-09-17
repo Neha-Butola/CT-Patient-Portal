@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Demographics } from '../model/demographics';
 // import { baseUrl } from 'src/environments/environment';
 
 @Injectable({
@@ -9,15 +10,30 @@ import { environment } from 'src/environments/environment';
 })
 export class DemographicsService {
   api = environment.baseUrl + 'demographics';
+
   // api = 'http://localhost:3000/demographics';
 
   constructor(private http: HttpClient) {}
 
-  /* getDemography(): Observable<any> {
-    return this.httpclient.get(this.api);
-  }*/
   saveDemography(data: any): Observable<any> {
     // return this.http.post(`${baseUrl}demographics`, data);
     return this.http.post(this.api, data);
+  }
+
+  getDemography(patientId: number): Observable<any> {
+    return this.http.get(this.api + '/' + patientId);
+  }
+
+  deleteDemography(patientId: any): Observable<any> {
+    return this.http.delete(this.api + '/' + patientId);
+  }
+
+  updateDemography(data: any, patientId: any): Observable<any> {
+    return this.http.put(this.api + '/' + patientId, data);
+    console.log(data);
+  }
+
+  getDemographicList(): Observable<any> {
+    return this.http.get(this.api);
   }
 }

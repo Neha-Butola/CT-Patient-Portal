@@ -22,8 +22,8 @@
       "id": 3
     },
     {
-      "email": "abishek@gmail.com",
-      "password": "12345678",
+      "email": "nehabutola14@gmail.com",
+      "password": "123456",
       "id": 4
     }
   ],
@@ -74,19 +74,68 @@
   ],
   "demographics": [
     {
-      "firstname": "Swati",
-      "lastname": "Mukhija",
-      "gender": "female",
-      "ethnicity": "American",
-      "education": "MCA",
-      "occupation": "Software Engineer",
-      "address": "haryana",
-      "phone": "9238472455",
-      "medical": "aaa",
-      "familymedical": "sds",
-      "surgeries": "dd",
-      "insurance": "dd",
+      "firstname": "dilip kumar",
+      "lastname": "Jakka",
+      "dob": "2003-09-04T18:30:00.000Z",
+      "gender": "male",
+      "ethnicity": "Anglo American",
+      "education": "MBA",
+      "occupation": "LAB INCHARGE",
+      "address": "",
+      "phone": "9999999999",
+      "medical": "No Medical History",
+      "familymedical": "2003-09-04T18:30:00.000Z",
+      "surgeries": "No Surgeries",
+      "insurance": "LIC POLICIES",
       "id": 1
+    },
+    {
+      "firstname": "vamsi123",
+      "lastname": "Jakka",
+      "dob": "2003-09-04T18:30:00.000Z",
+      "gender": "male",
+      "ethnicity": "Anglo American",
+      "education": "MBA",
+      "occupation": "LAB INCHARGE",
+      "address": "",
+      "phone": "8885948404",
+      "medical": "No Medical History",
+      "familymedical": "2003-09-04T18:30:00.000Z",
+      "surgeries": "No Surgeries",
+      "insurance": "Insurance provided",
+      "id": 2
+    },
+    {
+      "firstname": "vamsi12356",
+      "lastname": "Jakka",
+      "dob": "2003-09-04T18:30:00.000Z",
+      "gender": "male",
+      "ethnicity": "Anglo American",
+      "education": "MBA",
+      "occupation": "LAB INCHARGE",
+      "address": "",
+      "phone": "8885948404",
+      "medical": "No Medical History",
+      "familymedical": "2003-09-04T18:30:00.000Z",
+      "surgeries": "No Surgeries",
+      "insurance": "Insurance provided",
+      "id": 3
+    },
+    {
+      "firstname": "vamsi12356",
+      "lastname": "Jakka",
+      "dob": "2003-09-04T18:30:00.000Z",
+      "gender": "male",
+      "ethnicity": "Anglo American",
+      "education": "MBA",
+      "occupation": "LAB INCHARGE",
+      "address": "",
+      "phone": "8885948404",
+      "medical": "No Medical History",
+      "familymedical": "2003-09-04T18:30:00.000Z",
+      "surgeries": "No Surgeries",
+      "insurance": "Insurance provided",
+      "id": 4
     }
   ]
 }
