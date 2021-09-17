@@ -20,6 +20,11 @@
       "email": "vamsijkrish@gmail.com",
       "password": "970413qw8078J$",
       "id": 3
+    },
+    {
+      "email": "abishek@gmail.com",
+      "password": "12345678",
+      "id": 4
     }
   ],
   "medication-and-allergies": [
