@@ -7,9 +7,10 @@ import { MaterialModule } from '../material.module';
 import { CreateAppointmentComponent } from './schedule-appointment/modals/create-appointment/create-appointment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeleteAppointmentComponent } from './schedule-appointment/modals/delete-appointment/delete-appointment.component';
+import { AppointmentsHistoryComponent } from './appointments-history/appointments-history.component';
 
 @NgModule({
-  declarations: [ScheduleAppointmentComponent, CreateAppointmentComponent, DeleteAppointmentComponent],
+  declarations: [ScheduleAppointmentComponent, CreateAppointmentComponent, DeleteAppointmentComponent, AppointmentsHistoryComponent],
   imports: [
     CommonModule,
     AppointmentRoutingModule,
