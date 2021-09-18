@@ -47,5 +47,35 @@
       "insurance": "dd",
       "id": 1
     }
+  ],
+  "immunization": [
+    {
+      "vaccinename": "Covaxin",
+      "vaccinetype": "HIB",
+      "date": "2021-09-18T18:30:00.000Z",
+      "doses1": true,
+      "id": 1
+    },
+    {
+      "vaccinename": "Covaxin",
+      "vaccinetype": "HIB",
+      "date": "2021-09-21T18:30:00.000Z",
+      "doses1": true,
+      "id": 2
+    },
+    {
+      "vaccinename": "Covishield",
+      "vaccinetype": "HIB",
+      "date": "2021-09-13T18:30:00.000Z",
+      "doses1": true,
+      "id": 3
+    },
+    {
+      "vaccinename": "Covishield",
+      "vaccinetype": "HIB",
+      "date": "2021-09-14T18:30:00.000Z",
+      "doses1": true,
+      "id": 4
+    }
   ]
 }

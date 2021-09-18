@@ -33,6 +33,13 @@ const routes: Routes = [
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'immunization-details',
+    loadChildren: () =>
+      import('./immunization-details/immunization-details.module').then(
+        (m) => m.ImmunizationDetailsModule
+      ),
+  },
 ];
 
 @NgModule({
