@@ -10,6 +10,7 @@ import {
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 import { AuthService } from 'src/app/user/services/auth.service';
 import { Demographics } from '../../model/demographics';
 import { DemographicsService } from '../../services/demographics.service';
@@ -28,6 +29,11 @@ export class DemographicsComponent implements OnInit {
   demoForm: FormGroup;
   firstname: string = '';
   lastname: string = '';
+  isLoading: boolean = true;
+
+  //dob validation
+  maxDate: any;
+  minDate: any;
 
   constructor(
     private formbuilder: FormBuilder,
@@ -118,50 +124,52 @@ export class DemographicsComponent implements OnInit {
             }
           );
       } else {
-        this.demographicsService.saveDemography(this.demoForm.value).subscribe(
-          (res: any) => {
-            this.demographics = { ...this.demoForm.value, id: res.id };
-            this.isEdit = false;
-            this.snackBar.open('Your data added successfully.', 'cancel');
-          },
-          (err: any) => {
-            console.log(JSON.stringify(err));
-            this.errors = err.error;
-          }
-        );
+        this.demographicsService
+          .saveDemography({ ...this.demoForm.value, id: this.userData.id })
+          .subscribe(
+            (res: any) => {
+              this.demographics = { ...this.demoForm.value, id: res.id };
+              this.isEdit = false;
+              this.snackBar.open('Your data added successfully.', 'cancel');
+            },
+            (err: any) => {
+              console.log(JSON.stringify(err));
+              this.errors = err.error;
+            }
+          );
       }
     } else {
       this.demoForm.markAsTouched();
     }
   }
 
-  //dob validation
-  maxDate: any;
-  minDate: any;
   ngOnInit(): void {
-    // this.userData = this.authService.getUserData();
-    // if(this.userData) {
-
-    if ((this.isEdit = true)) {
-      // this.demographics = null;
-      this.createForm();
-    } else {
-      this.demographicsService.getDemography(4).subscribe(
-        (res) => {
-          this.demographics = res;
-          if (this.demographics) {
-            this.isEdit = false;
+    this.userData = this.authService.getUserData();
+    if (this.userData) {
+      this.demographicsService
+        .getDemography(this.userData.id)
+        .pipe(
+          finalize(() => {
+            this.isLoading = false;
+            if (!this.demoForm) {
+              this.createForm();
+            }
+          })
+        )
+        .subscribe(
+          (res) => {
+            this.demographics = res;
+            if (this.demographics) {
+              this.isEdit = false;
+            }
+            this.createForm(this.demographics);
+          },
+          (err) => {
+            // console.log("no data")
+            this.createForm();
           }
-          this.createForm(this.demographics);
-        },
-        (err) => {
-          // console.log("no data")
-          this.createForm();
-        }
-      );
+        );
     }
-
-    //}
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
     this.minDate = new Date();

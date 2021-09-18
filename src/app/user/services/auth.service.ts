@@ -24,12 +24,12 @@ export class AuthService {
 
   // to post user data to api
   registerUser(userData: RegisterData) {
-    return this.http.post(this.api + 'user', userData);
+    return this.http.post(this.api + 'users', userData);
   }
 
   // to post auth data(user email and passowrd) to api
   login(authData: User): Observable<any> {
-    return this.http.post(this.api + 'user', authData);
+    return this.http.post(this.api + 'login', authData);
   }
 
   // creating fake token for user
@@ -55,6 +55,7 @@ export class AuthService {
   // to check if user token is logged in
   public isLoggedIn() {
     // console.log(this.autToken);
+    this.checkStorage();
     return this.autToken !== null;
   }
 
@@ -63,5 +64,10 @@ export class AuthService {
     if (!this.isLoggedIn()) return;
     localStorage.clear();
     this.checkStorage();
+  }
+
+  getUserData() {
+    this.checkStorage();
+    return this.userData;
   }
 }

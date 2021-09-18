@@ -19,27 +19,27 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  //submit Login data and set the token
-  // onSubmit(form: NgForm) {
-  //   this.isLoading = true; // show the loader after registrion form submit
-  //   let userData = { email: form.value.email, password: form.value.password };
-  //   this.authService.login(userData).subscribe(
-  //     (res) => {
-  //       this.router.navigate(['/dashboard/patient-dashboard']);
-  //       this.isLoading = false; //hide the loader after request happens
-  //       this.authService.setStorage(userData);
-  //       console.log('result is' + res);
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //       this.error = err.message;
-  //       this.isLoading = false; //hide the loader after request fails
-  //     }
-  //   );
-  // }
+  // submit Login data and set the token
   onSubmit(form: NgForm) {
     this.isLoading = true; // show the loader after registrion form submit
     let userData = { email: form.value.email, password: form.value.password };
-    this.authService.setStorage(userData);
+    this.authService.login(userData).subscribe(
+      (res) => {
+        this.authService.setStorage(res.user);
+        this.router.navigate(['/dashboard/patient-dashboard']);
+        this.isLoading = false; //hide the loader after request happens
+        console.log('result is' + res);
+      },
+      (err) => {
+        console.log(err);
+        this.error = err.message;
+        this.isLoading = false; //hide the loader after request fails
+      }
+    );
   }
+  // onSubmit(form: NgForm) {
+  //   this.isLoading = true; // show the loader after registrion form submit
+  //   let userData = { email: form.value.email, password: form.value.password };
+  //   this.authService.setStorage(userData);
+  // }
 }
