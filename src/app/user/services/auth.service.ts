@@ -18,25 +18,18 @@ export class AuthService {
   api = environment.baseUrl;
   public autToken: string | null = null; // to store the user token
   public userData: User | null = null; // store the user data
-  user: RegisterData;
-  users: any;
+  user: any;
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  //
-  checkUser() {
-    return this.http.get(this.api + 'user');
-  }
   // to post user data to api
-  registerUser(userData: RegisterData): Observable<any> {
-    return this.http.post(this.api + 'user', userData);
+  registerUser(userData: RegisterData) {
+    return this.http.post(this.api + 'users', userData);
   }
 
   // to post auth data(user email and passowrd) to api
-  login(authUser) {
-    console.log('Authenticate user n service' + authUser);
-    this.user = authUser;
-    this.setStorage(authUser);
+  login(authData: User): Observable<any> {
+    return this.http.post(this.api + 'login', authData);
   }
 
   // creating fake token for user
@@ -62,6 +55,7 @@ export class AuthService {
   // to check if user token is logged in
   public isLoggedIn() {
     // console.log(this.autToken);
+    this.checkStorage();
     return this.autToken !== null;
   }
 
@@ -70,5 +64,10 @@ export class AuthService {
     if (!this.isLoggedIn()) return;
     localStorage.clear();
     this.checkStorage();
+  }
+
+  getUserData() {
+    this.checkStorage();
+    return this.userData;
   }
 }

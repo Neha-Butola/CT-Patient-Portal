@@ -19,18 +19,18 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   declarations: [DemographicsComponent, ViewDemographicsComponent],
   imports: [
     CommonModule,
-    DemographicsRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    ReactiveFormsModule,
     MatDatepickerModule,
     MatButtonModule,
-    HttpClientModule,
     MatCardModule,
     MatTableModule,
     MatSnackBarModule,
+    DemographicsRoutingModule,
   ],
-  providers: [DemographicsService],
+  // providers: [DemographicsService],
 })
 export class DemographicsModule {}
