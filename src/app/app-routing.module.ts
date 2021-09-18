@@ -41,18 +41,6 @@ const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
-  {
-    path: 'immunization',
-    loadChildren: () =>
-      import('./immunization-details/immunization-details.module').then(
-        (m) => m.ImmunizationDetailsModule
-      ),
-  },
-  {
-    path: 'billing',
-    loadChildren: () =>
-      import('./billing/billing.module').then((m) => m.BillingModule),
-  },
 ];
 
 @NgModule({

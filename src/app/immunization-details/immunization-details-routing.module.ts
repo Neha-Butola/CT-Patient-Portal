@@ -1,13 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ImmunizationDetailsComponent } from './components/immunization-details/immunization-details.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: ImmunizationDetailsComponent,
-  },
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
