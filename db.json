@@ -12,19 +12,26 @@
       "id": 1
     },
     {
-      "email": "nehabutola14@gmail.com",
-      "password": "123456",
+      "firstName": "Neha",
+      "lastName": "Butola",
+      "email": "nehaahen@demo.com",
+      "password": "23223234324",
+      "confirmPassword": "2332423423234",
+      "dob": "2003-09-02T18:30:00.000Z",
+      "phoneNumber": 6575237534275,
+      "role": "Admin",
       "id": 2
     },
     {
-      "email": "vamsijkrish@gmail.com",
-      "password": "970413qw8078J$",
+      "firstName": "Neha",
+      "lastName": "Butola",
+      "email": "nehaahen14@demo.com",
+      "password": "3434223234",
+      "confirmPassword": "23234324243",
+      "dob": "2003-09-14T18:30:00.000Z",
+      "phoneNumber": 65766776677,
+      "role": "Physician",
       "id": 3
-    },
-    {
-      "email": "nehabutola14@gmail.com",
-      "password": "123456",
-      "id": 4
     }
   ],
   "medication-and-allergies": [
@@ -129,5 +136,18 @@
       "id": 4
     }
   ],
-  "appointments": []
+  "appointments": [
+    {
+      "date": "2021-09-04T18:30:00.000Z",
+      "provider": "Alice",
+      "slot": "3-4",
+      "id": 1
+    },
+    {
+      "date": "2021-09-24T18:30:00.000Z",
+      "provider": "Alice",
+      "slot": "1-2",
+      "id": 2
+    }
+  ]
 }

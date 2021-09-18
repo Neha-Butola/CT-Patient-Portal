@@ -1,4 +1,5 @@
 export interface RegisterData {
+  id: number;
   firstname: string;
   lastname: string;
   dob: Date;
@@ -6,7 +7,7 @@ export interface RegisterData {
   email: string;
   password: string;
   confirmPassword: string;
-  phoneNo: number;
+  phoneNumber: number;
 }
 
 export interface LoginData {

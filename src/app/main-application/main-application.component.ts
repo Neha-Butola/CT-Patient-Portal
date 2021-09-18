@@ -18,7 +18,7 @@ export class MainApplicationComponent implements OnInit, OnDestroy {
     this.authService.checkStorage();
     if (this.authService.isLoggedIn()) {
       this.isAuthenticated = true;
-      this.user_name = this.authService.userData.email;
+      this.user_name = this.authService.user.firstname;
     }
   }
 

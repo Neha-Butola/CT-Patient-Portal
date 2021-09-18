@@ -65,9 +65,29 @@ export class RegisterComponent implements OnInit {
   // to submit registration data and get the response data or error
   onSubmit() {
     this.isLoading = true; // show the loader after registrion form submit
+    this.authServive.checkUser().subscribe(
+      (res) => {
+        this.isLoading = false;
+        console.log(res);
+        let users;
+        users = res;
+        if (users.find((x) => x.email === this.registerForm.value.email)) {
+          this.error = 'useremail is already taken';
+        } else {
+          this.register();
+        }
+      },
+      (err) => {
+        console.log(err);
+        this.error = err.message;
+        this.isLoading = false; //hide the loader after request fails
+      }
+    );
+  }
+
+  register() {
     this.authServive.registerUser(this.registerForm.value).subscribe(
       (res) => {
-        console.log(res);
         this.isLoading = false; //hide the loader after request happens
         this.router.navigate(['/']);
       },
