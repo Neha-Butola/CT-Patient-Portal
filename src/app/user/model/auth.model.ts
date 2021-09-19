@@ -1,7 +1,7 @@
 export interface RegisterData {
-  id: number;
-  firstname: string;
-  lastname: string;
+  userId: string;
+  firstName: string;
+  lastName: string;
   dob: Date;
   role: string;
   email: string;

@@ -42,6 +42,10 @@
     {{ username }}
   </button>
   <mat-menu #menu="matMenu">
+    <a [routerLink]="['/user/profile']">
+      <mat-icon>voicemail</mat-icon>
+      <span>Profile</span>
+    </a>
     <button mat-menu-item (click)="onLogOut()">
       <mat-icon>voicemail</mat-icon>
       <span>Logout</span>

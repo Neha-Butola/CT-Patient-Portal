@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   isLoading = false; // to show/hide loader
   error: string = '';
   hide = true;
-
+  registeredUser: RegisterData;
   roles: string[] = ['Patient', 'Physician', 'Admin'];
 
   constructor(

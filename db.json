@@ -1,6 +1,7 @@
 {
   "users": [
     {
+      "userId": "Vamsi12",
       "email": "krishnavamsi@gmail.com",
       "password": "$2a$10$Vf2628PU8gY.ZrypdsWqmO4mmOu8wvy6Q4RDqF2Ob2l5aNnuO69nW",
       "firstName": "Vamsi",
@@ -13,13 +14,14 @@
     },
     {
       "email": "neha@demo.com",
-      "password": "$2a$10$djJ1w90PiSkdpSRlm7FwmecWBH8oPzvA/6M/RILOmGoVBezzYrK0.",
+      "password": "$2a$10$MdsiM0iLb8VZLyKQnwDeJuzRXPvhlCc2d5Mhfrzve/r9Ph8JgmId.",
       "firstName": "neha",
       "lastName": "butola",
       "confirmPassword": "123456",
-      "dob": "2003-09-01T18:30:00.000Z",
-      "phoneNumber": 211211212121,
+      "dob": "2003-09-02T18:30:00.000Z",
+      "phoneNumber": 2321231312,
       "role": "Physician",
+      "userId": "neha21",
       "id": 2
     }
   ],

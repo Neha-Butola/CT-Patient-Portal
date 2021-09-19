@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RegisterData } from '../user/model/auth.model';
 
 import { AuthService } from '../user/services/auth.service';
 
@@ -11,14 +12,16 @@ import { AuthService } from '../user/services/auth.service';
 export class MainApplicationComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   constructor(private authService: AuthService, private router: Router) {}
-  user_name: string;
+  user: any;
   ngOnInit(): void {}
 
   ngDoCheck(): void {
     this.authService.checkStorage();
+    // if user is logged in then get user data
+
     if (this.authService.isLoggedIn()) {
       this.isAuthenticated = true;
-      this.user_name = this.authService.user.firstname;
+      this.user = this.authService.userData;
     }
   }
 

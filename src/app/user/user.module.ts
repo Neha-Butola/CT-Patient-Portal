@@ -11,9 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinner.component';
 import { AuthService } from './services/auth.service';
 import { httpInterceptors } from '../shared/interceptors';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, LoadingSpinnerComponent],
+  declarations: [LoginComponent, RegisterComponent, LoadingSpinnerComponent, ProfileComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
