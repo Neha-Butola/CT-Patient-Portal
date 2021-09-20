@@ -9,13 +9,15 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class CreateAppointmentComponent implements OnInit {
   appointmentForm: FormGroup;
+  maxDate: any;
+  minDate: any;
   providers = [
     { name: 'John', role: 'Neutrologist' },
     { name: 'Alex', role: 'Pediatrician' },
     { name: 'Alice', role: 'Orthodontist' },
   ];
 
-  slots = ['10 - 11', '11-12', '1-2', '3-4', '4-5'];
+  slots = ['10 - 11 am', '11-12 am', '1-2 pm', '3-4 pm', '4-5 pm'];
 
   constructor(
     private fb: FormBuilder,
@@ -24,6 +26,7 @@ export class CreateAppointmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.setDOBVal();
   }
 
   initForm() {
@@ -36,5 +39,12 @@ export class CreateAppointmentComponent implements OnInit {
 
   createAppointment() {
     this.dialogRef.close(this.appointmentForm.value);
+  }
+
+  setDOBVal() {
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 1 / 365);
+    this.minDate = new Date();
+    this.minDate.setFullYear(this.minDate.getFullYear() + 1 / 365);
   }
 }

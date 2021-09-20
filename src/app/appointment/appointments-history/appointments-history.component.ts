@@ -12,7 +12,7 @@ export class AppointmentsHistoryComponent implements OnInit {
   // DI for appointment service
   constructor(private as: AppointmentService) {}
   appevents: AppEvent[] = [];
-  app: Appointment[];
+  appointments: Appointment[] = [];
   calendarOptions;
   //options for fullCalender
   init() {
@@ -25,22 +25,19 @@ export class AppointmentsHistoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let appevent: AppEvent = { title: '', duration: 1, start: new Date() };
     this.as.getAppointments().subscribe(
-      (res) => {
-        console.log(res);
-        this.app = res;
-        console.log('events are' + this.appevents);
-        console.log('app are' + this.app);
-        this.app.forEach((element, index) => {
-          console.log(appevent);
-          appevent.title = element.provider;
-          appevent.duration = 1;
-          appevent.start = element.date;
-          console.log('loop ends');
-          this.appevents.push(appevent);
+      (app: Appointment[]) => {
+        console.log('res', app);
+        this.appointments = app;
+        this.appointments.forEach((element) => {
+          console.log(element);
+          this.appevents.push({
+            title: element.provider,
+            duration: 1,
+            start: element.date,
+          });
         });
-        console.log('events are again' + this.appevents);
+        console.log(this.appevents);
         this.init();
       },
       (err) => {

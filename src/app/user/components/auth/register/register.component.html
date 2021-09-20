@@ -1,10 +1,16 @@
+<ng-template appPlaceholder></ng-template>
+
 <section class="container">
   <a [routerLink]="['/']" class="text-center d-block mb-4"
     ><img src="../../../../../assets/images/pp-logo.jpg" alt="" />
   </a>
-  <div class="alert alert-danger" *ngIf="error">
+  <div class="alert alert-danger col-md-6 offset-md-3" *ngIf="error">
     <p>{{ error }}</p>
   </div>
+  <div class="alert alert-success col-md-6 offset-md-3" *ngIf="isSuccess">
+    <p>Registerd Successfully</p>
+  </div>
+
   <div *ngIf="isLoading" class="text-center">
     <app-loader></app-loader>
   </div>
@@ -119,6 +125,9 @@
       <mat-error *ngIf="f.confirmPassword.errors?.required"
         >Confirm Password is required</mat-error
       >
+      <mat-error *ngIf="f.confirmPassword.errors?.confirmPasswordValidator"
+        >Passsword and Confirm Password didn't match.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="standard">
@@ -132,6 +141,9 @@
       <mat-icon matSuffix>settings_phone</mat-icon>
       <mat-error *ngIf="f.phoneNumber.errors?.required"
         >Mobile number is required</mat-error
+      >
+      <mat-error *ngIf="f.phoneNumber.errors?.pattern"
+        >Mobile number should have 10 digits</mat-error
       >
     </mat-form-field>
     <button

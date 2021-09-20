@@ -1,8 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { EmailValidator, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { AlertComponent } from 'src/app/shared/alert/alert.component';
+import { PlaceholderDirective } from 'src/app/shared/placeholder/placeholder.directive';
 import { AuthService } from 'src/app/user/services/auth.service';
 
 @Component({
@@ -16,7 +23,15 @@ export class LoginComponent implements OnInit {
   hide = true;
   user: any;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  @ViewChild(PlaceholderDirective, { static: false })
+  alertHost: PlaceholderDirective;
+  closeSub: Subscription;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    public cfResolver: ComponentFactoryResolver
+  ) {}
 
   ngOnInit(): void {}
 
@@ -44,9 +59,30 @@ export class LoginComponent implements OnInit {
       },
       (err) => {
         console.log(err);
-        this.error = err.error;
+        this.showAlert(err.error);
         this.isLoading = false; //hide the loader after request fails
       }
     );
+  }
+
+  private showAlert(message: string) {
+    const alertCmpFactory = this.cfResolver.resolveComponentFactory(
+      AlertComponent
+    );
+    const hostViewContRef = this.alertHost.viewContainerRef;
+    hostViewContRef.clear();
+
+    const compRef = hostViewContRef.createComponent(alertCmpFactory);
+
+    compRef.instance.message = message;
+    compRef.instance.isError = true;
+    this.closeSub = compRef.instance.close.subscribe(() => {
+      this.closeSub.unsubscribe();
+      hostViewContRef.clear();
+    });
+
+    // setInterval(() => {
+    //   hostViewContRef.clear();
+    // }, 10000);
   }
 }

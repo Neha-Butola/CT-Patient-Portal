@@ -17,13 +17,13 @@ export const AUTH_USER_DATA = 'user-data';
 export class AuthService {
   api = environment.baseUrl;
   public autToken: string | null = null; // to store the user token
-  public userData: User | null = null; // store the user data
+  public userData: RegisterData | null = null; // store the user data
 
   constructor(private http: HttpClient, private router: Router) {}
 
   // to post user data to api
   registerUser(userData: RegisterData) {
-    userData.userId = userData.firstName + Math.floor(Math.random() * 10) + 1;
+    userData.id = userData.firstName + Math.floor(Math.random() * 10) + 1;
     return this.http.post(this.api + 'users', userData);
   }
 
@@ -38,9 +38,9 @@ export class AuthService {
   }
 
   // creating fake token for user
-  setStorage(authData: User) {
-    localStorage.setItem(AUTH_TOKEN_KEY, authData.email + 'RANDOM_STRING');
-    localStorage.setItem(AUTH_USER_DATA, JSON.stringify(authData));
+  setStorage(userData: RegisterData) {
+    localStorage.setItem(AUTH_TOKEN_KEY, userData.email + 'RANDOM_STRING');
+    localStorage.setItem(AUTH_USER_DATA, JSON.stringify(userData));
     this.checkStorage();
   }
 

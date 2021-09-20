@@ -29,11 +29,13 @@ export class ScheduleAppointmentComponent implements OnInit {
     this.fetchData();
   }
 
+  // to open book appointment dialog
   openDialog(): void {
     const dialogRef = this.dialog.open(CreateAppointmentComponent, {
-      width: '300px',
+      width: '400px',
     });
 
+    // push data to table when dialog is closed
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.appointmentService.postAppointment(result).subscribe(
@@ -49,6 +51,7 @@ export class ScheduleAppointmentComponent implements OnInit {
     });
   }
 
+  // to open delete appointment dialog
   removeData(e: Appointment) {
     console.log('remove arraya');
     let index = this.appointments.indexOf(e);
@@ -59,9 +62,11 @@ export class ScheduleAppointmentComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
+        // to delete appointment from table
         this.appointments.splice(index, 1);
         this.table.renderRows();
-        //
+
+        // to delete appointment from api
         this.appointmentService
           .deleteAppointments(this.appointments[index], id)
           .subscribe((res) => {
@@ -72,6 +77,7 @@ export class ScheduleAppointmentComponent implements OnInit {
     });
   }
 
+  // to get all appointment from api
   fetchData() {
     this.appointmentService.getAppointments().subscribe(
       (res) => {
@@ -83,7 +89,7 @@ export class ScheduleAppointmentComponent implements OnInit {
         this.table.renderRows();
       },
       (err) => {
-        console.log('no dat');
+        console.log('no data');
       }
     );
   }

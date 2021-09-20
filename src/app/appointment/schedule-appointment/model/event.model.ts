@@ -1,5 +1,7 @@
 export class AppEvent {
-  public title: string;
-  public duration: number;
-  public start: Date;
+  constructor(
+    public title: string,
+    public duration: number,
+    public start: Date
+  ) {}
 }

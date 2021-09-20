@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/user/services/auth.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,9 +10,11 @@ import { environment } from 'src/environments/environment';
 export class AppointmentService {
   api = environment.baseUrl + 'appointments';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   postAppointment(appointmentData): Observable<any> {
+    appointmentData.userId = this.authService.userData.id;
+    console.log(appointmentData.userId);
     return this.http.post(this.api, appointmentData);
   }
 
