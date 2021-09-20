@@ -27,24 +27,17 @@
             required
             [(ngModel)]="medication.currentmedication"
           />
-          <mat-error *ngIf="fName.hasError('required')"
-            >Field must not be empty</mat-error
-          >
         </mat-form-field>
         <mat-form-field class="col-sm-12 col-md-6">
           <mat-label>OTC Medication</mat-label>
           <input
             type="text"
             matInput
-            placeholder="Your Last name"
+            placeholder="OTC Medication"
             name="otcmedication"
             required
-            #fName="ngModel"
-            [ngModel]="medication.otcmedication"
+            [(ngModel)]="medication.otcmedication"
           />
-          <mat-error *ngIf="fName.hasError('required')"
-            >Field must not be empty</mat-error
-          >
         </mat-form-field>
         <mat-form-field class="col-sm-12 col-md-6">
           <mat-label>Herbs/Minerals/Vitamin/Antibiotic</mat-label>

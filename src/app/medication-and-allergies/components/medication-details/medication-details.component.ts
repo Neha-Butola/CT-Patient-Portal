@@ -8,7 +8,19 @@ import { FetchpostService } from '../../services/fetchpost.service';
   styleUrls: ['./medication-details.component.scss'],
 })
 export class MedicationDetailsComponent implements OnInit {
-  constructor() {}
+  viewMedicationData: any;
+  constructor(
+    private router: Router,
+    private fetchpostservice: FetchpostService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetchpostservice.viewMedicationData(6).subscribe(
+      (response) => {
+        console.log(response);
+        this.viewMedicationData = response;
+      },
+      (err) => {}
+    );
+  }
 }

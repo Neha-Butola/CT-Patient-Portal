@@ -17,4 +17,13 @@ export class FetchpostService {
   getMedicationData(): Observable<any> {
     return this.httpClient.get(this.api);
   }
+  deleteMedicationData(pid: any): Observable<any> {
+    return this.httpClient.delete(this.api + '/' + pid);
+  }
+  viewMedicationData(pid: 6): Observable<any> {
+    return this.httpClient.get(this.api + '/' + pid);
+  }
+  updateMedicationData(pid: any, data: any): Observable<any> {
+    return this.httpClient.put(this.api + '/' + pid, data);
+  }
 }

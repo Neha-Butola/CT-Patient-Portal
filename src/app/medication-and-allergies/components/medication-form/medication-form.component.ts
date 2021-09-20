@@ -28,9 +28,9 @@ export class MedicationFormComponent implements OnInit {
     this.fetchpostservice
       .createMedicationAndAllergies(this.medication)
       .subscribe(
-        (res: any) => {
+        (res) => {
           console.log(JSON.stringify(res), 'medicationform');
-          location.href = '/medication-and-allergies/history';
+          this.router.navigate(['medication-and-allergies/history']);
         }
         // (err) => {}
       );

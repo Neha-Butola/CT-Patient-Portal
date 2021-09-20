@@ -1,3 +1,7 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
 <div id="wrapper">
   <div id="content-wrapper" class="d-flex flex-column">
     <div id="content">
@@ -477,6 +481,7 @@
           </div> -->
       </div>
     </div>
+
     <section class="container my-5">
       <table class="table">
         <thead class="bg-primary text-white">
@@ -488,20 +493,118 @@
             <th scope="col">Past Medication</th>
             <th scope="col">Drug Allergies</th>
             <th scope="col">Other Reaction</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let m of medicationDetails">
-            <td>{{ m.currentmedication }}</td>
+            <td>
+              {{ m.currentmedication }}
+            </td>
             <td>{{ m.otcmedication }}</td>
             <td>{{ m.herbsmineralandvitamin }}</td>
             <td>{{ m.socialdrug }}</td>
             <td>{{ m.pastprescribedmedication }}</td>
             <td>{{ m.drugallergies }}</td>
             <td>{{ m.reactionother }}</td>
+            <td>
+              <a [routerLink]="['/medication-and-allergies/details']"
+                ><i class="fa fa-eye cursor-pointer"></i
+              ></a>
+              <i class="fa fa-edit cursor-pointer" (click)="openDialog(m)"></i>
+              <i
+                class="fa fa-trash cursor-pointer"
+                (click)="deleteMedication(m)"
+              ></i>
+            </td>
           </tr>
         </tbody>
       </table>
+      <div class="modals" *ngIf="isShown === true">
+        <form [formGroup]="formValue">
+          <div class="row border-bottom">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Current Medication</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="currentmedication"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">OTC Medication</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="otcmedication"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1"
+                  >Herbs/Minerals/Vitamin/Antibiotic</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="herbsmineralandvitamin"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Past Medication</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="pastprescribedmedication"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Social Drug</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="socialdrug"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Drug Allergies</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="drugallergies"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Other Reaction</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="reactionother"
+                />
+              </div>
+            </div>
+          </div>
+          <button
+            (click)="updateMedicationData()"
+            type="button"
+            class="btn btn-primary mt-4 p-y-2 f-right"
+          >
+            Update
+          </button>
+        </form>
+      </div>
     </section>
   </div>
 </div>

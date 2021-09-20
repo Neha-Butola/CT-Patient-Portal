@@ -29,47 +29,14 @@
   ],
   "medication-and-allergies": [
     {
-      "currentmedication": "Therapy",
-      "herbsmineralandvitamin": "two years ago",
-      "socialdrug": "not taken",
-      "pastprescribedmedication": "yes",
-      "id": 4
-    },
-    {
-      "currentmedication": "no medication",
-      "herbsmineralandvitamin": "no vitamins",
-      "socialdrug": "yes taken",
-      "pastprescribedmedication": "not taken",
-      "drugallergies": "yes i have",
-      "reactionother": "no reaction",
-      "id": 5
-    },
-    {
-      "currentmedication": "vfd",
-      "herbsmineralandvitamin": "vfdvsfdvfvvf",
-      "socialdrug": "vdfvdsfsfdv",
-      "pastprescribedmedication": "vfdvfsdvvdfv",
-      "drugallergies": "vdfvsdfv",
-      "reactionother": "vdfvsdfv",
-      "id": 6
-    },
-    {
-      "currentmedication": "rver",
-      "socialdrug": "gtrgrt",
-      "herbsmineralandvitamin": "gtrgtg",
-      "pastprescribedmedication": "gtrgr",
-      "drugallergies": "regtrggtr",
-      "reactionother": "grt",
-      "id": 7
-    },
-    {
-      "currentmedication": " d  sdf",
-      "socialdrug": "vfdvsdv",
-      "herbsmineralandvitamin": "vfdvsdvvdfvd",
-      "pastprescribedmedication": " dfvsdf",
-      "drugallergies": " s sdf",
-      "reactionother": " ds sdf ",
-      "id": 8
+      "currentmedication": "bjbk",
+      "otcmedication": "jkk",
+      "herbsmineralandvitamin": "b",
+      "socialdrug": "bkb",
+      "pastprescribedmedication": "kbk",
+      "drugallergies": "bk",
+      "reactionother": "bb",
+      "id": 1
     }
   ],
   "demographics": [

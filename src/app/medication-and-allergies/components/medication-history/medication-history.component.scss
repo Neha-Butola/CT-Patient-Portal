@@ -1,3 +1,29 @@
 th {
   font-weight: 500;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
+.modals {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: #000000b0;
+  top: 0;
+  height: 100%;
+  transition: 0.5s;
+}
+form {
+  background: #fff;
+  width: 45%;
+  margin: auto;
+  padding: 20px;
+  margin-top: 100px;
+  height: 68%;
+}
+.p-y-2 {
+  padding: 8px 20px !important;
+}
+.f-right {
+  float: right !important;
+}

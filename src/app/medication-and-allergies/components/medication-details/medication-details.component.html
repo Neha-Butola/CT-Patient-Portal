@@ -525,7 +525,7 @@
                           >
                         </div>
                         <div class="col-md-5 col-5">
-                          <p>Any</p>
+                          <p>{{ viewMedicationData.currentmedication }}</p>
                         </div>
                       </div>
                     </li>
@@ -537,7 +537,7 @@
                           >
                         </div>
                         <div class="col-md-5 col-5">
-                          <p>NA</p>
+                          <p>{{ viewMedicationData.otcmedication }}</p>
                         </div>
                       </div>
                     </li>
@@ -549,7 +549,7 @@
                           >
                         </div>
                         <div class="col-md-5 col-5">
-                          <p>NA</p>
+                          <p>{{ viewMedicationData.herbsmineralandvitamin }}</p>
                         </div>
                       </div>
                     </li>
@@ -561,7 +561,7 @@
                           >
                         </div>
                         <div class="col-md-5 col-5">
-                          <p>NA</p>
+                          <p>{{ viewMedicationData.socialdrug }}</p>
                         </div>
                       </div>
                     </li>
@@ -574,7 +574,39 @@
                           >
                         </div>
                         <div class="col-md-5 col-5">
-                          <p>NA</p>
+                          <p>
+                            {{ viewMedicationData.pastprescribedmedication }}
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="row">
+                        <div class="col-md-7 col-7">
+                          <strong
+                            class="margin-10px-left xs-margin-four-left text"
+                            >Any Drug Allergies:</strong
+                          >
+                        </div>
+                        <div class="col-md-5 col-5">
+                          <p>
+                            {{ viewMedicationData.drugallergies }}
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="row">
+                        <div class="col-md-7 col-7">
+                          <strong
+                            class="margin-10px-left xs-margin-four-left text"
+                            >Any Other Reaction:</strong
+                          >
+                        </div>
+                        <div class="col-md-5 col-5">
+                          <p>
+                            {{ viewMedicationData.reactionother }}
+                          </p>
                         </div>
                       </div>
                     </li>
