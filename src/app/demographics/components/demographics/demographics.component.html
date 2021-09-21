@@ -17,7 +17,7 @@
     </li>
   </ol>
 </nav>
-<div class="container">
+<div class="container" *ngIf="!isLoading">
   <form
     [formGroup]="demoForm"
     (ngSubmit)="onSubmit(demoForm, formDirective)"

@@ -1,30 +1,81 @@
 {
-  "user": [
+  "users": [
     {
+      "id": "Vamsi12",
+      "email": "krishnavamsi@gmail.com",
+      "password": "$2a$10$Vf2628PU8gY.ZrypdsWqmO4mmOu8wvy6Q4RDqF2Ob2l5aNnuO69nW",
+      "firstName": "Vamsi",
+      "lastName": "Jakka",
+      "confirmPassword": "123456",
+      "dob": "2003-09-04T18:30:00.000Z",
+      "phoneNumber": 23424342424,
+      "role": "Patient"
+    },
+    {
+      "email": "neha@demo.com",
+      "password": "$2a$10$MdsiM0iLb8VZLyKQnwDeJuzRXPvhlCc2d5Mhfrzve/r9Ph8JgmId.",
       "firstName": "neha",
       "lastName": "butola",
-      "email": "neha@demo.com",
-      "password": "123456",
       "confirmPassword": "123456",
       "dob": "2003-09-02T18:30:00.000Z",
-      "phoneNumber": 2343232432,
+      "phoneNumber": 2321231312,
+      "role": "Physician",
+      "id": "neha21"
+    },
+    {
+      "email": "neha13@test.com",
+      "password": "$2a$10$pL0YPq33GEPig0RiguJcjOdjyOhxmmC0IUvcroFG8tB83yiPAXCBi",
+      "firstName": "Neha",
+      "lastName": "Butola",
+      "confirmPassword": "123456",
+      "dob": "2003-09-10T18:30:00.000Z",
+      "phoneNumber": 1234567890,
       "role": "Patient",
-      "id": 1
+      "id": "Neha41"
     },
     {
-      "email": "nehabutola14@gmail.com",
-      "password": "123456",
-      "id": 2
+      "email": "nehabtola14@gmail.com",
+      "password": "$2a$10$AmhubX/4DQgfqKpTSkR5nuvlH57799cpgu9ENipzRbvlmDpJtl3sS",
+      "firstName": "Neha",
+      "lastName": "Butola",
+      "confirmPassword": "123456",
+      "dob": "2003-09-08T18:30:00.000Z",
+      "phoneNumber": 1234567890,
+      "role": "Physician",
+      "id": "Neha91"
     },
     {
-      "email": "vamsijkrish@gmail.com",
-      "password": "970413qw8078J$",
-      "id": 3
+      "email": "nehab11@test.com",
+      "password": "$2a$10$18.ZTCpe5.vCNx7DfKvBhe5YiBBZxhkg9d.uynGxrs.ZdmMbyDDSC",
+      "firstName": "Neha",
+      "lastName": "Butola",
+      "confirmPassword": "123456",
+      "dob": "2003-09-01T18:30:00.000Z",
+      "phoneNumber": 1234567890,
+      "role": "Patient",
+      "id": "Neha61"
     },
     {
-      "email": "nehabutola14@gmail.com",
-      "password": "123456",
-      "id": 4
+      "email": "nehab123@test.com",
+      "password": "$2a$10$4eOcBHq78riQmY3NK8F4h.izqrVK4FCZuEf/bejHZH.7TZ8S1JdFK",
+      "firstName": "neha",
+      "lastName": "butoal",
+      "confirmPassword": "1234456",
+      "dob": "2003-09-15T18:30:00.000Z",
+      "phoneNumber": 1234567890,
+      "role": "Physician",
+      "id": "neha11"
+    },
+    {
+      "email": "nehab1234@test.com",
+      "password": "$2a$10$wimHIix05OB23gu/3wGG3e8pkC/aDfbh.GGSyFSfvFCnCY33QBs5G",
+      "firstName": "Neha",
+      "lastName": "Butola",
+      "confirmPassword": "123456",
+      "dob": "2003-09-16T18:30:00.000Z",
+      "phoneNumber": 1234567890,
+      "role": "Patient",
+      "id": "Neha11"
     }
   ],
   "medication-and-allergies": [
@@ -49,110 +100,156 @@
       "id": 3
     },
     {
-      "currentmedication": "Therapy",
+      "currentmedication": "common body illnesses",
       "otcmedication": "2 years ago",
       "herbsmineralandvitamin": "5 years ago",
       "socialdrug": "Not in Current",
       "pastprescribedmedication": "Yes",
       "drugallergies": "No",
       "reactionother": "nO",
-      "id": 4
+      "id": 4,
+      "userId": "neha21"
+    },
+
+    {
+      "currentmedication": "cardiovascular condition",
+      "otcmedication": "2 years ago",
+      "herbsmineralandvitamin": "two years ago",
+      "socialdrug": "not taken",
+      "pastprescribedmedication": "yes",
+      "id": 2,
+      "userId": "neha21"
     },
     {
-      "currentmedication": "Latest medication",
-      "otcmedication": "yes Taken",
-      "herbsmineralandvitamin": "Once in a week",
-      "socialdrug": "Not suggested",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "NO",
+      "currentmedication": "injuries of internal organ systems",
+      "herbsmineralandvitamin": "no vitamins",
+      "socialdrug": "yes taken",
+      "pastprescribedmedication": "not taken",
+      "drugallergies": "yes i have",
       "reactionother": "no reaction",
-      "id": 5
+      "id": 5,
+      "userId": "Vamsi12"
     },
     {
-      "currentmedication": "Therapy",
+      "currentmedication": "cardiovascular condition",
       "otcmedication": "2 years ago",
       "herbsmineralandvitamin": "5 years ago",
       "socialdrug": "Not in Current",
       "pastprescribedmedication": "Yes",
       "drugallergies": "No",
       "reactionother": "nO",
-      "id": 6
-    },
-    {
-      "currentmedication": "Latest medication",
-      "otcmedication": "yes Taken",
-      "herbsmineralandvitamin": "Once in a week",
-      "socialdrug": "Not suggested",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "NO",
-      "reactionother": "no reaction",
-      "id": 7
+      "id": 6,
+      "userId": "Vamsi12"
     }
   ],
   "demographics": [
     {
-      "firstname": "dilip kumar",
+      "firstname": "Vamsi",
       "lastname": "Jakka",
-      "dob": "2003-09-04T18:30:00.000Z",
+      "dob": "2003-09-11T18:30:00.000Z",
       "gender": "male",
-      "ethnicity": "Anglo American",
+      "ethnicity": "Hyderabad",
       "education": "MBA",
       "occupation": "LAB INCHARGE",
-      "address": "",
-      "phone": "9999999999",
+      "address": "Thrisul Quarters, Lothukunta, Alwal,",
+      "phone": 9848062782,
       "medical": "No Medical History",
-      "familymedical": "2003-09-04T18:30:00.000Z",
-      "surgeries": "No Surgeries",
-      "insurance": "LIC POLICIES",
+      "familymedical": "No Medical History",
+      "surgeries": "surgies",
+      "insurance": "Insurance provided",
       "id": 1
     },
     {
-      "firstname": "vamsi123",
-      "lastname": "Jakka",
-      "dob": "2003-09-04T18:30:00.000Z",
+      "firstname": "jack",
+      "lastname": "jones",
+      "dob": "2003-09-11T18:30:00.000Z",
       "gender": "male",
-      "ethnicity": "Anglo American",
+      "ethnicity": "Hyderabad",
       "education": "MBA",
       "occupation": "LAB INCHARGE",
-      "address": "",
-      "phone": "8885948404",
-      "medical": "No Medical History",
-      "familymedical": "2003-09-04T18:30:00.000Z",
-      "surgeries": "No Surgeries",
-      "insurance": "Insurance provided",
+      "address": "Thrisul Quarters, Lothukunta, Alwal,",
+      "phone": 9848062782,
+      "medical": "med hist",
+      "familymedical": "fami med hist",
+      "surgeries": "surgies",
+      "insurance": "LIC POLICIES",
       "id": 2
+    }
+  ],
+  "appointments": [
+    {
+      "title": "injuries of internal organ systems",
+      "date": "2021-09-12T18:30:00.000Z",
+      "physician": "Will Smith",
+      "slot": "3-4 pm",
+      "userId": "Vamsi12",
+      "id": "injuries of internal organ systems31"
     },
     {
-      "firstname": "vamsi12356",
-      "lastname": "Jakka",
-      "dob": "2003-09-04T18:30:00.000Z",
-      "gender": "male",
-      "ethnicity": "Anglo American",
-      "education": "MBA",
-      "occupation": "LAB INCHARGE",
-      "address": "",
-      "phone": "8885948404",
-      "medical": "No Medical History",
-      "familymedical": "2003-09-04T18:30:00.000Z",
-      "surgeries": "No Surgeries",
-      "insurance": "Insurance provided",
-      "id": 3
+      "title": "cardiovascular condition",
+      "date": "2021-09-26T18:30:00.000Z",
+      "physician": "Maria Garcia",
+      "slot": "3-4 pm",
+      "userId": "Vamsi12",
+      "id": "cardiovascular condition51"
     },
     {
-      "firstname": "vamsi12356",
-      "lastname": "Jakka",
-      "dob": "2003-09-04T18:30:00.000Z",
-      "gender": "male",
-      "ethnicity": "Anglo American",
-      "education": "MBA",
-      "occupation": "LAB INCHARGE",
-      "address": "",
-      "phone": "8885948404",
-      "medical": "No Medical History",
-      "familymedical": "2003-09-04T18:30:00.000Z",
-      "surgeries": "No Surgeries",
-      "insurance": "Insurance provided",
-      "id": 4
+      "title": "common body illnesses",
+      "date": "2021-09-19T18:30:00.000Z",
+      "physician": "James Smith",
+      "slot": "1-2 pm",
+      "userId": "neha21",
+      "id": "common body illnesses61"
+    }
+  ],
+  "physicians": [
+    {
+      "name": "James Smith",
+      "profile": "Radiologists",
+      "id": "Radiologists12",
+      "treatments for": "common body illnesses"
+    },
+    {
+      "name": "Rachel Lopez",
+      "profile": "Radiologists",
+      "id": "Radiologists15",
+      "treatments for": "common body illnesses"
+    },
+    {
+      "name": "Will Smith",
+      "profile": "Internists",
+      "id": "Internists12",
+      "treatments for": "injuries of internal organ systems"
+    },
+    {
+      "name": "Kevin Winson",
+      "profile": "Internists",
+      "id": "Internists12",
+      "treatments for": "injuries of internal organ systems"
+    },
+    {
+      "name": "A.k Moore",
+      "profile": "Psychiatrists",
+      "id": "Psychiatrists12",
+      "treatments for": "mental, emotional, and behavioral disorders"
+    },
+    {
+      "name": "Maria Garcia",
+      "profile": "Cardiologists",
+      "id": "Cardiologists12",
+      "treatments for": "cardiovascular condition"
+    },
+    {
+      "name": "Taylor Brown",
+      "profile": "Cardiologists",
+      "id": "Cardiologists13",
+      "treatments for": "cardiovascular condition"
+    },
+    {
+      "name": "Natalie",
+      "profile": "Neurologists",
+      "id": "Neurologists15",
+      "treatments for": "diseases of the nervous system, brain"
     }
   ]
 }

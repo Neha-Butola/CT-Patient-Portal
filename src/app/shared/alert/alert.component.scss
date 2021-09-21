@@ -1,0 +1,13 @@
+.alert-box {
+  position: fixed;
+  top: 10vh;
+  right: 20px;
+  width: 300px;
+  padding: 16px;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+button {
+  color: inherit;
+}

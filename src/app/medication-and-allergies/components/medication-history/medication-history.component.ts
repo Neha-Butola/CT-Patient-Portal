@@ -46,7 +46,7 @@ export class MedicationHistoryComponent implements OnInit {
         this.medicationDetails = res;
       },
 
-      (err) => {}
+    (err) => {}
     );
   }
   deleteMedication(m: any) {
