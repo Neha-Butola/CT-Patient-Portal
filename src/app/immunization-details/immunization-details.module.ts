@@ -15,6 +15,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
+import { MatStepperModule } from '@angular/material/stepper';
 @NgModule({
   declarations: [ImmDetailsComponent],
   imports: [
@@ -28,6 +29,7 @@ import { MatCardModule } from '@angular/material/card';
     HttpClientModule,
     MatCardModule,
     MatCheckboxModule,
+    MatStepperModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })

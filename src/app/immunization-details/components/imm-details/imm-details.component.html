@@ -5,175 +5,226 @@
     </li>
     <!-- <li class="breadcrumb-item active" aria-current="page">Demographics</li> -->
   </ol>
-  <!--<ol class="breadcrumb breadcumb-ol" *ngIf="immunization">
-    <li class="breadcrumb-item">
-      <a href="javascript:void(0)" (click)="enableDate()">{{
-        isEdit ? "View" : "Edit"
-      }}</a>
-    </li>
-  </ol>-->
 </nav>
-<div class="container">
-  <form
-    (ngSubmit)="onSubmit(immForm, formDirective)"
-    class="p-3 w-100"
-    [formGroup]="immForm"
-    #formDirective="ngForm"
-  >
-    <mat-card-header class="bg-primary text-white mb-2 p-2 rounded"
-      ><h4>Immunization Record</h4>
-    </mat-card-header>
-    <mat-card class="mb-2 px-lg-5">
-      <mat-card-header class="text-primary mb-2 py-1 rounded"
-        >COVID-19 Vaccine</mat-card-header
-      >
-      <div class="row">
-        <div class="col-sm-12 col-md-12">
-          <mat-form-field *ngIf="isEdit">
-            <mat-label>Vaccine Name</mat-label>
-            <mat-select formControlName="vaccinename">
-              <mat-option value="Covishield">Covishield</mat-option>
-              <mat-option value="Covaxin"> Covaxin </mat-option>
-            </mat-select>
-            <mat-error>Please choose a vaccine Name</mat-error>
-          </mat-form-field>
-          <div class="mb-2 dflex" *ngIf="!isEdit">
-            <div class="field-label">Vaccine Name</div>
-            <div>{{ immunization.vaccinename }}</div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <mat-label>Number Of Doses </mat-label>
-          <section *ngIf="isEdit">
-            <mat-checkbox color="primary" required formControlName="doses1"
-              >1</mat-checkbox
-            >
-          </section>
-        </div>
 
-        <div class="col-sm-12 col-md-6">
-          <mat-form-field *ngIf="isEdit">
-            <mat-label>Date(DD/MM/YYYY)</mat-label>
-            <input
-              matInput
-              readonly
-              [matDatepicker]="picker"
-              formControlName="date"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>
-
-        <div class="col-sm-12 col-md-6">
-          <section *ngIf="isEdit">
-            <mat-checkbox
-              color="primary"
-              [disabled]="isDisabled"
-              formControlName="doses2"
-              [required]="true"
-              >2</mat-checkbox
-            >
-          </section>
-        </div>
-        <div class="col-sm-12 col-md-6">
-          <mat-form-field *ngIf="isEdit">
-            <mat-label>Date(DD/MM/YYYY)</mat-label>
-            <input
-              matInput
-              [matDatepicker]="picker1"
-              formControlName="date1"
-              [disabled]="isDisabled"
-              [readonly]="true"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker1"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <div class="dflex flex1 ml16">
-          <div class="mb-2" *ngIf="!isEdit">
-            <div class="field-label">Doses 1</div>
-            <div>vaccinated</div>
-          </div>
-          <div class="mb-2" *ngIf="!isEdit">
-            <div class="field-label">Dose 2 status</div>
-            <div>Not Vaccinated</div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="mb-2 dflex col-sm-12 col-md-12" *ngIf="!isEdit">
-          <section *ngIf="!isEdit">
-            <mat-checkbox
-              color="primary"
-              formControlName="doses2"
-              [required]="true"
-              >2</mat-checkbox
-            >
-          </section>
-          <mat-form-field (click)="myFilter()" class="flex0">
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="date1" />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>
-      </div>
-    </mat-card>
-    <mat-card class="mb-2 px-lg-5">
-      <mat-card-header class="text-primary"
-        >Other general Vaccines
+<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+  <mat-step [stepControl]="immForm" errorMessage="Name is required.">
+    <form
+      (ngSubmit)="onSubmit(immForm, formDirective)"
+      class="p-3 w-100"
+      [formGroup]="immForm"
+      #formDirective="ngForm"
+    >
+      <ng-template matStepLabel>Fill out your first vaccination</ng-template>
+      <mat-card-header class="bg-primary text-white mb-2 p-2 rounded"
+        ><h4>Immunization Record</h4>
       </mat-card-header>
-      <div class="row">
-        <div class="col-sm-12 col-md-12">
-          <mat-form-field *ngIf="isEdit">
-            <mat-label>Vaccine Type</mat-label>
-            <mat-select formControlName="vaccinetype">
-              <mat-option value="Hepatitis A">Hepatitis A</mat-option>
-              <mat-option value="Hepatitis B">Hepatitis B</mat-option>
-              <mat-option value="Human papillomavirus"
-                >Human papillomavirus</mat-option
-              >
-              <mat-option value="HIB">HIB</mat-option>
-              <mat-option value="HIB">IPV</mat-option>
-              <mat-option value="MMR">MMR</mat-option>
-              <mat-option value="Rotavirus">Rotavirus</mat-option>
-              <mat-option value="DTap">DTap</mat-option>
-              <mat-option value="Meningococcal ACWY"
-                >Meningococcal ACWY</mat-option
-              >
-              <mat-option value="Influenza">Influenza</mat-option>
-              <mat-option value="Pneumococcal conjugate"
-                >Pneumococcal conjugate</mat-option
-              >
-              <mat-option value="Zoster">Zoster</mat-option>
-              <mat-option value="Other">Other</mat-option>
-            </mat-select>
-            <mat-error>Please choose a vaccine type</mat-error>
-          </mat-form-field>
-          <div class="mb-2" *ngIf="!isEdit">
-            <div class="field-label">Vaccine Type</div>
-            <div>{{ immunization.vaccinetype }}</div>
+      <mat-card class="mb-2 px-lg-5">
+        <mat-card-header class="text-primary mb-2 py-1 rounded"
+          >COVID-19 Vaccine</mat-card-header
+        >
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <mat-form-field *ngIf="isEdit">
+              <mat-label>Vaccine Name</mat-label>
+              <mat-select formControlName="vaccinename">
+                <mat-option value="Covishield">Covishield</mat-option>
+                <mat-option value="Covaxin"> Covaxin </mat-option>
+              </mat-select>
+              <mat-error>Please choose a vaccine Name</mat-error>
+            </mat-form-field>
+            <div class="mb-2 dflex" *ngIf="!isEdit">
+              <div class="field-label">Vaccine Name</div>
+              <div>{{ immunization.vaccinename }}</div>
+            </div>
           </div>
         </div>
-      </div>
-    </mat-card>
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <mat-label>Number Of Doses </mat-label>
+            <section *ngIf="isEdit">
+              <mat-checkbox color="primary" required formControlName="doses1"
+                >1</mat-checkbox
+              >
+            </section>
+          </div>
 
-    <div class="d-flex justify-content-center mt-4">
-      <button type="submit" class="btn" mat-raised-button color="primary">
-        Submit
-      </button>
+          <div class="col-sm-12 col-md-6">
+            <mat-form-field *ngIf="isEdit">
+              <mat-label>Date(DD/MM/YYYY)</mat-label>
+              <input
+                matInput
+                readonly
+                [matDatepicker]="picker"
+                formControlName="date"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <div class="dflex flex1 ml16">
+            <div class="mb-2" *ngIf="!isEdit">
+              <div class="field-label">Doses 1</div>
+              <div>vaccinated</div>
+            </div>
+            <div class="mb-2" *ngIf="!isEdit">
+              <div class="field-label">Dose 2 status</div>
+              <div>Not Vaccinated</div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+      <mat-card class="mb-2 px-lg-5">
+        <mat-card-header class="text-primary"
+          >Other general Vaccines
+        </mat-card-header>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <mat-form-field *ngIf="isEdit">
+              <mat-label>Vaccine Type</mat-label>
+              <mat-select formControlName="vaccinetype">
+                <mat-option value="Hepatitis A">Hepatitis A</mat-option>
+                <mat-option value="Hepatitis B">Hepatitis B</mat-option>
+                <mat-option value="Human papillomavirus"
+                  >Human papillomavirus</mat-option
+                >
+                <mat-option value="HIB">HIB</mat-option>
+                <mat-option value="HIB">IPV</mat-option>
+                <mat-option value="MMR">MMR</mat-option>
+                <mat-option value="Rotavirus">Rotavirus</mat-option>
+                <mat-option value="DTap">DTap</mat-option>
+                <mat-option value="Meningococcal ACWY"
+                  >Meningococcal ACWY</mat-option
+                >
+                <mat-option value="Influenza">Influenza</mat-option>
+                <mat-option value="Pneumococcal conjugate"
+                  >Pneumococcal conjugate</mat-option
+                >
+                <mat-option value="Zoster">Zoster</mat-option>
+                <mat-option value="Other">Other</mat-option>
+              </mat-select>
+              <mat-error>Please choose a vaccine type</mat-error>
+            </mat-form-field>
+            <div class="mb-2" *ngIf="!isEdit">
+              <div class="field-label">Vaccine Type</div>
+              <div>{{ immunization.vaccinetype }}</div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+
+      <div class="d-flex justify-content-center mt-4">
+        <button mat-button matStepperNext>Next</button>
+        <button type="submit" class="btn" mat-raised-button color="primary">
+          Submit
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="immunizationForm">
+    <form
+      (ngSubmit)="onformSubmit(immunizationForm, formsecondDirective)"
+      class="p-3 w-100"
+      [formGroup]="immunizationForm"
+      #formsecondDirective="ngForm"
+    >
+      <ng-template matStepLabel>Fill out your second vaccination</ng-template>
+      <mat-card-header class="bg-primary text-white mb-2 p-2 rounded"
+        ><h4>Immunization Record</h4>
+      </mat-card-header>
+      <mat-card class="mb-2 px-lg-5">
+        <mat-card-header class="text-primary mb-2 py-1 rounded"
+          >COVID-19 Vaccine</mat-card-header
+        >
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <div class="mb-2 dflex" *ngIf="!isEdit">
+              <div class="field-label">Vaccine Name</div>
+              <div>{{ immunization.vaccinename }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <mat-label>Number Of Doses </mat-label>
+            <div class="mb-2" *ngIf="!isEdit">
+              <div class="field-label">Doses 1</div>
+              <div>vaccinated</div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="mb-2 dflex" *ngIf="!isEdit">
+              <div class="field-label">Vaccine1 Date</div>
+              <div>{{ immunization.date }}</div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <section *ngIf="issecondEdit">
+              <mat-checkbox
+                color="primary"
+                formControlName="doses2"
+                [required]="true"
+                >2</mat-checkbox
+              >
+            </section>
+            <div class="mb-2" *ngIf="!issecondEdit">
+              <div class="field-label">Doses 2</div>
+              <div>vaccinated</div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <mat-form-field *ngIf="issecondEdit">
+              <mat-label>Date(DD/MM/YYYY)</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker1"
+                formControlName="date1"
+                [readonly]="true"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker1"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <div class="mb-2 dflex" *ngIf="!issecondEdit">
+              <div class="field-label">Vaccine2 Date</div>
+              <div>{{ immunization.date1 }}</div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+      <mat-card class="mb-2 px-lg-5">
+        <mat-card-header class="text-primary"
+          >Other general Vaccines
+        </mat-card-header>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <div class="mb-2" *ngIf="!isEdit">
+              <div class="field-label">Vaccine Type</div>
+              <div>{{ immunization.vaccinetype }}</div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+
+      <div class="d-flex justify-content-center mt-4">
+        <button type="submit" class="btn" mat-raised-button color="primary">
+          Submit
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    Your vaccination form is successfully done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
     </div>
-  </form>
-</div>
+  </mat-step>
+</mat-horizontal-stepper>
