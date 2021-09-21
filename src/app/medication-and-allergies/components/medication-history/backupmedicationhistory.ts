@@ -14,7 +14,6 @@ export class MedicationHistoryComponent implements OnInit {
   isShown: boolean = false;
   formValue!: FormGroup;
   medicationDetails: any;
-  currentData: any;
   constructor(
     private router: Router,
     private fetchpostservice: FetchpostService,
@@ -37,9 +36,6 @@ export class MedicationHistoryComponent implements OnInit {
       // drugallergies: new FormControl(),
       // reactionother: new FormControl(),
     });
-    this.getAllMedicationData();
-  }
-  getAllMedicationData() {
     this.fetchpostservice.getMedicationData().subscribe(
       (res) => {
         console.log(res);
@@ -52,16 +48,30 @@ export class MedicationHistoryComponent implements OnInit {
   deleteMedication(m: any) {
     this.fetchpostservice.deleteMedicationData(m.id).subscribe(
       (res) => {
-        this.getAllMedicationData();
+        location.reload();
       },
       (err) => {}
     );
   }
 
+  // openDialog(m: any): void {
+  //   const dialogRef = this.dialog.open(EditMedicationComponent, {
+  //     width: '600px',
+
+  //   });
+
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     // if (result) {
+  //     //   console.log(result);
+  //     //   this.appointments.push(result);
+  //     //   this.isData = true;
+  //     //   this.table.renderRows();
+  //     // }
+  //   });
+  // }
   openDialog(m: any) {
     this.isShown = !this.isShown;
     console.log(m, 'edit data');
-    this.currentData = m;
 
     this.formValue.controls['currentmedication'].setValue(m.currentmedication);
     this.formValue.controls['otcmedication'].setValue(m.otcmedication);
@@ -79,21 +89,26 @@ export class MedicationHistoryComponent implements OnInit {
   updateMedicationData() {
     // location.reload();
     console.log(this.medicationDetails);
-    this.currentData.currentmedication = this.formValue.value.currentmedication;
-    this.currentData.otcmedication = this.formValue.value.otcmedication;
-    this.currentData.herbsmineralandvitamin =
+    this.medicationDetails.currentmedication =
+      this.formValue.value.currentmedication;
+    this.medicationDetails.otcmedication = this.formValue.value.otcmedication;
+    this.medicationDetails.herbsmineralandvitamin =
       this.formValue.value.herbsmineralandvitamin;
-    this.currentData.socialdrug = this.formValue.value.socialdrug;
-    this.currentData.pastprescribedmedication =
+    this.medicationDetails.socialdrug = this.formValue.value.socialdrug;
+    this.medicationDetails.pastprescribedmedication =
       this.formValue.value.pastprescribedmedication;
-    this.currentData.drugallergies = this.formValue.value.drugallergies;
-    this.currentData.reactionother = this.formValue.value.reactionother;
+    this.medicationDetails.drugallergies = this.formValue.value.drugallergies;
+    this.medicationDetails.reactionother = this.formValue.value.reactionother;
 
     this.fetchpostservice
-      .updateMedicationData(this.currentData.id, this.currentData)
+      .updateMedicationData(
+        this.medicationDetails[0].id,
+        this.medicationDetails
+      )
       .subscribe(
         (res) => {
-          this.isShown = false;
+          this.fetchpostservice.getMedicationData();
+          console.log(res, 'updated');
         },
         (err) => {}
       );

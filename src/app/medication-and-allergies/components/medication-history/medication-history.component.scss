@@ -1,8 +1,16 @@
 th {
+  font-size: 14px;
   font-weight: 500;
 }
 .cursor-pointer {
   cursor: pointer;
+  margin: 0 5px;
+}
+td {
+  font-size: 14px;
+}
+i.fa.fa-trash.cursor-pointer {
+  color: red;
 }
 .modals {
   position: fixed;
@@ -26,4 +34,7 @@ form {
 }
 .f-right {
   float: right !important;
+}
+i.fa.fa-edit.cursor-pointer {
+  color: #11a232;
 }

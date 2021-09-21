@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FetchpostService } from '../../services/fetchpost.service';
 
 @Component({
@@ -9,13 +9,16 @@ import { FetchpostService } from '../../services/fetchpost.service';
 })
 export class MedicationDetailsComponent implements OnInit {
   viewMedicationData: any;
+  id: any;
   constructor(
     private router: Router,
-    private fetchpostservice: FetchpostService
+    private fetchpostservice: FetchpostService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.fetchpostservice.viewMedicationData(6).subscribe(
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.fetchpostservice.viewMedicationData(this.id).subscribe(
       (response) => {
         console.log(response);
         this.viewMedicationData = response;

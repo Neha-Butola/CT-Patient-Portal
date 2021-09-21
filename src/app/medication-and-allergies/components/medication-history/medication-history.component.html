@@ -483,7 +483,7 @@
     </div>
 
     <section class="container my-5">
-      <table class="table">
+      <table class="table table-striped table-bordered table-hover">
         <thead class="bg-primary text-white">
           <tr>
             <th scope="col">Medication</th>
@@ -508,7 +508,7 @@
             <td>{{ m.drugallergies }}</td>
             <td>{{ m.reactionother }}</td>
             <td>
-              <a [routerLink]="['/medication-and-allergies/details']"
+              <a [routerLink]="['/medication-and-allergies/details', m.id]"
                 ><i class="fa fa-eye cursor-pointer"></i
               ></a>
               <i class="fa fa-edit cursor-pointer" (click)="openDialog(m)"></i>

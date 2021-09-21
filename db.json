@@ -29,14 +29,64 @@
   ],
   "medication-and-allergies": [
     {
-      "currentmedication": "bjbk",
-      "otcmedication": "jkk",
-      "herbsmineralandvitamin": "b",
-      "socialdrug": "bkb",
-      "pastprescribedmedication": "kbk",
-      "drugallergies": "bk",
-      "reactionother": "bb",
-      "id": 1
+      "currentmedication": "Therapy",
+      "otcmedication": "2 years ago",
+      "herbsmineralandvitamin": "5 years ago",
+      "socialdrug": "Not in Current",
+      "pastprescribedmedication": "Yes",
+      "drugallergies": "No",
+      "reactionother": "nO",
+      "id": 2
+    },
+    {
+      "currentmedication": "Latest medication",
+      "otcmedication": "yes Taken",
+      "herbsmineralandvitamin": "Once in a week",
+      "socialdrug": "Not suggested",
+      "pastprescribedmedication": "Yes",
+      "drugallergies": "NO",
+      "reactionother": "no reaction",
+      "id": 3
+    },
+    {
+      "currentmedication": "Therapy",
+      "otcmedication": "2 years ago",
+      "herbsmineralandvitamin": "5 years ago",
+      "socialdrug": "Not in Current",
+      "pastprescribedmedication": "Yes",
+      "drugallergies": "No",
+      "reactionother": "nO",
+      "id": 4
+    },
+    {
+      "currentmedication": "Latest medication",
+      "otcmedication": "yes Taken",
+      "herbsmineralandvitamin": "Once in a week",
+      "socialdrug": "Not suggested",
+      "pastprescribedmedication": "Yes",
+      "drugallergies": "NO",
+      "reactionother": "no reaction",
+      "id": 5
+    },
+    {
+      "currentmedication": "Therapy",
+      "otcmedication": "2 years ago",
+      "herbsmineralandvitamin": "5 years ago",
+      "socialdrug": "Not in Current",
+      "pastprescribedmedication": "Yes",
+      "drugallergies": "No",
+      "reactionother": "nO",
+      "id": 6
+    },
+    {
+      "currentmedication": "Latest medication",
+      "otcmedication": "yes Taken",
+      "herbsmineralandvitamin": "Once in a week",
+      "socialdrug": "Not suggested",
+      "pastprescribedmedication": "Yes",
+      "drugallergies": "NO",
+      "reactionother": "no reaction",
+      "id": 7
     }
   ],
   "demographics": [
