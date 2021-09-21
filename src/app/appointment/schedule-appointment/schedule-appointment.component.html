@@ -10,18 +10,24 @@
     [dataSource]="appointments"
     class="w-100"
   >
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+    </ng-container>
+
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef>Date</th>
       <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="provider">
-      <th mat-header-cell *matHeaderCellDef>Provider</th>
-      <td mat-cell *matCellDef="let element">{{ element.provider }}</td>
+    <!-- provider Column -->
+    <ng-container matColumnDef="physician">
+      <th mat-header-cell *matHeaderCellDef>Physician</th>
+      <td mat-cell *matCellDef="let element">{{ element.physician }}</td>
     </ng-container>
 
-    <!-- Weight Column -->
+    <!-- slot Column -->
     <ng-container matColumnDef="slot">
       <th mat-header-cell *matHeaderCellDef>Slot</th>
       <td mat-cell *matCellDef="let element">{{ element.slot }}</td>

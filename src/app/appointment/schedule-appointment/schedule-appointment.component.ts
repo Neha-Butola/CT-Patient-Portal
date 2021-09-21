@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { DeleteAppointmentComponent } from './modals/delete-appointment/delete-appointment.component';
 import { AppointmentService } from '../services/appointment.service';
+import { finalize, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-schedule-appointment',
@@ -18,8 +19,13 @@ export class ScheduleAppointmentComponent implements OnInit {
     private appointmentService: AppointmentService
   ) {}
   appointments: Appointment[] = [];
-  data = Object.assign(this.appointments);
-  displayedColumns: string[] = ['date', 'provider', 'slot', 'actions'];
+  displayedColumns: string[] = [
+    'title',
+    'date',
+    'physician',
+    'slot',
+    'actions',
+  ];
   dataSource = new MatTableDataSource<Appointment>(this.appointments);
   clickedRows = new Set<Appointment>();
   isData = false;
@@ -38,22 +44,27 @@ export class ScheduleAppointmentComponent implements OnInit {
     // push data to table when dialog is closed
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.appointmentService.postAppointment(result).subscribe(
-          (res) => {
-            console.log(res);
-          },
-          (err) => {}
-        );
-        this.appointments.push(result);
-        this.isData = true;
-        this.table.renderRows();
+        this.appointmentService
+          .postAppointment(result)
+          .pipe(
+            tap(() => {
+              this.isData = true;
+              this.table.renderRows();
+            })
+          )
+          .subscribe(
+            (res) => {
+              console.log(res);
+            },
+            (err) => {}
+          );
       }
+      this.appointments.push(result);
     });
   }
 
   // to open delete appointment dialog
   removeData(e: Appointment) {
-    console.log('remove arraya');
     let index = this.appointments.indexOf(e);
     let id = e.id;
     const dialogRef = this.dialog.open(DeleteAppointmentComponent, {

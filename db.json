@@ -23,141 +23,97 @@
       "id": "neha21"
     },
     {
-      "email": "test@test.com",
-      "password": "$2a$10$4IGpi7eqj1WKV2nLwHjmJ.nTXXg1f46H7/sU0Cy4ar1BVpazOy4hK",
+      "email": "neha13@test.com",
+      "password": "$2a$10$pL0YPq33GEPig0RiguJcjOdjyOhxmmC0IUvcroFG8tB83yiPAXCBi",
       "firstName": "Neha",
       "lastName": "Butola",
-      "confirmPassword": "123456",
-      "dob": "2003-09-11T18:30:00.000Z",
-      "phoneNumber": 2134567782,
-      "role": "Physician",
-      "id": "Neha71"
-    },
-    {
-      "email": "nat@test.com",
-      "password": "$2a$10$nU7U5CZ6z3lSoktDZMbyCOwyHoU3ElkJYgtm5DkLayS9iElAabPja",
-      "firstName": "nat",
-      "lastName": "neha",
       "confirmPassword": "123456",
       "dob": "2003-09-10T18:30:00.000Z",
-      "phoneNumber": 1213212331,
-      "role": "Physician",
-      "id": "nat21"
+      "phoneNumber": 1234567890,
+      "role": "Patient",
+      "id": "Neha41"
     },
     {
-      "email": "demo@demo.com",
-      "password": "$2a$10$XnRgU.GVHdblVvKEy4fp6u7vXTQ1CGyDA4JsxvsdxcTc4OYk2j2.C",
+      "email": "nehabtola14@gmail.com",
+      "password": "$2a$10$AmhubX/4DQgfqKpTSkR5nuvlH57799cpgu9ENipzRbvlmDpJtl3sS",
       "firstName": "Neha",
       "lastName": "Butola",
       "confirmPassword": "123456",
-      "dob": "2003-09-01T18:30:00.000Z",
-      "phoneNumber": 1223123211,
+      "dob": "2003-09-08T18:30:00.000Z",
+      "phoneNumber": 1234567890,
       "role": "Physician",
       "id": "Neha91"
     },
     {
-      "email": "nat.neha@gamil.com",
-      "password": "$2a$10$uWd973xSjmimxGUsoRuZieIIimoErZLSM9PSa5nfpxO6/b3iTCmEq",
-      "firstName": "neha",
-      "lastName": "b",
-      "confirmPassword": "123456",
-      "dob": "2003-09-09T18:30:00.000Z",
-      "phoneNumber": 1234567890,
-      "role": "Physician",
-      "id": "neha01"
-    },
-    {
-      "email": "teatneha@test.com",
-      "password": "$2a$10$UuZhdHfjLQb//b8o.H1/I.w1zXzUjzqZ/boPHPmgCHQ1YTB3/J1.C",
-      "firstName": "nat",
-      "lastName": "Butola",
-      "confirmPassword": "123456",
-      "dob": "2003-09-16T18:30:00.000Z",
-      "phoneNumber": 8171129735,
-      "role": "Patient",
-      "id": "nat91"
-    },
-    {
-      "email": "test123@test.com",
-      "password": "$2a$10$FLcazTZOkIXKKee8rXyJgeqE3Z5Jr2O9eeIfTKsQyJnGn0.Olw7oK",
+      "email": "nehab11@test.com",
+      "password": "$2a$10$18.ZTCpe5.vCNx7DfKvBhe5YiBBZxhkg9d.uynGxrs.ZdmMbyDDSC",
       "firstName": "Neha",
       "lastName": "Butola",
       "confirmPassword": "123456",
       "dob": "2003-09-01T18:30:00.000Z",
       "phoneNumber": 1234567890,
-      "role": "Physician",
+      "role": "Patient",
       "id": "Neha61"
     },
     {
-      "email": "nehatest12@test.com",
-      "password": "$2a$10$e1QRQtsXYjq9WTv6iyNDuO8iCmmMJq2Asy.tb9rKY5GiOcmjrRk6.",
-      "firstName": "Neha",
-      "lastName": "Butola",
-      "confirmPassword": "123456",
+      "email": "nehab123@test.com",
+      "password": "$2a$10$4eOcBHq78riQmY3NK8F4h.izqrVK4FCZuEf/bejHZH.7TZ8S1JdFK",
+      "firstName": "neha",
+      "lastName": "butoal",
+      "confirmPassword": "1234456",
       "dob": "2003-09-15T18:30:00.000Z",
-      "phoneNumber": 3231423423,
+      "phoneNumber": 1234567890,
       "role": "Physician",
-      "id": "Neha31"
+      "id": "neha11"
     },
     {
-      "email": "test21@wer.com",
-      "password": "$2a$10$GXGY5myQBl6S53sdB0sGieCJWxfJh0heCV1uxpOi0xFda6uJogUeS",
-      "firstName": "te",
-      "lastName": "ad",
-      "confirmPassword": "123456",
-      "dob": "2003-09-01T18:30:00.000Z",
-      "phoneNumber": 2121421213,
-      "role": "Admin",
-      "id": "te21"
-    },
-    {
-      "email": "nat@123.com",
-      "password": "$2a$10$mOxeiimuVDCeul9nEYSybe3OhQIIfxzlE1DH8SHTltXcE1d2A0T96",
+      "email": "nehab1234@test.com",
+      "password": "$2a$10$wimHIix05OB23gu/3wGG3e8pkC/aDfbh.GGSyFSfvFCnCY33QBs5G",
       "firstName": "Neha",
       "lastName": "Butola",
       "confirmPassword": "123456",
-      "dob": "2003-09-10T18:30:00.000Z",
+      "dob": "2003-09-16T18:30:00.000Z",
       "phoneNumber": 1234567890,
       "role": "Patient",
-      "id": "Neha01"
-    },
-    {
-      "email": "neha12@gmail.com",
-      "password": "$2a$10$Zileb/iUNeRCfmwRHaFkX.zcYvHUvz.Du3XivngzzgK.u/04Wcl8W",
-      "firstName": "Neha",
-      "lastName": "Butola",
-      "confirmPassword": "123456",
-      "dob": "2003-09-15T18:30:00.000Z",
-      "phoneNumber": 1231221212,
-      "role": "Patient",
-      "id": "Neha51"
+      "id": "Neha11"
     }
   ],
   "medication-and-allergies": [
     {
-      "currentmedication": "Therapy",
+      "currentmedication": "common body illnesses",
       "herbsmineralandvitamin": "two years ago",
       "socialdrug": "not taken",
       "pastprescribedmedication": "yes",
-      "id": 4
+      "id": 4,
+      "userId": "neha21"
     },
     {
-      "currentmedication": "no medication",
+      "currentmedication": "cardiovascular condition",
+      "herbsmineralandvitamin": "two years ago",
+      "socialdrug": "not taken",
+      "pastprescribedmedication": "yes",
+      "id": 2,
+      "userId": "neha21"
+    },
+    {
+      "currentmedication": "injuries of internal organ systems",
       "herbsmineralandvitamin": "no vitamins",
       "socialdrug": "yes taken",
       "pastprescribedmedication": "not taken",
       "drugallergies": "yes i have",
       "reactionother": "no reaction",
-      "id": 5
+      "id": 5,
+      "userId": "Vamsi12"
     },
     {
-      "currentmedication": "vfd",
+      "currentmedication": "cardiovascular condition",
       "herbsmineralandvitamin": "vfdvsfdvfvvf",
       "socialdrug": "vdfvdsfsfdv",
       "pastprescribedmedication": "vfdvfsdvvdfv",
       "drugallergies": "vdfvsdfv",
       "reactionother": "vdfvsdfv",
-      "id": 6
+      "id": 6,
+      "userId": "Vamsi12"
     },
     {
       "currentmedication": "rver",
@@ -214,32 +170,78 @@
   ],
   "appointments": [
     {
-      "date": "2021-09-04T18:30:00.000Z",
-      "provider": "Alice",
-      "slot": "3-4",
-      "userId": "neha21",
-      "id": 1
-    },
-    {
-      "date": "2021-09-24T18:30:00.000Z",
-      "provider": "Alice",
-      "slot": "1-2",
-      "userId": "neha21",
-      "id": 2
-    },
-    {
-      "date": "2021-09-24T18:30:00.000Z",
-      "provider": "Alice",
-      "slot": "1-2",
+      "title": "injuries of internal organ systems",
+      "date": "2021-09-12T18:30:00.000Z",
+      "physician": "Will Smith",
+      "slot": "3-4 pm",
       "userId": "Vamsi12",
-      "id": 3
+      "id": "injuries of internal organ systems31"
     },
     {
-      "date": "2021-09-06T18:30:00.000Z",
-      "provider": "Alex",
-      "slot": "3-4",
+      "title": "cardiovascular condition",
+      "date": "2021-09-26T18:30:00.000Z",
+      "physician": "Maria Garcia",
+      "slot": "3-4 pm",
+      "userId": "Vamsi12",
+      "id": "cardiovascular condition51"
+    },
+    {
+      "title": "common body illnesses",
+      "date": "2021-09-19T18:30:00.000Z",
+      "physician": "James Smith",
+      "slot": "1-2 pm",
       "userId": "neha21",
-      "id": 4
+      "id": "common body illnesses61"
+    }
+  ],
+  "physicians": [
+    {
+      "name": "James Smith",
+      "profile": "Radiologists",
+      "id": "Radiologists12",
+      "treatments for": "common body illnesses"
+    },
+    {
+      "name": "Rachel Lopez",
+      "profile": "Radiologists",
+      "id": "Radiologists15",
+      "treatments for": "common body illnesses"
+    },
+    {
+      "name": "Will Smith",
+      "profile": "Internists",
+      "id": "Internists12",
+      "treatments for": "injuries of internal organ systems"
+    },
+    {
+      "name": "Kevin Winson",
+      "profile": "Internists",
+      "id": "Internists12",
+      "treatments for": "injuries of internal organ systems"
+    },
+    {
+      "name": "A.k Moore",
+      "profile": "Psychiatrists",
+      "id": "Psychiatrists12",
+      "treatments for": "mental, emotional, and behavioral disorders"
+    },
+    {
+      "name": "Maria Garcia",
+      "profile": "Cardiologists",
+      "id": "Cardiologists12",
+      "treatments for": "cardiovascular condition"
+    },
+    {
+      "name": "Taylor Brown",
+      "profile": "Cardiologists",
+      "id": "Cardiologists13",
+      "treatments for": "cardiovascular condition"
+    },
+    {
+      "name": "Natalie",
+      "profile": "Neurologists",
+      "id": "Neurologists15",
+      "treatments for": "diseases of the nervous system, brain"
     }
   ]
 }

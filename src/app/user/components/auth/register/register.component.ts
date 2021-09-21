@@ -82,10 +82,17 @@ export class RegisterComponent implements OnInit {
     this.isLoading = true; // show the loader after registrion form submit
     this.authSubscription = this.authServive
       .registerUser(this.registerForm.value)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false; //hide the loader after request happens
+          setTimeout(() => {
+            this.router.navigate(['/']);
+          }, 1000);
+        })
+      )
       .subscribe(
         (res) => {
           console.log(res);
-          this.isLoading = false; //hide the loader after request happens
           this.showAlert('You are Registered Successfully');
         },
         (err) => {
@@ -116,9 +123,9 @@ export class RegisterComponent implements OnInit {
 
     compRef.instance.message = message;
     compRef.instance.isSuccess = true;
-    setInterval(() => {
+    setTimeout(() => {
       console.log('clear');
       hostViewContRef.clear();
-    }, 10000);
+    }, 1000);
   }
 }

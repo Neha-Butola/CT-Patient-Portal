@@ -68,6 +68,7 @@ export class AuthService {
     if (!this.isLoggedIn()) return;
     localStorage.clear();
     this.checkStorage();
+    this.userData = null;
   }
 
   getUserData() {

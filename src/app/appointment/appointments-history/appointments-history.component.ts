@@ -32,7 +32,7 @@ export class AppointmentsHistoryComponent implements OnInit {
         this.appointments.forEach((element) => {
           console.log(element);
           this.appevents.push({
-            title: element.provider,
+            title: element.title,
             duration: 1,
             start: element.date,
           });
