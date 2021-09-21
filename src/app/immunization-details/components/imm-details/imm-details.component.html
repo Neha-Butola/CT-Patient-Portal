@@ -1,3 +1,18 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a [routerLink]="['/dashboard/patient-dashboard']">Home</a>
+    </li>
+    <!-- <li class="breadcrumb-item active" aria-current="page">Demographics</li> -->
+  </ol>
+  <!--<ol class="breadcrumb breadcumb-ol" *ngIf="immunization">
+    <li class="breadcrumb-item">
+      <a href="javascript:void(0)" (click)="enableDate()">{{
+        isEdit ? "View" : "Edit"
+      }}</a>
+    </li>
+  </ol>-->
+</nav>
 <div class="container">
   <form
     (ngSubmit)="onSubmit(immForm, formDirective)"
@@ -22,8 +37,8 @@
             </mat-select>
             <mat-error>Please choose a vaccine Name</mat-error>
           </mat-form-field>
-          <div class="mb-2" *ngIf="!isEdit">
-            <div class="field-label font-weight-bold">Vaccine Name</div>
+          <div class="mb-2 dflex" *ngIf="!isEdit">
+            <div class="field-label">Vaccine Name</div>
             <div>{{ immunization.vaccinename }}</div>
           </div>
         </div>
@@ -36,11 +51,8 @@
               >1</mat-checkbox
             >
           </section>
-          <div class="mb-2" *ngIf="!isEdit">
-            <div class="field-label font-weight-bold">Doses 1</div>
-            <div>vaccinated</div>
-          </div>
         </div>
+
         <div class="col-sm-12 col-md-6">
           <mat-form-field *ngIf="isEdit">
             <mat-label>Date(DD/MM/YYYY)</mat-label>
@@ -57,11 +69,12 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
+
         <div class="col-sm-12 col-md-6">
           <section *ngIf="isEdit">
             <mat-checkbox
               color="primary"
-              [disabled]="true"
+              [disabled]="isDisabled"
               formControlName="doses2"
               [required]="true"
               >2</mat-checkbox
@@ -74,9 +87,8 @@
             <input
               matInput
               [matDatepicker]="picker1"
-              (click)="myFilter()"
               formControlName="date1"
-              [disabled]="true"
+              [disabled]="isDisabled"
               [readonly]="true"
             />
             <mat-datepicker-toggle
@@ -84,6 +96,37 @@
               [for]="picker1"
             ></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="dflex flex1 ml16">
+          <div class="mb-2" *ngIf="!isEdit">
+            <div class="field-label">Doses 1</div>
+            <div>vaccinated</div>
+          </div>
+          <div class="mb-2" *ngIf="!isEdit">
+            <div class="field-label">Dose 2 status</div>
+            <div>Not Vaccinated</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-2 dflex col-sm-12 col-md-12" *ngIf="!isEdit">
+          <section *ngIf="!isEdit">
+            <mat-checkbox
+              color="primary"
+              formControlName="doses2"
+              [required]="true"
+              >2</mat-checkbox
+            >
+          </section>
+          <mat-form-field (click)="myFilter()" class="flex0">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date1" />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
       </div>
@@ -120,7 +163,7 @@
             <mat-error>Please choose a vaccine type</mat-error>
           </mat-form-field>
           <div class="mb-2" *ngIf="!isEdit">
-            <div class="field-label font-weight-bold">Vaccine Type</div>
+            <div class="field-label">Vaccine Type</div>
             <div>{{ immunization.vaccinetype }}</div>
           </div>
         </div>

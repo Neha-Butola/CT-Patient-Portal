@@ -5,4 +5,5 @@ export interface Immunization {
   doses1: string;
   doses2: string;
   date1: Date;
+  id: number;
 }

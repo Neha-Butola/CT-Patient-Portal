@@ -8,3 +8,38 @@ mat-card-header {
 mat-form-field {
   width: 100%;
 }
+
+.dflex {
+  display: flex;
+  justify-content: space-between;
+  .field-label {
+    font-weight: bold;
+  }
+}
+.flex1 {
+  flex: 1;
+}
+.flex0 {
+  flex: 0;
+}
+.ml16 {
+  margin-left: 16px;
+}
+:host {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    background: #e9ecef;
+    ol {
+      margin-bottom: 0;
+    }
+  }
+  ::ng-deep {
+    .bg-primary .mat-card-header-text {
+      margin: 0 8px;
+    }
+    .text-primary .mat-card-header-text {
+      margin: 0;
+    }
+  }
+}
