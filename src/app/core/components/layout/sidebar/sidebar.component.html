@@ -1,6 +1,36 @@
+<!-- Side bar for admin -->
 <ul
   class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
   id="accordionSidebar"
+  *ngIf="user.role == 'Admin'"
+>
+  <li class="nav-item menu-button">
+    <a
+      class="nav-link"
+      [routerLink]="['/dashboard/admin-dashboard']"
+      routerLinkActive="active"
+    >
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </a>
+  </li>
+  <mat-divider></mat-divider>
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      [routerLink]="['/medication-and-allergies/history']"
+      routerLinkActive="active"
+    >
+      <mat-icon>local_hospital</mat-icon>
+      <span>Medication</span>
+    </a>
+  </li>
+</ul>
+<!-- Side bar for Patient -->
+<ul
+  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+  id="accordionSidebar"
+  *ngIf="user.role == 'Patient'"
 >
   <li class="nav-item menu-button">
     <a
@@ -12,8 +42,6 @@
       <span>Dashboard</span>
     </a>
   </li>
-
-  <mat-divider></mat-divider>
   <li class="nav-item">
     <a
       class="nav-link"
