@@ -37,6 +37,8 @@ export class ImmDetailsComponent implements OnInit {
     private snackBar: MatSnackBar,
     private datePipe: DatePipe
   ) {}
+
+  //field validation
   createForm(immunization?: Immunization) {
     this.immForm = this.formbuilder.group({
       vaccinename: new FormControl(immunization?.vaccinename || '', [
@@ -55,19 +57,24 @@ export class ImmDetailsComponent implements OnInit {
       ]),
     });
   }
+  //validation for mat-step1
   isNameValid() {
     return this.immForm.pristine || this.immForm.valid;
   }
+  //validation for mat-step2
   issecondValid() {
     return this.immunizationForm.pristine || this.immunizationForm.valid;
   }
+  //alert message when go to another form without submit
   changeEvent(e) {
-    console.log(e);
-    if (e.selectedIndex != 0 && this.isCompleted == false) {
+    if (e.selectedIndex == 1 && this.isCompleted == false) {
       this.snackBar.open('Please fill the first form', 'cancel');
     }
+    if (e.selectedIndex == 2 && this.isCompleted == false) {
+      this.snackBar.open('Please fill the second form', 'cancel');
+    }
   }
-
+  //first form for submit method
   onSubmit(formData: any, formDirective: FormGroupDirective): void {
     if (this.immForm.valid) {
       if (this.immForm.value.date != 'undefined') {
@@ -89,6 +96,7 @@ export class ImmDetailsComponent implements OnInit {
       }
     }
   }
+  //second form for submit method
   onformSubmit(formData: any, formsecondDirective: FormGroupDirective): void {
     if (this.immunizationForm.valid) {
       var date = this.immForm.value.date.toLocaleDateString();
@@ -98,6 +106,7 @@ export class ImmDetailsComponent implements OnInit {
         this.ImmDetailsService.submitImmunization(
           this.immunizationForm.value
         ).subscribe((res: any) => {
+          this.isCompleted = true;
           this.immunization = {
             ...this.immForm.value,
             ...this.immunizationForm.value,

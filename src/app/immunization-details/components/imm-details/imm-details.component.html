@@ -12,7 +12,7 @@
   #stepper="matHorizontalStepper"
   (selectionChange)="changeEvent($event)"
 >
-  <mat-step [stepControl]="immForm" errorMessage="Name is required.">
+  <mat-step [stepControl]="immForm">
     <form
       (ngSubmit)="onSubmit(immForm, formDirective)"
       class="p-3 w-100"
@@ -247,9 +247,11 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    <mat-card>Your vaccination form is successfully done.</mat-card>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-    </div>
+    <mat-card
+      ><span class="message">Your vaccination form is successfully done.</span>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+      </div>
+    </mat-card>
   </mat-step>
 </mat-horizontal-stepper>
