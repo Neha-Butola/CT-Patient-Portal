@@ -14,6 +14,7 @@ export class FetchpostService {
     private httpClient: HttpClient,
     private authService: AuthService
   ) {}
+
   createMedicationAndAllergies(data: any): Observable<any> {
     data.userId = this.authService.userData.id;
     return this.httpClient.post(this.api, data);
@@ -21,7 +22,12 @@ export class FetchpostService {
   getMedicationData(): Observable<any> {
     let userId;
     userId = this.authService.userData.id;
-    return this.httpClient.get(this.api + '?' + 'userId' + '=' + userId);
+    if (this.authService.userData.role == 'Patient') {
+      return this.httpClient.get(this.api + '?' + 'userId' + '=' + userId);
+    } else {
+      return this.httpClient.get(this.api);
+    }
+    return this.getMedicationData();
   }
   deleteMedicationData(pid: any): Observable<any> {
     return this.httpClient.delete(this.api + '/' + pid);

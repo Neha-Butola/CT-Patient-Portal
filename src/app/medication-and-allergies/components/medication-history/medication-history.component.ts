@@ -5,12 +5,15 @@ import { MedicationFormDetails } from '../../model/medication-form-details';
 import { MatDialog } from '@angular/material/dialog';
 import { EditMedicationComponent } from './modal/edit-medication/edit-medication.component';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/user/services/auth.service';
+
 @Component({
   selector: 'app-medication-history',
   templateUrl: './medication-history.component.html',
   styleUrls: ['./medication-history.component.scss'],
 })
 export class MedicationHistoryComponent implements OnInit {
+  user: any;
   isShown: boolean = false;
   formValue!: FormGroup;
   medicationDetails: any;
@@ -18,10 +21,12 @@ export class MedicationHistoryComponent implements OnInit {
   constructor(
     private router: Router,
     private fetchpostservice: FetchpostService,
-    private formbuilder: FormBuilder
+    private formbuilder: FormBuilder,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.user = this.authService.userData;
     this.formValue = this.formbuilder.group({
       currentmedication: [],
       otcmedication: [],
@@ -46,7 +51,7 @@ export class MedicationHistoryComponent implements OnInit {
         this.medicationDetails = res;
       },
 
-    (err) => {}
+      (err) => {}
     );
   }
   deleteMedication(m: any) {

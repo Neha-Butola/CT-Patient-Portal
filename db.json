@@ -9,7 +9,7 @@
       "confirmPassword": "123456",
       "dob": "2003-09-04T18:30:00.000Z",
       "phoneNumber": 23424342424,
-      "role": "Patient"
+      "role": "Admin"
     },
     {
       "email": "neha@demo.com",
@@ -92,12 +92,12 @@
   "medication-and-allergies": [
     {
       "currentmedication": "Latest medication",
-      "otcmedication": "yes Taken",
+      "otcmedication": "yes ",
       "herbsmineralandvitamin": "Once in a week",
       "socialdrug": "Not suggested",
       "pastprescribedmedication": "Yes",
       "drugallergies": "NO",
-      "reactionother": "no reactions",
+      "reactionother": "no reaction",
       "id": 3,
       "userId": "Bhartesh31"
     },
