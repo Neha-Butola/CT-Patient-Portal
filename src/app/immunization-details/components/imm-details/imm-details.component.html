@@ -15,7 +15,11 @@
       [formGroup]="immForm"
       #formDirective="ngForm"
     >
-      <ng-template matStepLabel>Fill out your first vaccination</ng-template>
+      <ng-template matStepLabel
+        ><span [ngStyle]="{ color: isNameValid() ? 'black' : 'red' }"
+          >Fill out your first vaccination</span
+        ></ng-template
+      >
       <mat-card-header class="bg-primary text-white mb-2 p-2 rounded"
         ><h4>Immunization Record</h4>
       </mat-card-header>
@@ -41,7 +45,7 @@
         </div>
         <div class="row">
           <div class="col-sm-12 col-md-6">
-            <mat-label>Number Of Doses </mat-label>
+            <mat-label class="number">Number Of Doses </mat-label>
             <section *ngIf="isEdit">
               <mat-checkbox color="primary" required formControlName="doses1"
                 >1</mat-checkbox
@@ -74,6 +78,14 @@
             <div class="mb-2" *ngIf="!isEdit">
               <div class="field-label">Dose 2 status</div>
               <div>Not Vaccinated</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <div class="mb-2 dflex" *ngIf="!isEdit">
+              <div class="field-label">Vaccine1 Date</div>
+              <div>{{ immunization.date }}</div>
             </div>
           </div>
         </div>
@@ -118,8 +130,13 @@
       </mat-card>
 
       <div class="d-flex justify-content-center mt-4">
-        <button mat-button matStepperNext>Next</button>
-        <button type="submit" class="btn" mat-raised-button color="primary">
+        <button
+          type="submit"
+          class="btn"
+          mat-raised-button
+          color="primary"
+          required
+        >
           Submit
         </button>
       </div>
@@ -132,7 +149,11 @@
       [formGroup]="immunizationForm"
       #formsecondDirective="ngForm"
     >
-      <ng-template matStepLabel>Fill out your second vaccination</ng-template>
+      <ng-template matStepLabel
+        ><span [ngStyle]="{ color: issecondValid() ? 'black' : 'red' }"
+          >Fill out your second vaccination</span
+        ></ng-template
+      >
       <mat-card-header class="bg-primary text-white mb-2 p-2 rounded"
         ><h4>Immunization Record</h4>
       </mat-card-header>
@@ -150,7 +171,7 @@
         </div>
         <div class="row">
           <div class="col-sm-12 col-md-6">
-            <mat-label>Number Of Doses </mat-label>
+            <mat-label class="number">Number Of Doses </mat-label>
             <div class="mb-2" *ngIf="!isEdit">
               <div class="field-label">Doses 1</div>
               <div>vaccinated</div>
@@ -222,7 +243,7 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    Your vaccination form is successfully done.
+    <mat-card>Your vaccination form is successfully done.</mat-card>
     <div>
       <button mat-button matStepperPrevious>Back</button>
     </div>

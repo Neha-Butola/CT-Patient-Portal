@@ -8,6 +8,10 @@ mat-card-header {
 mat-form-field {
   width: 100%;
 }
+.doses {
+  color: #18beb7;
+  font-weight: 700;
+}
 
 .dflex {
   display: flex;
@@ -16,11 +20,11 @@ mat-form-field {
     font-weight: bold;
   }
 }
+.number {
+  color: #18beb7;
+}
 .flex1 {
   flex: 1;
-}
-.flex0 {
-  flex: 0;
 }
 .ml16 {
   margin-left: 16px;

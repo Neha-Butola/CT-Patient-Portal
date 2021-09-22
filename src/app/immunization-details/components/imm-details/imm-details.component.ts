@@ -25,9 +25,8 @@ export class ImmDetailsComponent implements OnInit {
   issecondEdit: boolean = true;
   immunization: Immunization;
   isDisabled: boolean = true;
-  isLinear = false;
-  isAbcChecked = true;
-
+  isLinear = true;
+  isCompleted: false;
   myDate = new Date();
   constructor(
     private formbuilder: FormBuilder,
@@ -48,17 +47,18 @@ export class ImmDetailsComponent implements OnInit {
       ]),
     });
     this.immunizationForm = this.formbuilder.group({
-      vaccinename: new FormControl(immunization?.vaccinename || ''),
-      vaccinetype: new FormControl(immunization?.vaccinetype || ''),
-      date: new FormControl(immunization?.date || ''),
-      doses1: new FormControl(immunization?.doses1 || ''),
       date1: new FormControl(immunization?.date1 || '', [Validators.required]),
       doses2: new FormControl(immunization?.doses2 || '', [
         Validators.required,
       ]),
     });
   }
-
+  isNameValid() {
+    return this.immForm.pristine || this.immForm.valid;
+  }
+  issecondValid() {
+    return this.immunizationForm.pristine || this.immunizationForm.valid;
+  }
   onSubmit(formData: any, formDirective: FormGroupDirective): void {
     if (this.immForm.valid) {
       if (this.immForm.value.date != 'undefined') {
@@ -89,7 +89,10 @@ export class ImmDetailsComponent implements OnInit {
         this.ImmDetailsService.submitImmunization(
           this.immunizationForm.value
         ).subscribe((res: any) => {
-          this.immunization = { ...this.immunizationForm.value };
+          this.immunization = {
+            ...this.immForm.value,
+            ...this.immunizationForm.value,
+          };
           this.issecondEdit = false;
 
           this.snackBar.open('Your second vaccination successfully.', 'cancel');
