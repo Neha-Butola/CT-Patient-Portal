@@ -76,19 +76,20 @@
       "phoneNumber": 1234567890,
       "role": "Patient",
       "id": "Neha11"
+    },
+    {
+      "email": "bhartesh.singh@citiustech.com",
+      "password": "$2a$10$SGWC48/W6jl51mpyNqFvq.S0gP.Y6PzM4Yhr3y/Z09H9/LCKmyuWG",
+      "firstName": "Bhartesh",
+      "lastName": "Singh",
+      "confirmPassword": "Bhartesh@7448",
+      "dob": "1994-11-10T18:30:00.000Z",
+      "phoneNumber": 8744904863,
+      "role": "Patient",
+      "id": "Bhartesh31"
     }
   ],
   "medication-and-allergies": [
-    {
-      "currentmedication": "Therapy",
-      "otcmedication": "2 years ago",
-      "herbsmineralandvitamin": "5 years ago",
-      "socialdrug": "Not in Current",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "No",
-      "reactionother": "nO",
-      "id": 2
-    },
     {
       "currentmedication": "Latest medication",
       "otcmedication": "yes Taken",
@@ -96,39 +97,9 @@
       "socialdrug": "Not suggested",
       "pastprescribedmedication": "Yes",
       "drugallergies": "NO",
-      "reactionother": "no reaction",
-      "id": 3
-    },
-    {
-      "currentmedication": "common body illnesses",
-      "otcmedication": "2 years ago",
-      "herbsmineralandvitamin": "5 years ago",
-      "socialdrug": "Not in Current",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "No",
-      "reactionother": "nO",
-      "id": 4,
-      "userId": "neha21"
-    },
-
-    {
-      "currentmedication": "cardiovascular condition",
-      "otcmedication": "2 years ago",
-      "herbsmineralandvitamin": "two years ago",
-      "socialdrug": "not taken",
-      "pastprescribedmedication": "yes",
-      "id": 2,
-      "userId": "neha21"
-    },
-    {
-      "currentmedication": "injuries of internal organ systems",
-      "herbsmineralandvitamin": "no vitamins",
-      "socialdrug": "yes taken",
-      "pastprescribedmedication": "not taken",
-      "drugallergies": "yes i have",
-      "reactionother": "no reaction",
-      "id": 5,
-      "userId": "Vamsi12"
+      "reactionother": "no reactions",
+      "id": 3,
+      "userId": "Bhartesh31"
     },
     {
       "currentmedication": "cardiovascular condition",
@@ -137,9 +108,20 @@
       "socialdrug": "Not in Current",
       "pastprescribedmedication": "Yes",
       "drugallergies": "No",
-      "reactionother": "nO",
+      "reactionother": "no",
       "id": 6,
       "userId": "Vamsi12"
+    },
+    {
+      "currentmedication": "BH2",
+      "otcmedication": "bjkb",
+      "herbsmineralandvitamin": "kbkb",
+      "socialdrug": "k",
+      "pastprescribedmedication": "kb",
+      "drugallergies": "kbk",
+      "reactionother": "bks",
+      "userId": "Bhartesh31",
+      "id": 8
     }
   ],
   "demographics": [
@@ -174,6 +156,22 @@
       "surgeries": "surgies",
       "insurance": "LIC POLICIES",
       "id": 2
+    },
+    {
+      "firstname": "Bhartesh",
+      "lastname": "SOgh",
+      "dob": "2003-09-19T18:30:00.000Z",
+      "gender": "male",
+      "ethnicity": "yes",
+      "education": "school",
+      "occupation": "not",
+      "address": "GUrgaon",
+      "phone": 874904863,
+      "medical": "kjbjb",
+      "familymedical": "bkb",
+      "surgeries": "bkj",
+      "insurance": "fdsd",
+      "id": "Bhartesh31"
     }
   ],
   "appointments": [
