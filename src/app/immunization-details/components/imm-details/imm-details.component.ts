@@ -11,6 +11,7 @@ import { Immunization } from '../../model/immunization';
 import { ImmDetailsService } from '../../services/imm-details.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-imm-details',
   templateUrl: './imm-details.component.html',
@@ -26,8 +27,9 @@ export class ImmDetailsComponent implements OnInit {
   immunization: Immunization;
   isDisabled: boolean = true;
   isLinear = true;
-  isCompleted: false;
+  isCompleted: boolean = false;
   myDate = new Date();
+
   constructor(
     private formbuilder: FormBuilder,
     private router: Router,
@@ -59,14 +61,21 @@ export class ImmDetailsComponent implements OnInit {
   issecondValid() {
     return this.immunizationForm.pristine || this.immunizationForm.valid;
   }
+  changeEvent(e) {
+    console.log(e);
+    if (e.selectedIndex != 0 && this.isCompleted == false) {
+      this.snackBar.open('Please fill the first form', 'cancel');
+    }
+  }
+
   onSubmit(formData: any, formDirective: FormGroupDirective): void {
     if (this.immForm.valid) {
       if (this.immForm.value.date != 'undefined') {
         this.ImmDetailsService.submitImmunization(this.immForm.value).subscribe(
           (res: any) => {
+            this.isCompleted = true;
             this.immunization = { ...this.immForm.value };
             this.isEdit = false;
-            console.log('first form');
             this.snackBar.open(
               'Your first vaccination successfully.',
               'cancel'

@@ -7,7 +7,11 @@
   </ol>
 </nav>
 
-<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+<mat-horizontal-stepper
+  [linear]="isLinear"
+  #stepper="matHorizontalStepper"
+  (selectionChange)="changeEvent($event)"
+>
   <mat-step [stepControl]="immForm" errorMessage="Name is required.">
     <form
       (ngSubmit)="onSubmit(immForm, formDirective)"
