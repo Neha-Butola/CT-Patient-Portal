@@ -1,5 +1,15 @@
+mat-toolbar {
+  height: 59px;
+}
+
+mat-sidenav-container {
+  min-height: calc(100% - 59px);
+}
+
 mat-sidenav {
   width: 250px;
+  top: 59px;
+  height: calc(100% - 59px);
   border-right: none;
   color: white;
   padding: 16px 0;

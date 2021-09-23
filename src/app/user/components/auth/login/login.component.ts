@@ -50,11 +50,23 @@ export class LoginComponent implements OnInit {
             if (userData.email == element.email) {
               this.user = element;
               console.log(this.user);
+              //console.log(this.user.role);
               this.authService.setStorage(this.user);
             }
           });
-          this.router.navigate(['/dashboard/patient-dashboard']);
-          this.isLoading = false; //hide the loader after request happens
+          //this.router.navigate(['/dashboard/patient-dashboard']);
+          //this.isLoading = false; //hide the loader after request happens
+          if (this.user.role == 'Patient') {
+            this.router.navigate(['/dashboard/patient-dashboard']);
+            this.isLoading = false; //hide the loader after request happens
+          } else if (this.user.role == 'Admin') {
+            this.router.navigate(['/dashboard/admin-dashboard']);
+            this.isLoading = false; //hide the loader after request happens
+          } else {
+            console.log('Physician');
+            //this.router.navigate(['/dashboard/patient-dashboard']);
+            //this.isLoading = false; //hide the loader after request happens
+          }
         });
       },
       (err) => {
@@ -66,9 +78,8 @@ export class LoginComponent implements OnInit {
   }
 
   private showAlert(message: string) {
-    const alertCmpFactory = this.cfResolver.resolveComponentFactory(
-      AlertComponent
-    );
+    const alertCmpFactory =
+      this.cfResolver.resolveComponentFactory(AlertComponent);
     const hostViewContRef = this.alertHost.viewContainerRef;
     hostViewContRef.clear();
 

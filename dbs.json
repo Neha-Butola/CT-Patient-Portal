@@ -1,17 +1,6 @@
 {
   "users": [
     {
-      "id": "Siti12",
-      "email": "sitikanta42@gmail.com",
-      "password": "$2a$10$Vf2628PU8gY.ZrypdsWqmO4mmOu8wvy6Q4RDqF2Ob2l5aNnuO69nW",
-      "firstName": "Sitikanta",
-      "lastName": "Satapathy",
-      "confirmPassword": "123456",
-      "dob": "2003-09-04T18:30:00.000Z",
-      "phoneNumber": 23424342424,
-      "role": "Admin"
-    },
-    {
       "id": "Vamsi12",
       "email": "krishnavamsi@gmail.com",
       "password": "$2a$10$Vf2628PU8gY.ZrypdsWqmO4mmOu8wvy6Q4RDqF2Ob2l5aNnuO69nW",
@@ -20,7 +9,7 @@
       "confirmPassword": "123456",
       "dob": "2003-09-04T18:30:00.000Z",
       "phoneNumber": 23424342424,
-      "role": "Patient"
+      "role": "Admin"
     },
     {
       "email": "neha@demo.com",
@@ -102,54 +91,15 @@
   ],
   "medication-and-allergies": [
     {
-      "currentmedication": "Therapy",
-      "otcmedication": "2 years ago",
-      "herbsmineralandvitamin": "5 years ago",
-      "socialdrug": "Not in Current",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "No",
-      "reactionother": "no",
-      "id": 2
-    },
-    {
       "currentmedication": "Latest medication",
-      "otcmedication": "yes ",
+      "otcmedication": "no",
       "herbsmineralandvitamin": "Once in a week",
       "socialdrug": "Not suggested",
       "pastprescribedmedication": "Yes",
       "drugallergies": "NO",
       "reactionother": "no reaction",
-      "id": 3
-    },
-    {
-      "currentmedication": "common body illnesses",
-      "otcmedication": "2 years ago",
-      "herbsmineralandvitamin": "5 years ago",
-      "socialdrug": "Not in Current",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "No",
-      "reactionother": "nO",
-      "id": 4,
-      "userId": "neha21"
-    },
-    {
-      "currentmedication": "cardiovascular condition",
-      "otcmedication": "2 years ago",
-      "herbsmineralandvitamin": "two years ago",
-      "socialdrug": "not taken",
-      "pastprescribedmedication": "yes",
-      "id": 2,
-      "userId": "neha21"
-    },
-    {
-      "currentmedication": "injuries of internal organ systems",
-      "herbsmineralandvitamin": "no vitamins",
-      "socialdrug": "yes taken",
-      "pastprescribedmedication": "not taken",
-      "drugallergies": "yes i have",
-      "reactionother": "no reaction",
-      "id": 5,
-      "userId": "Vamsi12"
+      "id": 3,
+      "userId": "Bhartesh31"
     },
     {
       "currentmedication": "cardiovascular condition",
@@ -163,23 +113,14 @@
       "userId": "Vamsi12"
     },
     {
-      "currentmedication": "dsdsds",
-      "otcmedication": "ddfdf",
-      "herbsmineralandvitamin": "dfdfdf",
-      "socialdrug": "dvcvc",
-      "pastprescribedmedication": "dvdd",
-      "drugallergies": "sdsds",
-      "reactionother": "sdsds",
-      "id": 7
-    },
-    {
-      "currentmedication": "dsdsds",
-      "otcmedication": "ddfdf",
-      "herbsmineralandvitamin": "dfdfdf",
-      "socialdrug": "dvcvc",
-      "pastprescribedmedication": "dvdd",
-      "drugallergies": "sdsds",
-      "reactionother": "sdsds",
+      "currentmedication": "BH2",
+      "otcmedication": "bjkb",
+      "herbsmineralandvitamin": "kbkb",
+      "socialdrug": "k",
+      "pastprescribedmedication": "kb",
+      "drugallergies": "kbk",
+      "reactionother": "bks",
+      "userId": "Bhartesh31",
       "id": 8
     }
   ],

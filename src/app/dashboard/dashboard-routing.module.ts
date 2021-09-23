@@ -9,6 +9,13 @@ const routes: Routes = [
         (m) => m.PatientDashboardModule
       ),
   },
+  {
+    path: 'admin-dashboard',
+    loadChildren: () =>
+      import('./admin-dashboard/admin-dashboard.module').then(
+        (m) => m.AdminDashboardModule
+      ),
+  },
 ];
 
 @NgModule({
