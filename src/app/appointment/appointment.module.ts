@@ -10,7 +10,7 @@ import { DeleteAppointmentComponent } from './schedule-appointment/modals/delete
 import { AppointmentsHistoryComponent } from './appointments-history/appointments-history.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
-
+import { DatePipe } from '@angular/common';
 FullCalendarModule.registerPlugins([
   // register FullCalendar plugins
   dayGridPlugin,
@@ -31,5 +31,6 @@ FullCalendarModule.registerPlugins([
     ReactiveFormsModule,
     FullCalendarModule,
   ],
+  providers: [DatePipe],
 })
 export class AppointmentModule {}

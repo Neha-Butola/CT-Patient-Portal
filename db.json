@@ -110,7 +110,6 @@
       "id": 4,
       "userId": "neha21"
     },
-
     {
       "currentmedication": "cardiovascular condition",
       "otcmedication": "2 years ago",
@@ -178,26 +177,34 @@
   ],
   "appointments": [
     {
-      "title": "injuries of internal organ systems",
-      "date": "2021-09-12T18:30:00.000Z",
-      "physician": "Will Smith",
-      "slot": "3-4 pm",
-      "userId": "Vamsi12",
-      "id": "injuries of internal organ systems31"
-    },
-    {
       "title": "cardiovascular condition",
-      "date": "2021-09-26T18:30:00.000Z",
-      "physician": "Maria Garcia",
-      "slot": "3-4 pm",
-      "userId": "Vamsi12",
+      "date": "2021-09-20",
+      "physician": "Taylor Brown",
+      "slot": "11 PM",
+      "userId": "neha21",
       "id": "cardiovascular condition51"
     },
     {
+      "title": "cardiovascular condition",
+      "date": "2021-09-13",
+      "physician": "Taylor Brown",
+      "slot": "5 PM",
+      "userId": "neha21",
+      "id": "cardiovascular condition91"
+    },
+    {
+      "title": "cardiovascular condition",
+      "date": "2021-09-25",
+      "physician": "Taylor Brown",
+      "slot": "1 PM",
+      "userId": "neha21",
+      "id": "cardiovascular condition11"
+    },
+    {
       "title": "common body illnesses",
-      "date": "2021-09-19T18:30:00.000Z",
-      "physician": "James Smith",
-      "slot": "1-2 pm",
+      "date": "2021-09-28",
+      "physician": "Rachel Lopez",
+      "slot": "4 PM",
       "userId": "neha21",
       "id": "common body illnesses61"
     }
