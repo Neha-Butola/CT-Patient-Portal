@@ -76,8 +76,6 @@
       "phoneNumber": 1234567890,
       "role": "Patient",
       "id": "Neha11"
-<<<<<<< HEAD
-=======
     },
     {
       "email": "bhartesh@gmail.com",
@@ -89,47 +87,10 @@
       "phoneNumber": 9709709123,
       "role": "Patient",
       "id": "Bhartesh11"
->>>>>>> 8ef4414 (started working on billing module created form and list components)
     }
   ],
   "medication-and-allergies": [
     {
-<<<<<<< HEAD
-      "currentmedication": "Therapy",
-      "otcmedication": "2 years ago",
-      "herbsmineralandvitamin": "5 years ago",
-      "socialdrug": "Not in Current",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "No",
-      "reactionother": "nO",
-      "id": 2
-    },
-    {
-      "currentmedication": "Latest medication",
-      "otcmedication": "yes Taken",
-      "herbsmineralandvitamin": "Once in a week",
-      "socialdrug": "Not suggested",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "NO",
-      "reactionother": "no reaction",
-      "id": 3
-    },
-    {
-      "currentmedication": "common body illnesses",
-      "otcmedication": "2 years ago",
-      "herbsmineralandvitamin": "5 years ago",
-      "socialdrug": "Not in Current",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "No",
-      "reactionother": "nO",
-      "id": 4,
-      "userId": "neha21"
-    },
-
-    {
-      "currentmedication": "cardiovascular condition",
-      "otcmedication": "2 years ago",
-=======
       "currentmedication": "common body illnesses",
       "herbsmineralandvitamin": "two years ago",
       "socialdrug": "not taken",
@@ -139,7 +100,6 @@
     },
     {
       "currentmedication": "cardiovascular condition",
->>>>>>> 8ef4414 (started working on billing module created form and list components)
       "herbsmineralandvitamin": "two years ago",
       "socialdrug": "not taken",
       "pastprescribedmedication": "yes",
@@ -158,16 +118,6 @@
     },
     {
       "currentmedication": "cardiovascular condition",
-<<<<<<< HEAD
-      "otcmedication": "2 years ago",
-      "herbsmineralandvitamin": "5 years ago",
-      "socialdrug": "Not in Current",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "No",
-      "reactionother": "nO",
-      "id": 6,
-      "userId": "Vamsi12"
-=======
       "herbsmineralandvitamin": "vfdvsfdvfvvf",
       "socialdrug": "vdfvdsfsfdv",
       "pastprescribedmedication": "vfdvfsdvvdfv",
@@ -193,7 +143,6 @@
       "drugallergies": "DRUGS",
       "reactionother": "ALLERGIES",
       "id": 8
->>>>>>> 8ef4414 (started working on billing module created form and list components)
     }
   ],
   "demographics": [
@@ -228,8 +177,6 @@
       "surgeries": "surgies",
       "insurance": "LIC POLICIES",
       "id": 2
-<<<<<<< HEAD
-=======
     },
     {
       "firstname": "Bhartesh",
@@ -245,7 +192,6 @@
       "surgeries": "vcncvnvcn b",
       "insurance": "LIC POLICIES",
       "id": 3
->>>>>>> 8ef4414 (started working on billing module created form and list components)
     }
   ],
   "appointments": [
@@ -272,8 +218,6 @@
       "slot": "1-2 pm",
       "userId": "neha21",
       "id": "common body illnesses61"
-<<<<<<< HEAD
-=======
     },
     {
       "date": "2021-10-03T18:30:00.000Z",
@@ -286,7 +230,6 @@
       "provider": "John",
       "slot": "11-12",
       "id": "KKviP-y"
->>>>>>> 8ef4414 (started working on billing module created form and list components)
     }
   ],
   "physicians": [

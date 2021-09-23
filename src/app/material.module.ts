@@ -12,14 +12,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
-<<<<<<< HEAD
-import { MatTableModule } from '@angular/material/table';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatDialogModule } from '@angular/material/dialog';
-=======
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
->>>>>>> 8ef4414 (started working on billing module created form and list components)
 @NgModule({
   imports: [
     MatButtonModule,
@@ -37,14 +31,8 @@ import { MatTableModule } from '@angular/material/table';
     MatTabsModule,
     MatMenuModule,
     MatSelectModule,
-<<<<<<< HEAD
-    MatTableModule,
-    MatSnackBarModule,
-    MatDialogModule,
-=======
     MatStepperModule,
     MatTableModule,
->>>>>>> 8ef4414 (started working on billing module created form and list components)
   ],
   exports: [
     MatButtonModule,
@@ -62,14 +50,8 @@ import { MatTableModule } from '@angular/material/table';
     MatTabsModule,
     MatMenuModule,
     MatSelectModule,
-<<<<<<< HEAD
-    MatTableModule,
-    MatSnackBarModule,
-    MatDialogModule,
-=======
     MatStepperModule,
     MatTableModule,
->>>>>>> 8ef4414 (started working on billing module created form and list components)
   ],
 })
 export class MaterialModule {}
