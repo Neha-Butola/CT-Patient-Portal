@@ -1,6 +1,30 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
 h4 {
   font-size: 18px;
 }
+
+a {
+  color: $text-primary;
+}
+
+/* background -color ====*/
 
 .bg-primary {
   background: $primary !important;

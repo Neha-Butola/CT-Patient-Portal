@@ -41,6 +41,11 @@ const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'billing',
+    loadChildren: () =>
+      import('./billing/billing.module').then((m) => m.BillingModule),
+  },
 ];
 
 @NgModule({

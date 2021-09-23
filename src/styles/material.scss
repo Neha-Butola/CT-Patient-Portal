@@ -2,3 +2,19 @@ mat-toolbar {
   background: #004a9f;
   color: white;
 }
+
+.mat-dialog-container {
+  .btn-close {
+    position: relative;
+    top: -15px;
+    right: -15px;
+    opacity: 0.6;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.cdk-overlay-container {
+  z-index: 1050;
+}
