@@ -14,7 +14,7 @@ const routes: Routes = [
     component: MedicationHistoryComponent,
   },
   {
-    path: 'details',
+    path: 'details/:id',
     component: MedicationDetailsComponent,
   },
 ];

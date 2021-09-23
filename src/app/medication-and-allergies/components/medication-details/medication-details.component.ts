@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FetchpostService } from '../../services/fetchpost.service';
+import { AuthService } from 'src/app/user/services/auth.service';
 
 @Component({
   selector: 'app-medication-details',
@@ -8,7 +9,25 @@ import { FetchpostService } from '../../services/fetchpost.service';
   styleUrls: ['./medication-details.component.scss'],
 })
 export class MedicationDetailsComponent implements OnInit {
-  constructor() {}
+  viewMedicationData: any;
+  id: any;
+  user: any;
+  constructor(
+    private router: Router,
+    private fetchpostservice: FetchpostService,
+    private route: ActivatedRoute,
+    private authService: AuthService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = this.authService.userData;
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.fetchpostservice.viewMedicationData(this.id).subscribe(
+      (response) => {
+        console.log(response);
+        this.viewMedicationData = response;
+      },
+      (err) => {}
+    );
+  }
 }

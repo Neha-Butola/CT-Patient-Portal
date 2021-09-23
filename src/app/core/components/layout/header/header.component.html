@@ -1,6 +1,4 @@
-<nav
-  class="navbar navbar-expand navbar-light bg-white topbar static-top shadow"
->
+<nav class="navbar navbar-expand navbar-light bg-white topbar fixed-top shadow">
   <h2 class="d-none d-sm-inline-block form-inline ml-md-3 text-primary">
     PATIENT DASHBOARD
   </h2>
@@ -42,6 +40,10 @@
     {{ username }}
   </button>
   <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/user/profile']">
+      <mat-icon>voicemail</mat-icon>
+      <span>Profile</span>
+    </button>
     <button mat-menu-item (click)="onLogOut()">
       <mat-icon>voicemail</mat-icon>
       <span>Logout</span>

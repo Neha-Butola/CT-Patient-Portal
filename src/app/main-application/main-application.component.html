@@ -3,10 +3,10 @@
     class="w-100"
     (sidenavToggle)="sidenav.toggle()"
     (logout)="logOut()"
-    [username]="user_name"
+    [username]="user.firstName"
   ></app-header>
 </mat-toolbar>
-<mat-sidenav-container class="h-100">
+<mat-sidenav-container>
   <mat-sidenav
     #sidenav
     role="navigation"
@@ -14,7 +14,7 @@
     opened="true"
     disableClose="true"
     [ngClass]="{ 'd-none': !isAuthenticated }"
-    class="bg-secondary"
+    class="bg-secondary position-fixed"
   >
     <app-sidebar (closeSidenav)="sidenav.close()"></app-sidebar>
   </mat-sidenav>

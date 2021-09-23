@@ -1,0 +1,75 @@
+<form [formGroup]="formValue">
+  <div class="row border-bottom">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Current Medication</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="currentmedication"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">OTC Medication</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="otcmedication"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"
+          >Herbs/Minerals/Vitamin/Antibiotic</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          formControlName="herbsmineralandvitamin"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Past Medication</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="pastprescribedmedication"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Social Drug</label>
+        <input type="text" class="form-control" formControlName="socialdrug" />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Drug Allergies</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="drugallergies"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Other Reaction</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="reactionother"
+        />
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary mt-4 p-y-2 f-right">
+    Submit
+  </button>
+</form>

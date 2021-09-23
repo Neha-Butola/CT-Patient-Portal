@@ -1,0 +1,67 @@
+<button
+  class="bg-transparent border-0 d-flex ml-auto btn-close"
+  (click)="cancel()"
+>
+  <mat-icon>close</mat-icon>
+</button>
+
+<h3 class="text-center mb-4">Book a appointment</h3>
+<form [formGroup]="appointmentForm" (ngSubmit)="createAppointment()">
+  <mat-form-field appearance="standard" class="w-100">
+    <mat-label>Appointment for</mat-label>
+    <mat-select
+      formControlName="title"
+      (selectionChange)="getPhysician($event)"
+    >
+      <mat-option
+        *ngFor="let medication of medications"
+        [value]="medication.title"
+        [disabled]="medication.exist"
+      >
+        {{ medication.title | titlecase }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard" class="w-100" *ngIf="f.title.value">
+    <mat-label>Physician</mat-label>
+    <mat-select formControlName="physician">
+      <mat-option *ngFor="let p of physicians" [value]="p.name">
+        {{ p.name }} - {{ p.profile }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard" class="w-100">
+    <mat-label>Pick a date</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      formControlName="date"
+      [min]="minDate"
+      [max]="maxDate"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard" class="w-100">
+    <mat-label>Available slots</mat-label>
+    <mat-select formControlName="slot">
+      <mat-option *ngFor="let slot of slots" [value]="slot">
+        {{ slot }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="text-center">
+    <button
+      class="my-4"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="appointmentForm.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>

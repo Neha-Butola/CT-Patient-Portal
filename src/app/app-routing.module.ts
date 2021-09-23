@@ -8,6 +8,12 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
   {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
@@ -17,7 +23,7 @@ const routes: Routes = [
       import('./demographics/demographics.module').then(
         (m) => m.DemographicsModule
       ),
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'medication-and-allergies',
@@ -25,12 +31,14 @@ const routes: Routes = [
       import('./medication-and-allergies/medication-and-allergies.module').then(
         (m) => m.MedicationAndAllergiesModule
       ),
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
-    path: 'dashboard',
+    path: 'appointments',
     loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+      import('./appointment/appointment.module').then(
+        (m) => m.AppointmentModule
+      ),
     canActivate: [AuthGuard],
   },
   {
@@ -39,6 +47,11 @@ const routes: Routes = [
       import('./immunization-details/immunization-details.module').then(
         (m) => m.ImmunizationDetailsModule
       ),
+  },
+  {
+    path: 'billing',
+    loadChildren: () =>
+      import('./billing/billing.module').then((m) => m.BillingModule),
   },
 ];
 

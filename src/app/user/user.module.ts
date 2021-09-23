@@ -11,9 +11,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinner.component';
 import { AuthService } from './services/auth.service';
 import { httpInterceptors } from '../shared/interceptors';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AlertComponent } from '../shared/alert/alert.component';
+import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, LoadingSpinnerComponent],
+  declarations: [
+    LoginComponent,
+    RegisterComponent,
+    LoadingSpinnerComponent,
+    ProfileComponent,
+    AlertComponent,
+    PlaceholderDirective,
+  ],
   imports: [
     CommonModule,
     UserRoutingModule,

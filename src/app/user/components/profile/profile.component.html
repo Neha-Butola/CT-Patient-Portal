@@ -1,0 +1,55 @@
+<div class="container bootdey flex-grow-1 container-p-y">
+  <div class="media align-items-center py-3 mb-3">
+    <img
+      src="https://bootdey.com/img/Content/avatar/avatar1.png"
+      alt=""
+      class="d-block ui-w-100 rounded-circle"
+    />
+    <div class="media-body ml-4">
+      <h4 class="font-weight-medium mb-0">
+        {{ profile.firstName | titlecase }} {{ profile.lastName | titlecase }}
+      </h4>
+      <div class="text-muted mb-2">ID: {{ profile.id }}</div>
+      <!-- <a  class="btn btn-primary btn-sm">Edit</a>&nbsp;
+      <a class="btn btn-default btn-sm">Profile</a
+      >&nbsp; -->
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <table class="table user-view-table m-0">
+        <tbody>
+          <tr>
+            <td>Email</td>
+            <td>{{ profile.email }}</td>
+          </tr>
+          <tr>
+            <td>Latest activity:</td>
+            <td>01/23/2018 (14 days ago)</td>
+          </tr>
+          <tr>
+            <td>Date of Birth</td>
+            <td>
+              <span class="fa fa-check text-primary"></span
+              >{{ profile.dob | date }}
+            </td>
+          </tr>
+          <tr>
+            <td>Verified:</td>
+            <td><span class="fa fa-check text-primary"></span>&nbsp; Yes</td>
+          </tr>
+          <tr>
+            <td>Role:</td>
+            <td>{{ profile.role }}</td>
+          </tr>
+          <tr>
+            <td>Status:</td>
+            <td><span class="badge badge-outline-success">Active</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr class="border-light m-0" />
+  </div>
+</div>

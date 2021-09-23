@@ -48,9 +48,16 @@
   </li>
   <mat-divider></mat-divider>
   <li class="nav-item menu-button">
-    <a class="nav-link">
+    <a class="nav-link" [routerLink]="['/appointments/schedule-appointment']">
       <mat-icon>calendar_today</mat-icon>
       <span>Appointments</span>
+    </a>
+  </li>
+  <mat-divider></mat-divider>
+  <li class="nav-item menu-button">
+    <a class="nav-link" [routerLink]="['/appointments/calender']">
+      <mat-icon>calendar_today</mat-icon>
+      <span>Appointments Calender</span>
     </a>
   </li>
   <mat-divider></mat-divider>
@@ -62,7 +69,7 @@
   </li>
   <mat-divider></mat-divider>
   <li class="nav-item menu-button">
-    <a class="nav-link">
+    <a class="nav-link" [routerLink]="['/billing']">
       <mat-icon>payment</mat-icon>
       <span>Billing</span>
     </a>

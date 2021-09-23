@@ -25,12 +25,12 @@ export class MedicationFormComponent implements OnInit {
   //To create medication & allergiea data set
 
   medicationForm() {
-    alert('hoo');
     this.fetchpostservice
       .createMedicationAndAllergies(this.medication)
       .subscribe(
-        (res: any) => {
+        (res) => {
           console.log(JSON.stringify(res), 'medicationform');
+          this.router.navigate(['medication-and-allergies/history']);
         }
         // (err) => {}
       );
