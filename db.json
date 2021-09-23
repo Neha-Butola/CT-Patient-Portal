@@ -1,6 +1,17 @@
 {
   "users": [
     {
+      "id": "Siti12",
+      "email": "sitikanta42@gmail.com",
+      "password": "$2a$10$Vf2628PU8gY.ZrypdsWqmO4mmOu8wvy6Q4RDqF2Ob2l5aNnuO69nW",
+      "firstName": "Sitikanta",
+      "lastName": "Satapathy",
+      "confirmPassword": "123456",
+      "dob": "2003-09-04T18:30:00.000Z",
+      "phoneNumber": 23424342424,
+      "role": "Admin"
+    },
+    {
       "id": "Vamsi12",
       "email": "krishnavamsi@gmail.com",
       "password": "$2a$10$Vf2628PU8gY.ZrypdsWqmO4mmOu8wvy6Q4RDqF2Ob2l5aNnuO69nW",
@@ -143,14 +154,23 @@
       "userId": "Vamsi12"
     },
     {
-      "currentmedication": "BH2",
-      "otcmedication": "bjkb",
-      "herbsmineralandvitamin": "kbkb",
-      "socialdrug": "k",
-      "pastprescribedmedication": "kb",
-      "drugallergies": "kbk",
-      "reactionother": "bks",
-      "userId": "Bhartesh31",
+      "currentmedication": "dsdsds",
+      "otcmedication": "ddfdf",
+      "herbsmineralandvitamin": "dfdfdf",
+      "socialdrug": "dvcvc",
+      "pastprescribedmedication": "dvdd",
+      "drugallergies": "sdsds",
+      "reactionother": "sdsds",
+      "id": 7
+    },
+    {
+      "currentmedication": "dsdsds",
+      "otcmedication": "ddfdf",
+      "herbsmineralandvitamin": "dfdfdf",
+      "socialdrug": "dvcvc",
+      "pastprescribedmedication": "dvdd",
+      "drugallergies": "sdsds",
+      "reactionother": "sdsds",
       "id": 8
     }
   ],
