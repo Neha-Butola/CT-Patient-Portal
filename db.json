@@ -9,7 +9,7 @@
       "confirmPassword": "123456",
       "dob": "2003-09-04T18:30:00.000Z",
       "phoneNumber": 23424342424,
-      "role": "Admin"
+      "role": "Patient"
     },
     {
       "email": "neha@demo.com",
@@ -19,7 +19,7 @@
       "confirmPassword": "123456",
       "dob": "2003-09-02T18:30:00.000Z",
       "phoneNumber": 2321231312,
-      "role": "Physician",
+      "role": "Patient",
       "id": "neha21"
     },
     {
@@ -210,6 +210,7 @@
       "date": "2021-09-20",
       "physician": "Taylor Brown",
       "slot": "11 PM",
+      "status": false,
       "userId": "neha21",
       "id": "cardiovascular condition51"
     },
@@ -218,24 +219,26 @@
       "date": "2021-09-13",
       "physician": "Taylor Brown",
       "slot": "5 PM",
+      "status": true,
       "userId": "neha21",
       "id": "cardiovascular condition91"
     },
     {
-      "title": "cardiovascular condition",
-      "date": "2021-09-25",
-      "physician": "Taylor Brown",
+      "title": "common body illnesses",
+      "date": "2021-09-27",
+      "physician": "Rachel Lopez",
       "slot": "1 PM",
       "userId": "neha21",
-      "id": "cardiovascular condition11"
+      "status": true,
+      "id": "common body illnesses51"
     },
     {
-      "title": "common body illnesses",
-      "date": "2021-09-28",
-      "physician": "Rachel Lopez",
+      "title": "cardiovascular condition",
+      "date": "2021-09-29",
+      "physician": "Taylor Brown",
       "slot": "4 PM",
       "userId": "neha21",
-      "id": "common body illnesses61"
+      "id": "cardiovascular condition21"
     }
   ],
   "physicians": [

@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   error: string = '';
   hide = true;
   registeredUser: RegisterData;
-  roles: string[] = ['Patient', 'Physician', 'Admin'];
+  roles: string[] = ['Patient', 'Physician'];
   authSubscription: Subscription;
   maxDate: any;
   minDate: any;
