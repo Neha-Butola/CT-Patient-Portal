@@ -10,8 +10,10 @@
   <mat-sidenav
     #sidenav
     role="navigation"
-    mode="side"
-    opened="true"
+    [mode]="mobileQuery.matches ? 'over' : 'side'"
+    [fixedInViewport]="mobileQuery.matches"
+    fixedTopGap="56"
+    [opened]="mobileQuery.matches ? 'false' : 'true'"
     disableClose="true"
     [ngClass]="{ 'd-none': !isAuthenticated }"
     class="bg-secondary position-fixed"
@@ -21,7 +23,7 @@
   <mat-sidenav-content
     [ngStyle]="{ 'margin-left': isAuthenticated ? '250px' : '0' }"
   >
-    <main class="p-md-4">
+    <main class="p-md-4 py-4 py-md-0">
       <router-outlet></router-outlet>
     </main>
   </mat-sidenav-content>
