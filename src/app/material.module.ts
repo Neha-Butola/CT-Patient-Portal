@@ -16,6 +16,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   imports: [
     MatButtonModule,
@@ -37,6 +38,7 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatTableModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatCardModule,
   ],
   exports: [
     MatButtonModule,
@@ -57,6 +59,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatTableModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatCardModule,
+    MatStepperModule,
   ],
 })
 export class MaterialModule {}
