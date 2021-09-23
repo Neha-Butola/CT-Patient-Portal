@@ -13,21 +13,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MaterialModule } from '../material.module';
+import { BillFormComponent } from './components/bill-form/bill-form.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
-  declarations: [BillingComponent],
+  declarations: [BillingComponent, BillFormComponent, PaymentComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatButtonModule,
-    MatCardModule,
-    MatTableModule,
-    MatSnackBarModule,
+
+    MaterialModule,
     BillingRoutingModule,
   ],
 })

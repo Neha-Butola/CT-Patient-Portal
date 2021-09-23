@@ -114,11 +114,9 @@ export class ScheduleAppointmentComponent implements OnInit {
           res.forEach((ele) => {
             let month: any = new Date().getMonth() + 0o1;
             month = month < 10 ? `0${month}` : month;
-            console.log(month);
             let date = `${new Date().getFullYear()}-${month}-${new Date().getDate()}`;
             if (ele.date > date) {
               this.isData = true;
-              console.log(ele);
               this.appointments.push(ele);
             }
           });
