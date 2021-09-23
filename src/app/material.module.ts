@@ -12,10 +12,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
+import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatStepperModule } from '@angular/material/stepper';
 @NgModule({
   imports: [
     MatButtonModule,
@@ -34,9 +34,10 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatMenuModule,
     MatStepperModule,
     MatSelectModule,
+    MatStepperModule,
     MatTableModule,
-    MatSnackBarModule,
     MatDialogModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -54,9 +55,10 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatTabsModule,
     MatMenuModule,
     MatSelectModule,
+    MatStepperModule,
     MatTableModule,
-    MatSnackBarModule,
     MatDialogModule,
+    MatSnackBarModule,
   ],
 })
 export class MaterialModule {}

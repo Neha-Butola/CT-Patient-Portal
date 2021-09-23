@@ -78,6 +78,7 @@
       "id": "Neha11"
     },
     {
+<<<<<<< HEAD
       "email": "bhartesh.singh@citiustech.com",
       "password": "$2a$10$SGWC48/W6jl51mpyNqFvq.S0gP.Y6PzM4Yhr3y/Z09H9/LCKmyuWG",
       "firstName": "Bhartesh",
@@ -87,10 +88,22 @@
       "phoneNumber": 8744904863,
       "role": "Patient",
       "id": "Bhartesh31"
+=======
+      "email": "bhartesh@gmail.com",
+      "password": "$2a$10$ikLj6QyN0EYHZ4sCX1sDUeBFr3T3LIxjP9mTS6nXmqgYVz84B/7fS",
+      "firstName": "Bhartesh",
+      "lastName": "Singh",
+      "confirmPassword": "123456",
+      "dob": "1995-10-09T18:30:00.000Z",
+      "phoneNumber": 9709709123,
+      "role": "Patient",
+      "id": "Bhartesh11"
+>>>>>>> 0d5b394dd495dea42d6ea7e268364b8b34280cb7
     }
   ],
   "medication-and-allergies": [
     {
+<<<<<<< HEAD
       "currentmedication": "Latest medication",
       "otcmedication": "yes ",
       "herbsmineralandvitamin": "Once in a week",
@@ -102,19 +115,17 @@
       "userId": "Bhartesh31"
     },
     {
+=======
+>>>>>>> 0d5b394dd495dea42d6ea7e268364b8b34280cb7
       "currentmedication": "common body illnesses",
-      "otcmedication": "2 years ago",
-      "herbsmineralandvitamin": "5 years ago",
-      "socialdrug": "Not in Current",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "No",
-      "reactionother": "nO",
+      "herbsmineralandvitamin": "two years ago",
+      "socialdrug": "not taken",
+      "pastprescribedmedication": "yes",
       "id": 4,
       "userId": "neha21"
     },
     {
       "currentmedication": "cardiovascular condition",
-      "otcmedication": "2 years ago",
       "herbsmineralandvitamin": "two years ago",
       "socialdrug": "not taken",
       "pastprescribedmedication": "yes",
@@ -133,16 +144,25 @@
     },
     {
       "currentmedication": "cardiovascular condition",
+<<<<<<< HEAD
       "otcmedication": "2 years ago",
       "herbsmineralandvitamin": "5 years ago",
       "socialdrug": "Not in Current",
       "pastprescribedmedication": "Yes",
       "drugallergies": "No",
       "reactionother": "no",
+=======
+      "herbsmineralandvitamin": "vfdvsfdvfvvf",
+      "socialdrug": "vdfvdsfsfdv",
+      "pastprescribedmedication": "vfdvfsdvvdfv",
+      "drugallergies": "vdfvsdfv",
+      "reactionother": "vdfvsdfv",
+>>>>>>> 0d5b394dd495dea42d6ea7e268364b8b34280cb7
       "id": 6,
       "userId": "Vamsi12"
     },
     {
+<<<<<<< HEAD
       "currentmedication": "BH2",
       "otcmedication": "bjkb",
       "herbsmineralandvitamin": "kbkb",
@@ -151,6 +171,23 @@
       "drugallergies": "kbk",
       "reactionother": "bks",
       "userId": "Bhartesh31",
+=======
+      "currentmedication": "rver",
+      "socialdrug": "gtrgrt",
+      "herbsmineralandvitamin": "gtrgtg",
+      "pastprescribedmedication": "gtrgr",
+      "drugallergies": "regtrggtr",
+      "reactionother": "grt",
+      "id": 7
+    },
+    {
+      "currentmedication": "NoMEDICATION",
+      "herbsmineralandvitamin": "Herbs",
+      "socialdrug": "drugs",
+      "pastprescribedmedication": "prescribed Medication",
+      "drugallergies": "DRUGS",
+      "reactionother": "ALLERGIES",
+>>>>>>> 0d5b394dd495dea42d6ea7e268364b8b34280cb7
       "id": 8
     }
   ],
@@ -189,19 +226,18 @@
     },
     {
       "firstname": "Bhartesh",
-      "lastname": "SOgh",
-      "dob": "2003-09-19T18:30:00.000Z",
+      "lastname": "singh",
       "gender": "male",
-      "ethnicity": "yes",
-      "education": "school",
-      "occupation": "not",
-      "address": "GUrgaon",
-      "phone": 874904863,
-      "medical": "kjbjb",
-      "familymedical": "bkb",
-      "surgeries": "bkj",
-      "insurance": "fdsd",
-      "id": "Bhartesh31"
+      "ethnicity": "Hyderabad",
+      "education": "MSC",
+      "occupation": "Cricketer",
+      "address": "Thrisul Quarters, Lothukunta, Alwal,",
+      "phone": "9848062782",
+      "medical": "med histdbxb",
+      "familymedical": "ccbcvbncvn vxcn",
+      "surgeries": "vcncvnvcn b",
+      "insurance": "LIC POLICIES",
+      "id": 3
     }
   ],
   "appointments": [
