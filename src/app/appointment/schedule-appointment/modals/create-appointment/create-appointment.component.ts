@@ -1,15 +1,14 @@
-import { KeyValue, KeyValuePipe } from '@angular/common';
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, OnChanges, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { map } from 'rxjs/operators';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AppointmentService } from 'src/app/appointment/services/appointment.service';
 
 @Component({
   selector: 'app-create-appointment',
   templateUrl: './create-appointment.component.html',
   styleUrls: ['./create-appointment.component.scss'],
-  providers: [KeyValuePipe],
 })
 export class CreateAppointmentComponent implements OnInit {
   appointmentForm: FormGroup;
@@ -18,18 +17,19 @@ export class CreateAppointmentComponent implements OnInit {
   medications: any[] = [];
   physicians: any[];
 
-  slots = ['10 - 11 am', '11-12 am', '1-2 pm', '3-4 pm', '4-5 pm'];
+  slots = ['10 AM', '11 PM', '1 PM', '4 PM', '5 PM'];
 
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<CreateAppointmentComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: [],
     public apService: AppointmentService,
-    private keyValue: KeyValuePipe
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
     this.initForm();
-    this.setDOBVal();
+    this.setDateValidation();
     this.getMedication();
   }
 
@@ -50,27 +50,38 @@ export class CreateAppointmentComponent implements OnInit {
 
   // to close the dialog and pass the value of appointment form
   createAppointment() {
+    this.appointmentForm.value.date = this.datePipe.transform(
+      this.appointmentForm.value.date,
+      'yyyy-MM-dd'
+    );
     this.dialogRef.close(this.appointmentForm.value);
   }
 
   // for date of birth validations
-  setDOBVal() {
+  setDateValidation() {
     this.maxDate = new Date();
-    this.maxDate.setFullYear(this.maxDate.getFullYear() - 1 / 365);
+    this.maxDate.setFullYear(this.maxDate.getFullYear() + 1);
     this.minDate = new Date();
-    this.minDate.setFullYear(this.minDate.getFullYear() + 1 / 365);
   }
   // subscribe to  medicationlist function in appointment service to get medication.
   getMedication() {
     this.apService.getMedicationList().subscribe((res) => {
       console.log(res);
       let values: any[] = [];
+
+      console.log(this.data);
       res.forEach((element) => {
         let value = {};
         value['title'] = element.currentmedication;
+        value['exist'] = false;
+        this.data.forEach((el) => {
+          if (value['title'] == el) {
+            value['exist'] = true;
+          }
+        });
         this.medications.push(value);
       });
-      return values;
+      console.log(this.medications);
     });
   }
 
@@ -84,5 +95,9 @@ export class CreateAppointmentComponent implements OnInit {
       });
       console.log(this.physicians);
     });
+  }
+
+  cancel() {
+    this.dialogRef.close();
   }
 }

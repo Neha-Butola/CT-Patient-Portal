@@ -25,16 +25,17 @@ export class AppointmentsHistoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // get appointment data of user from api
     this.as.getAppointments().subscribe(
       (app: Appointment[]) => {
-        console.log('res', app);
         this.appointments = app;
+        // push each appointment to appevents array as a calender event
         this.appointments.forEach((element) => {
-          console.log(element);
+          const time = this.convertTime12to24(element.slot); // convert 12 hr to 24 hr
           this.appevents.push({
             title: element.title,
-            duration: 1,
-            start: element.date,
+            start: `${element.date}T${time}:00:00`,
+            duration: '10:00',
           });
         });
         console.log(this.appevents);
@@ -44,5 +45,21 @@ export class AppointmentsHistoryComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  // to return 12hr format to 24 hr to dispaly in full calender
+  convertTime12to24(time12h: any) {
+    const [time, modifier] = time12h.split(' ');
+
+    let hours = time;
+    if (time === '12') {
+      hours = '00';
+    }
+
+    if (modifier === 'PM') {
+      hours = parseInt(hours, 10) + 12;
+    }
+
+    return hours;
   }
 }

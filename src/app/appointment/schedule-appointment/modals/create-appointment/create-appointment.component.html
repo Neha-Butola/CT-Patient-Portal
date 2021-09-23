@@ -1,5 +1,11 @@
-<h3 class="text-center mb-4">Book a appointment</h3>
+<button
+  class="bg-transparent border-0 d-flex ml-auto btn-close"
+  (click)="cancel()"
+>
+  <mat-icon>close</mat-icon>
+</button>
 
+<h3 class="text-center mb-4">Book a appointment</h3>
 <form [formGroup]="appointmentForm" (ngSubmit)="createAppointment()">
   <mat-form-field appearance="standard" class="w-100">
     <mat-label>Appointment for</mat-label>
@@ -10,6 +16,7 @@
       <mat-option
         *ngFor="let medication of medications"
         [value]="medication.title"
+        [disabled]="medication.exist"
       >
         {{ medication.title | titlecase }}
       </mat-option>
@@ -27,7 +34,13 @@
 
   <mat-form-field appearance="standard" class="w-100">
     <mat-label>Pick a date</mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="date" />
+    <input
+      matInput
+      [matDatepicker]="picker"
+      formControlName="date"
+      [min]="minDate"
+      [max]="maxDate"
+    />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
@@ -40,14 +53,15 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-
-  <button
-    class="my-4"
-    type="submit"
-    mat-raised-button
-    color="primary"
-    [disabled]="appointmentForm.invalid"
-  >
-    Submit
-  </button>
+  <div class="text-center">
+    <button
+      class="my-4"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="appointmentForm.invalid"
+    >
+      Submit
+    </button>
+  </div>
 </form>
