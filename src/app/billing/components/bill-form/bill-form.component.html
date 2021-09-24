@@ -1,0 +1,54 @@
+<h3 class="text-center mb-4">conforming order</h3>
+
+<form [formGroup]="billForm" (ngSubmit)="conformBill()">
+  <mat-form-field appearance="standard" class="w-100">
+    <mat-label>Bill No</mat-label>
+    <mat-select formControlName="billNo">
+      <!-- <mat-option *ngFor="let bill of billing">
+        {{ bill.billNo }}
+      </mat-option> -->
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard" class="w-100">
+    <mat-select formControlName="title">
+      <!-- <mat-option *ngFor="let t of billing">
+        {{ t.title }}
+      </mat-option> -->
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="standard" class="w-100">
+    <!-- <mat-label>Physician</mat-label> -->
+    <mat-select formControlName="physician">
+      <!-- <mat-option *ngFor="let p of billing">
+        {{ p.physician }}
+      </mat-option> -->
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard" class="w-100">
+    <mat-label>Pick a date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard" class="w-100">
+    <!-- <mat-label>Available slots</mat-label> -->
+    <mat-select formControlName="consultation">
+      <!-- <mat-option *ngFor="let c of billing" [value]="c">
+        {{ c.consultation }}
+      </mat-option> -->
+    </mat-select>
+  </mat-form-field>
+
+  <button
+    class="my-4"
+    type="submit"
+    mat-raised-button
+    color="primary"
+    [disabled]="billForm.invalid"
+  >
+    Payment
+  </button>
+</form>

@@ -30,7 +30,7 @@
       "confirmPassword": "123456",
       "dob": "2003-09-02T18:30:00.000Z",
       "phoneNumber": 2321231312,
-      "role": "Physician",
+      "role": "Patient",
       "id": "neha21"
     },
     {
@@ -248,6 +248,7 @@
       "date": "2021-09-20",
       "physician": "Taylor Brown",
       "slot": "11 PM",
+      "status": false,
       "userId": "neha21",
       "id": "cardiovascular condition51"
     },
@@ -256,24 +257,26 @@
       "date": "2021-09-13",
       "physician": "Taylor Brown",
       "slot": "5 PM",
+      "status": true,
       "userId": "neha21",
       "id": "cardiovascular condition91"
     },
     {
-      "title": "cardiovascular condition",
-      "date": "2021-09-25",
-      "physician": "Taylor Brown",
+      "title": "common body illnesses",
+      "date": "2021-09-27",
+      "physician": "Rachel Lopez",
       "slot": "1 PM",
       "userId": "neha21",
-      "id": "cardiovascular condition11"
+      "status": true,
+      "id": "common body illnesses51"
     },
     {
-      "title": "common body illnesses",
+      "title": "cardiovascular condition",
       "date": "2021-09-28",
-      "physician": "Rachel Lopez",
+      "physician": "Taylor Brown",
       "slot": "4 PM",
       "userId": "neha21",
-      "id": "common body illnesses61"
+      "id": "cardiovascular condition01"
     }
   ],
   "physicians": [
@@ -324,6 +327,43 @@
       "profile": "Neurologists",
       "id": "Neurologists15",
       "treatments for": "diseases of the nervous system, brain"
+    }
+  ],
+  "immunization": [
+    {
+      "vaccinename": "Covaxin",
+      "vaccinetype": "HIB",
+      "date": "2021-09-18T18:30:00.000Z",
+      "doses1": true,
+      "id": 1
+    },
+    {
+      "vaccinename": "Covaxin",
+      "vaccinetype": "HIB",
+      "date": "2021-09-21T18:30:00.000Z",
+      "doses1": true,
+      "id": 2
+    },
+    {
+      "vaccinename": "Covishield",
+      "vaccinetype": "HIB",
+      "date": "2021-09-13T18:30:00.000Z",
+      "doses1": true,
+      "id": 3
+    },
+    {
+      "vaccinename": "Covishield",
+      "vaccinetype": "HIB",
+      "date": "2021-09-14T18:30:00.000Z",
+      "doses1": true,
+      "id": 4
+    },
+    {
+      "vaccinename": "Covishield",
+      "vaccinetype": "HIB",
+      "date": "2021-09-21T18:30:00.000Z",
+      "doses1": true,
+      "id": 5
     }
   ]
 }

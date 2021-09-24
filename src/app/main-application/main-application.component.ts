@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { RegisterData } from '../user/model/auth.model';
 
@@ -11,8 +12,20 @@ import { AuthService } from '../user/services/auth.service';
 })
 export class MainApplicationComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
-  constructor(private authService: AuthService, private router: Router) {}
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
   user: any;
+  isopened = true;
   ngOnInit(): void {}
 
   ngDoCheck(): void {
@@ -34,5 +47,7 @@ export class MainApplicationComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {}
+  ngOnDestroy() {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
 }
