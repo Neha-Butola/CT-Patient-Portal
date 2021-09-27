@@ -105,7 +105,7 @@ export class DemographicsComponent implements OnInit {
     return true;
   }
   //demographics form submit after validation
-  onSubmit(formData: any, formDirective: FormGroupDirective): void {
+  onSubmit(): void {
     // TODO: Use EventEmitter with form value
     //console.log(this.demoForm.value);
     if (this.demoForm.valid) {
