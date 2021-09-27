@@ -201,19 +201,21 @@
   ],
   "appointments": [
     {
-      "title": "injuries of internal organ systems",
-      "date": "2021-09-30",
-      "physician": "Will Smith",
-      "slot": "4 PM",
-      "userId": "Vamsi12",
-      "id": "injuries of internal organ systems51"
+      "title": "cardiovascular condition",
+      "date": "2021-09-20",
+      "physician": "Taylor Brown",
+      "slot": "11 PM",
+      "status": false,
+      "userId": "neha21",
+      "id": "cardiovascular condition51"
     },
     {
       "title": "cardiovascular condition",
-      "date": "2021-09-30",
+      "date": "2021-09-13",
       "physician": "Taylor Brown",
       "slot": "5 PM",
-      "userId": "Vamsi12",
+      "status": true,
+      "userId": "neha21",
       "id": "cardiovascular condition91"
     },
     {
@@ -227,11 +229,11 @@
     },
     {
       "title": "cardiovascular condition",
-      "date": "2021-09-28",
+      "date": "2021-09-29",
       "physician": "Taylor Brown",
       "slot": "4 PM",
       "userId": "neha21",
-      "id": "cardiovascular condition01"
+      "id": "cardiovascular condition21"
     }
   ],
   "physicians": [
@@ -319,271 +321,6 @@
       "date": "2021-09-21T18:30:00.000Z",
       "doses1": true,
       "id": 5
-    }
-  ],
-  "billing": [
-    {
-      "id": 1,
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "physician": "Will Smith",
-      "paymentMethod": "Debit Card",
-      "billingDate": "2021-09-25T16:23:37.812Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 2,
-      "physician": "Will Smith",
-      "paymentMethod": "Net Banking",
-      "billingDate": "2021-09-26T20:11:28.978Z"
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 3,
-      "physician": "Taylor Brown",
-      "paymentMethod": null,
-      "billingDate": "2021-09-26T20:11:58.315Z"
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 4,
-      "physician": "Taylor Brown",
-      "paymentMethod": "Paytm",
-      "billingDate": "2021-09-26T20:12:24.850Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 5,
-      "physician": "Will Smith",
-      "paymentMethod": "UPI",
-      "billingDate": "2021-09-26T20:12:40.619Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 6,
-      "physician": "Will Smith",
-      "paymentMethod": null,
-      "billingDate": "2021-09-26T20:13:03.546Z"
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 7,
-      "physician": "Taylor Brown",
-      "paymentMethod": "Debit Card",
-      "billingDate": "2021-09-27T04:10:43.507Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 8,
-      "physician": "Will Smith",
-      "paymentMethod": "Net Banking",
-      "billingDate": "2021-09-27T04:29:02.612Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "id": 9
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 10,
-      "physician": "Taylor Brown",
-      "paymentMethod": "Net Banking",
-      "billingDate": "2021-09-27T06:17:43.824Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 11,
-      "physician": "Will Smith",
-      "paymentMethod": "Paytm",
-      "billingDate": "2021-09-27T06:20:17.089Z"
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "1000",
-      "id": 12
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 13,
-      "physician": "Taylor Brown",
-      "paymentMethod": "Debit Card",
-      "billingDate": "2021-09-27T06:36:29.560Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "id": 14
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 15,
-      "physician": "Will Smith"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "10",
-      "id": 16
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "10",
-      "userId": "Vamsi12",
-      "id": 17,
-      "physician": "Taylor Brown",
-      "paymentMethod": "Debit Card",
-      "billingDate": "2021-09-27T07:15:52.918Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "id": 18
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "2222",
-      "id": 19
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "id": 20
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "id": 21
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "500",
-      "userId": "Vamsi12",
-      "id": 22,
-      "physician": "Will Smith",
-      "paymentMethod": null,
-      "billingDate": "2021-09-27T08:18:15.354Z"
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "2200",
-      "id": 23
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "1000",
-      "id": 24
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 25,
-      "physician": "Will Smith",
-      "paymentMethod": "UPI",
-      "billingDate": "2021-09-27T08:23:41.862Z"
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 26,
-      "physician": "Taylor Brown",
-      "paymentMethod": "UPI",
-      "billingDate": "2021-09-27T09:47:59.539Z"
-    },
-    {
-      "appointment": "cardiovascular condition91",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 27,
-      "physician": "Taylor Brown",
-      "paymentMethod": "Wallet",
-      "billingDate": "2021-09-27T09:48:51.733Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 28,
-      "physician": "Will Smith",
-      "paymentMethod": "Wallet",
-      "billingDate": "2021-09-27T09:59:47.956Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 29,
-      "physician": "Will Smith",
-      "paymentMethod": "Net Banking",
-      "billingDate": "2021-09-27T10:05:26.228Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "id": 30
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "id": 31
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 32,
-      "physician": "Will Smith",
-      "paymentMethod": "Net Banking",
-      "billingDate": "2021-09-27T12:29:53.059Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 33,
-      "physician": "Will Smith",
-      "paymentMethod": "Debit Card",
-      "billingDate": "2021-09-27T12:33:03.582Z"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 34,
-      "physician": "Will Smith"
-    },
-    {
-      "appointment": "injuries of internal organ systems51",
-      "consultationFee": "1000",
-      "userId": "Vamsi12",
-      "id": 35,
-      "physician": "Will Smith",
-      "paymentMethod": "Net Banking",
-      "billingDate": "2021-09-27T13:25:07.906Z"
     }
   ]
 }

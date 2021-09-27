@@ -20,7 +20,7 @@
 <div class="container" *ngIf="!isLoading">
   <form
     [formGroup]="demoForm"
-    (ngSubmit)="onSubmit()"
+    (ngSubmit)="onSubmit(demoForm, formDirective)"
     class="p-3 w-100"
     #formDirective="ngForm"
   >
