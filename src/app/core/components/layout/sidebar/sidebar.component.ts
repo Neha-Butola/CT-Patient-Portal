@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-
+import { AuthService } from 'src/app/user/services/auth.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -7,9 +7,12 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   @Output() closeSidenav = new EventEmitter<void>();
-  constructor() {}
+  constructor(private authService: AuthService) {}
+  user: any;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = this.authService.userData;
+  }
   onClose() {
     this.closeSidenav.emit();
   }

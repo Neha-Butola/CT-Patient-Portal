@@ -9,6 +9,20 @@ const routes: Routes = [
         (m) => m.PatientDashboardModule
       ),
   },
+  {
+    path: 'admin-dashboard',
+    loadChildren: () =>
+      import('./admin-dashboard/admin-dashboard.module').then(
+        (m) => m.AdminDashboardModule
+      ),
+  },
+  {
+    path: 'physician-dashboard',
+    loadChildren: () =>
+      import('./physician-dashboard/physician-dashboard.module').then(
+        (m) => m.PhysicianDashboardModule
+      ),
+  },
 ];
 
 @NgModule({
