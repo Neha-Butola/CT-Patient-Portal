@@ -30,7 +30,7 @@
       "confirmPassword": "123456",
       "dob": "2003-09-02T18:30:00.000Z",
       "phoneNumber": 2321231312,
-      "role": "Patient",
+      "role": "Physician",
       "id": "neha21"
     },
     {
@@ -96,7 +96,7 @@
       "confirmPassword": "Bhartesh@7448",
       "dob": "1994-11-10T18:30:00.000Z",
       "phoneNumber": 8744904863,
-      "role": "Patient",
+      "role": "Physician",
       "id": "Bhartesh31"
     }
   ],

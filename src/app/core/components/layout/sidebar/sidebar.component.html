@@ -2,6 +2,43 @@
 <ul
   class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
   id="accordionSidebar"
+  *ngIf="user.role == 'Physician'"
+>
+  <li class="nav-item menu-button">
+    <a
+      class="nav-link"
+      [routerLink]="['/dashboard/admin-dashboard']"
+      routerLinkActive="active"
+    >
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </a>
+  </li>
+  <mat-divider></mat-divider>
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      [routerLink]="['/medication-and-allergies/history']"
+      routerLinkActive="active"
+    >
+      <mat-icon>local_hospital</mat-icon>
+      <span>Medication</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      [routerLink]="['/demographics']"
+      routerLinkActive="active"
+    >
+      <mat-icon>graphic_eq</mat-icon>
+      <span>Demographics</span>
+    </a>
+  </li>
+</ul>
+<ul
+  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+  id="accordionSidebar"
   *ngIf="user.role == 'Admin'"
 >
   <li class="nav-item menu-button">

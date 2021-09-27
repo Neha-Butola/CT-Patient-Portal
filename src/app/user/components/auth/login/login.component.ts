@@ -63,7 +63,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/dashboard/admin-dashboard']);
             this.isLoading = false; //hide the loader after request happens
           } else {
-            console.log('Physician');
+            this.router.navigate(['/dashboard/physician-dashboard']);
+            this.isLoading = false;
             //this.router.navigate(['/dashboard/patient-dashboard']);
             //this.isLoading = false; //hide the loader after request happens
           }

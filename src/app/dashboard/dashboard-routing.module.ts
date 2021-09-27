@@ -16,6 +16,13 @@ const routes: Routes = [
         (m) => m.AdminDashboardModule
       ),
   },
+  {
+    path: 'physician-dashboard',
+    loadChildren: () =>
+      import('./physician-dashboard/physician-dashboard.module').then(
+        (m) => m.PhysicianDashboardModule
+      ),
+  },
 ];
 
 @NgModule({
