@@ -5,24 +5,20 @@ import { BillingRoutingModule } from './billing-routing.module';
 import { BillingComponent } from './components/billing/billing.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatTableModule } from '@angular/material/table';
+
 import { MaterialModule } from '../material.module';
 import { BillFormComponent } from './components/bill-form/bill-form.component';
-import { PaymentComponent } from './components/payment/payment.component';
+
+import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
+import { NgxPrintModule } from 'ngx-print';
 
 @NgModule({
-  declarations: [BillingComponent, BillFormComponent, PaymentComponent],
+  declarations: [BillingComponent, BillFormComponent, PaymentMethodComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxPrintModule,
 
     MaterialModule,
     BillingRoutingModule,
