@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Billing } from '../../model/billing';
-import { BillingService } from '../../service/billing.service';
-import { PaymentMethodComponent } from '../payment-method/payment-method.component';
 
 @Component({
   selector: 'app-billing',
@@ -14,36 +11,18 @@ import { PaymentMethodComponent } from '../payment-method/payment-method.compone
 })
 export class BillingComponent implements OnInit {
   displayedColumns: string[] = [
-    'id',
-    'appointment',
+    'billNo',
+    'title',
     'physician',
-    'billingDate',
-    'consultationFee',
-    'paymentMethod',
-    'status',
+    'billDate',
+    'consultation',
   ];
   billingDetails: Billing[] = [];
   dataSource = new MatTableDataSource<any>(this.billingDetails);
-  error: any;
 
-  constructor(
-    private router: Router,
-    public dialogRef: MatDialog,
-    private billingService: BillingService
-  ) {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    this.billingService.getBillingData().subscribe(
-      (res: any) => {
-        console.log(res);
-        this.billingDetails = res?.filter((x) => x.paymentMethod);
-        this.dataSource.data = this.billingDetails;
-      },
-      (err: any) => {
-        this.error = err.error;
-      }
-    );
-  }
+  ngOnInit(): void {}
 
   goToPayment() {
     this.router.navigate(['/billing/billform']);

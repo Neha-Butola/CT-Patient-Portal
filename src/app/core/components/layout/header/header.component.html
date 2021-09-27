@@ -1,6 +1,13 @@
 <nav class="navbar navbar-expand navbar-light bg-white topbar fixed-top shadow">
-  <h2 class="d-none d-sm-inline-block form-inline ml-md-3 text-primary">
-    PATIENT DASHBOARD
+  <h2
+    class="
+      d-none d-sm-inline-block
+      form-inline
+      ml-md-3
+      text-primary text-uppercase
+    "
+  >
+    {{ user.role }} DASHBOARD
   </h2>
   <button mat-icon-button (click)="onToggleSidenav()">
     <mat-icon *ngIf="!isOpened"> menu </mat-icon>
@@ -8,7 +15,15 @@
   </button>
 
   <form
-    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+    class="
+      d-none d-sm-inline-block
+      form-inline
+      mr-auto
+      ml-md-3
+      my-2 my-md-0
+      mw-100
+      navbar-search
+    "
   >
     <div class="input-group">
       <input

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BillFormComponent } from './components/bill-form/bill-form.component';
 import { BillingComponent } from './components/billing/billing.component';
-import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -14,8 +14,8 @@ const routes: Routes = [
     component: BillFormComponent,
   },
   {
-    path: 'payment-method',
-    component: PaymentMethodComponent,
+    path: 'payment',
+    component: PaymentComponent,
   },
 ];
 
