@@ -102,7 +102,6 @@
   ],
   "medication-and-allergies": [
     {
-<<<<<<< HEAD
       "pname": "Neha",
       "currentmedication": "common body illnesses",
       "otcmedication": "2 years ago",
@@ -137,8 +136,6 @@
     },
     {
       "pname": "Vamsi",
-=======
->>>>>>> feature/billing
       "currentmedication": "common body illnesses",
       "otcmedication": "2 years ago",
       "herbsmineralandvitamin": "5 years ago",
@@ -182,7 +179,6 @@
       "userId": "Vamsi12"
     },
     {
-<<<<<<< HEAD
       "pname": "Vamsi",
       "currentmedication": "dsdsds",
       "otcmedication": "ddfdf",
@@ -191,15 +187,6 @@
       "pastprescribedmedication": "dvdd",
       "drugallergies": "sdsds",
       "reactionother": "sdsds",
-      "id": 7,
-      "userId": "Vamsi12"
-=======
-      "currentmedication": "rver",
-      "socialdrug": "gtrgrt",
-      "herbsmineralandvitamin": "gtrgtg",
-      "pastprescribedmedication": "gtrgr",
-      "drugallergies": "regtrggtr",
-      "reactionother": "grt",
       "id": 7
     },
     {
@@ -210,7 +197,6 @@
       "drugallergies": "DRUGS",
       "reactionother": "ALLERGIES",
       "id": 8
->>>>>>> feature/billing
     }
   ],
   "demographics": [

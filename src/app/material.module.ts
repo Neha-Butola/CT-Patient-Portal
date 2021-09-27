@@ -16,9 +16,6 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatCardModule } from '@angular/material/card';
-import { MatRadioModule } from '@angular/material/radio';
-
 @NgModule({
   imports: [
     MatButtonModule,
@@ -41,8 +38,6 @@ import { MatRadioModule } from '@angular/material/radio';
     MatTableModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatCardModule,
-    MatRadioModule,
   ],
   exports: [
     MatButtonModule,
@@ -64,8 +59,6 @@ import { MatRadioModule } from '@angular/material/radio';
     MatTableModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatCardModule,
-    MatRadioModule,
   ],
 })
 export class MaterialModule {}
