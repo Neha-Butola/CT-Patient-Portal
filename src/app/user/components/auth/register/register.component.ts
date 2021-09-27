@@ -102,7 +102,6 @@ export class RegisterComponent implements OnInit {
         }
       );
   }
-
   //to set max and min values for date of birth.
   setDOBVal() {
     this.maxDate = new Date();
@@ -110,7 +109,6 @@ export class RegisterComponent implements OnInit {
     this.minDate = new Date();
     this.minDate.setFullYear(this.minDate.getFullYear() - 200);
   }
-
   // to show alert when user regiterd successfully
   private showAlert(message: string) {
     const alertCmpFactory = this.cfResolver.resolveComponentFactory(
