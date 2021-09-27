@@ -4,6 +4,7 @@ export interface RegisterData {
   lastName: string;
   dob: Date;
   role: string;
+  profile?: string;
   email: string;
   password: string;
   confirmPassword: string;

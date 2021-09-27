@@ -109,6 +109,18 @@
       "phoneNumber": 1234567890,
       "role": "Patient",
       "id": "neha61"
+    },
+    {
+      "email": "john_brown@gmail.com",
+      "password": "$2a$10$3aNBtWutWDJ9RzYznkAJmetAkqT1KH16cYBryeQvir97njD2j.0MG",
+      "firstName": "john",
+      "lastName": "brown",
+      "confirmPassword": "123456",
+      "dob": "2003-09-25T18:30:00.000Z",
+      "phoneNumber": 1234567890,
+      "role": "Physician",
+      "profile": "Psychiatrist",
+      "id": "john91"
     }
   ],
   "medication-and-allergies": [
@@ -313,43 +325,43 @@
     },
     {
       "name": "Rachel Lopez",
-      "profile": "Radiologists",
+      "profile": "Radiologist",
       "id": "Radiologists15",
       "treatments for": "common body illnesses"
     },
     {
       "name": "Will Smith",
-      "profile": "Internists",
+      "profile": "Internist",
       "id": "Internists12",
       "treatments for": "injuries of internal organ systems"
     },
     {
       "name": "Kevin Winson",
-      "profile": "Internists",
+      "profile": "Internist",
       "id": "Internists12",
       "treatments for": "injuries of internal organ systems"
     },
     {
       "name": "A.k Moore",
-      "profile": "Psychiatrists",
+      "profile": "Psychiatrist",
       "id": "Psychiatrists12",
       "treatments for": "mental, emotional, and behavioral disorders"
     },
     {
       "name": "Maria Garcia",
-      "profile": "Cardiologists",
+      "profile": "Cardiologist",
       "id": "Cardiologists12",
       "treatments for": "cardiovascular condition"
     },
     {
       "name": "Taylor Brown",
-      "profile": "Cardiologists",
+      "profile": "Cardiologist",
       "id": "Cardiologists13",
       "treatments for": "cardiovascular condition"
     },
     {
       "name": "Natalie",
-      "profile": "Neurologists",
+      "profile": "Neurologist",
       "id": "Neurologists15",
       "treatments for": "diseases of the nervous system, brain"
     }

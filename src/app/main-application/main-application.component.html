@@ -18,7 +18,10 @@
     [ngClass]="{ 'd-none': !isAuthenticated }"
     class="bg-secondary position-fixed"
   >
-    <app-sidebar (closeSidenav)="sidenav.close()"></app-sidebar>
+    <app-sidebar
+      (closeSidenav)="sidenav.close()"
+      *ngIf="isAuthenticated"
+    ></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content
     [ngStyle]="{ 'margin-left': isAuthenticated ? '250px' : '0' }"
