@@ -8,6 +8,7 @@ export interface RegisterData {
   password: string;
   confirmPassword: string;
   phoneNumber: number;
+  status: boolean;
 }
 
 export interface LoginData {
