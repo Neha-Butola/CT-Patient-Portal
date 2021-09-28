@@ -1,0 +1,54 @@
+<h3 class="text-center mb-4">Select Payment Method</h3>
+<div class="payment-container">
+  <form [formGroup]="paymentForm">
+    <mat-radio-group
+      aria-label="Select an option"
+      formControlName="paymentMethod"
+    >
+      <div class="row">
+        <div class="col-sm-6 col-md-4 mb-2">
+          <mat-radio-button value="Credit card" (click)="checkout(15)"
+            >Credit Card</mat-radio-button
+          >
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-2">
+          <mat-radio-button value="Debit Card" (click)="checkout(25)"
+            >Debit Card</mat-radio-button
+          >
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-2">
+          <mat-radio-button value="Net Banking" (click)="checkout(20)"
+            >Net Banking</mat-radio-button
+          >
+        </div>
+        <div class="col-sm-6 col-md-4 mb-2">
+          <mat-radio-button value="Paytm" (click)="checkout(30)"
+            >Paytm</mat-radio-button
+          >
+        </div>
+        <div class="col-sm-6 col-md-4 mb-2">
+          <mat-radio-button value="Wallet" (click)="checkout(50)"
+            >Wallet</mat-radio-button
+          >
+        </div>
+        <div class="col-sm-6 col-md-4 mb-2">
+          <mat-radio-button value="UPI" (click)="checkout(60)"
+            >UPI</mat-radio-button
+          >
+        </div>
+      </div>
+    </mat-radio-group>
+  </form>
+  <div class="text-center">
+    <button
+      mat-raised-button
+      class="mattbutton w-auto"
+      color="primary"
+      (click)="pay()"
+    >
+      Payment
+    </button>
+  </div>
+</div>

@@ -4,22 +4,23 @@ import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/user/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { Appointment } from '../schedule-appointment/model/appointment.model';
+import { Treatment } from '../schedule-appointment/model/treatment.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppointmentService {
   api = environment.baseUrl + 'appointments';
-  api2 = environment.baseUrl + 'users';
-  apiPhysician = environment.baseUrl + 'physicians';
+  apiUsers = environment.baseUrl + 'users';
+  apiProviders = environment.baseUrl + 'providers';
+  apiTreatments = environment.baseUrl + 'treatments';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   //post appointment for current user
-  postAppointment(appointmentData: Appointment): Observable<any> {
-    appointmentData.userId = this.authService.userData.id;
-    appointmentData.id =
-      appointmentData.title + Math.floor(Math.random() * 10) + 1;
+  postAppointment(appointmentData: Appointment, userId): Observable<any> {
+    appointmentData.userId = userId;
+    appointmentData.approved = true;
     return this.http.post(this.api, appointmentData);
   }
 
@@ -40,14 +41,31 @@ export class AppointmentService {
     let userId;
     userId = this.authService.userData.id;
     return this.http.get(
-      this.api2 + '/' + userId + '/' + 'medication-and-allergies'
+      this.apiUsers + '/' + userId + '/' + 'medication-and-allergies'
     );
   }
 
   // get physician relted to medication
-  getPhysicianList(title): Observable<any> {
+  getPhysicianList(): Observable<any> {
+    return this.http.get(this.apiUsers + '?role = Physician');
+  }
+
+  // get physician relted to medication
+  getProvidersList(title): Observable<any> {
     return this.http.get(
-      this.apiPhysician + '?' + 'treatments for' + '=' + title
+      this.apiProviders + '?' + 'treatments for' + '=' + title
     );
+  }
+
+  //post
+  postTreatment(treatment: Treatment): Observable<any> {
+    treatment.userId = this.authService.userData.id;
+    return this.http.post(this.apiTreatments, treatment);
+  }
+
+  //get
+  getTreatment(): Observable<any> {
+    let user_name = `${this.authService.userData.firstName} ${this.authService.userData.lastName} `;
+    return this.http.get(this.apiTreatments + '?' + 'physician=' + user_name);
   }
 }

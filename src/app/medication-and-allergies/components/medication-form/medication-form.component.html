@@ -17,6 +17,17 @@
       >
 
       <div class="row">
+        <mat-form-field class="col-sm-12 col-md-6" style="display: none">
+          <mat-label>Your Name</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Your Name"
+            name="pname"
+            required
+            [(ngModel)]="medication.pname"
+          />
+        </mat-form-field>
         <mat-form-field class="col-sm-12 col-md-6">
           <mat-label>Current Medication</mat-label>
           <input
@@ -39,6 +50,7 @@
             [(ngModel)]="medication.otcmedication"
           />
         </mat-form-field>
+
         <mat-form-field class="col-sm-12 col-md-6">
           <mat-label>Herbs/Minerals/Vitamin/Antibiotic</mat-label>
           <input

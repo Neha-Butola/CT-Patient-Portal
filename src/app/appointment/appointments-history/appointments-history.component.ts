@@ -31,12 +31,14 @@ export class AppointmentsHistoryComponent implements OnInit {
         this.appointments = app;
         // push each appointment to appevents array as a calender event
         this.appointments.forEach((element) => {
-          const time = this.convertTime12to24(element.slot); // convert 12 hr to 24 hr
-          this.appevents.push({
-            title: element.title,
-            start: `${element.date}T${time}:00:00`,
-            duration: '10:00',
-          });
+          if (element.status) {
+            const time = this.convertTime12to24(element.slot); // convert 12 hr to 24 hr
+            this.appevents.push({
+              title: element.title,
+              start: `${element.date}T${time}:00:00`,
+              duration: '10:00',
+            });
+          }
         });
         console.log(this.appevents);
         this.init();

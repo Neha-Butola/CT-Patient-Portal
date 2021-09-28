@@ -6,6 +6,7 @@ export class Appointment {
     public physician: string,
     public date: Date,
     public slot: string,
+    public approved: boolean = false,
     public status: boolean = false
   ) {}
 }

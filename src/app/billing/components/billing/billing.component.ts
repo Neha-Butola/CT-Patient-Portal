@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-
-interface Tests {
-  value: string;
-  viewValue: string;
-}
+import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { Billing } from '../../model/billing';
+import { BillingService } from '../../service/billing.service';
+import { PaymentMethodComponent } from '../payment-method/payment-method.component';
 
 @Component({
   selector: 'app-billing',
@@ -12,28 +13,39 @@ interface Tests {
   styleUrls: ['./billing.component.scss'],
 })
 export class BillingComponent implements OnInit {
-  form: FormGroup;
-  tests: Tests[] = [
-    { value: 'Compete Bloob Count', viewValue: 'Compete Bloob Count' },
-    { value: 'Lipid Profile', viewValue: 'Lipid Profile' },
-    { value: 'Vitamin D Total Level', viewValue: 'Vitamin D Total Level' },
-    { value: 'Vitamin B12', viewValue: 'Vitamin B12' },
-    { value: 'Kidney Function Test', viewValue: 'Kidney Function Test' },
-    { value: 'Liver Function Test', viewValue: 'Liver Function Test' },
-    {
-      value: 'Covid - Antibody Test',
-      viewValue: 'Covid - Antibody Test',
-    },
-    { value: 'Covid - RT PCR(Not RT PCR)', viewValue: 'Covid - RT PCR' },
+  displayedColumns: string[] = [
+    'id',
+    'appointment',
+    'physician',
+    'billingDate',
+    'consultationFee',
+    'paymentMethod',
+    'status',
   ];
+  billingDetails: Billing[] = [];
+  dataSource = new MatTableDataSource<any>(this.billingDetails);
+  error: any;
 
-  testControl = new FormControl(this.tests[2].value);
+  constructor(
+    private router: Router,
+    public dialogRef: MatDialog,
+    private billingService: BillingService
+  ) {}
 
-  constructor() {
-    this.form = new FormGroup({
-      test: this.testControl,
-    });
+  ngOnInit(): void {
+    this.billingService.getBillingData().subscribe(
+      (res: any) => {
+        console.log(res);
+        this.billingDetails = res?.filter((x) => x.paymentMethod);
+        this.dataSource.data = this.billingDetails;
+      },
+      (err: any) => {
+        this.error = err.error;
+      }
+    );
   }
 
-  ngOnInit(): void {}
+  goToPayment() {
+    this.router.navigate(['/billing/billform']);
+  }
 }

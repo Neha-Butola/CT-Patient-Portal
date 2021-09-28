@@ -1,66 +1,127 @@
 <div class="container">
-  <button mat-raised-button (click)="openDialog()" color="primary">
-    Book your appointment
-  </button>
+  <ng-container *ngIf="user_role == 'Patient'">
+    <button mat-raised-button (click)="openDialog()" color="primary">
+      Book your appointment
+    </button>
+    <h2 class="my-5 text-center">Your Upcoming Appointments</h2>
+    <div class="table-wrap">
+      <table
+        [ngClass]="{ 'd-none': !isData }"
+        mat-table
+        [dataSource]="appointments"
+      >
+        <!-- Title Column -->
+        <ng-container matColumnDef="title" sticky>
+          <th mat-header-cell *matHeaderCellDef>Title</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.title | titlecase }}
+          </td>
+        </ng-container>
 
-  <h2 class="my-5 text-center">Your Appointments</h2>
-  <div class="table-wrap">
-    <table
-      [ngClass]="{ 'd-none': !isData }"
-      mat-table
-      [dataSource]="appointments"
-    >
-      <!-- Title Column -->
-      <ng-container matColumnDef="title" sticky>
-        <th mat-header-cell *matHeaderCellDef>Title</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.title | titlecase }}
-        </td>
-      </ng-container>
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef>Date</th>
-        <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
-      </ng-container>
+        <!-- provider Column -->
+        <ng-container matColumnDef="physician">
+          <th mat-header-cell *matHeaderCellDef>Physician</th>
+          <td mat-cell *matCellDef="let element">{{ element.povider }}</td>
+        </ng-container>
 
-      <!-- provider Column -->
-      <ng-container matColumnDef="physician">
-        <th mat-header-cell *matHeaderCellDef>Physician</th>
-        <td mat-cell *matCellDef="let element">{{ element.physician }}</td>
-      </ng-container>
+        <!-- slot Column -->
+        <ng-container matColumnDef="slot">
+          <th mat-header-cell *matHeaderCellDef>Slot</th>
+          <td mat-cell *matCellDef="let element">{{ element.slot }}</td>
+        </ng-container>
 
-      <!-- slot Column -->
-      <ng-container matColumnDef="slot">
-        <th mat-header-cell *matHeaderCellDef>Slot</th>
-        <td mat-cell *matCellDef="let element">{{ element.slot }}</td>
-      </ng-container>
+        <!-- slot Column -->
+        <ng-container matColumnDef="approved">
+          <th mat-header-cell *matHeaderCellDef>Approved</th>
+          <td mat-cell *matCellDef="let element">
+            <div
+              *ngIf="element.approved; else not_approved"
+              class="text-success font-weight-medium"
+            >
+              Approved
+            </div>
+            <ng-template #not_approved>
+              <div class="text-danger font-weight-medium">Not Approved</div>
+            </ng-template>
+          </td>
+        </ng-container>
 
-      <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>Staus</th>
-        <td mat-cell *matCellDef="let element">
-          <ng-template *ngIf="element.staus; else not_booked">
-            Booked
-          </ng-template>
-          <ng-template #not_booked>
-            <div class="text-danger">Not Booked</div>
-            <button mat-raised-button color="accent" class="my-2">
-              Pay Now
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Staus</th>
+          <td mat-cell *matCellDef="let element">
+            <div
+              *ngIf="element.status; else not_booked"
+              class="text-success font-weight-medium"
+            >
+              Booked
+            </div>
+            <ng-template #not_booked>
+              <div class="text-danger font-weight-medium">Not Booked</div>
+              <a
+                mat-raised-button
+                color="accent"
+                [routerLink]="['/billing/billform']"
+                class="my-2"
+              >
+                Pay Now
+              </a>
+            </ng-template>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              class="bg-transparent border-0"
+              (click)="removeData(element)"
+            >
+              <mat-icon>delete_outline</mat-icon>
             </button>
-          </ng-template>
-        </td>
-      </ng-container>
+          </td>
+        </ng-container>
 
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef>Actions</th>
-        <td mat-cell *matCellDef="let element">
-          <button class="bg-transparent border-0" (click)="removeData(element)">
-            <mat-icon>delete_outline</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <div class="text-center" *ngIf="!isData">No Appointments Here</div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="user_role == 'Physician'">
+    <h2 class="my-5 text-center">Patients Apoontments</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Users</th>
+          <th>Treatment For</th>
+          <th>Satus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of treatments">
+          <td>{{ item.userId }}</td>
+          <td>{{ item.name }}</td>
+          <td>
+            <div *ngIf="item.booked; else book_appointment">Booked</div>
+            <ng-template #book_appointment>
+              <div class="text-danger font-weight-medium">Not Booked</div>
+              <a
+                mat-raised-button
+                color="accent"
+                class="my-2"
+                (click)="appointmentDialog(item)"
+              >
+                Book Now
+              </a>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
     </table>
-  </div>
+  </ng-container>
 </div>
