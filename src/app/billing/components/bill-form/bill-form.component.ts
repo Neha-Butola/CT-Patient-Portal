@@ -159,7 +159,7 @@ export class BillFormComponent implements OnInit {
       .updateBill(
         {
           ...this.billing,
-          paymentMethod: 'Consultation Fee',
+          paymentMethod: 'Appointment',
           billingDate: new Date(),
         },
         this.billing.id
@@ -185,8 +185,9 @@ export class BillFormComponent implements OnInit {
     });
 
     strikeCheckout.open({
-      name: 'RemoteStack',
+      name: 'Online Payment',
       description: 'Payment widgets',
+
       amount: this.billForm.value.consultationFee,
     });
   }
