@@ -9,6 +9,7 @@ import { FetchuserdataService } from '../../services/fetchuserdata.service';
 export class ManageUsersComponent implements OnInit {
   usersDetails: any;
   statusof: any;
+
   constructor(
     private router: Router,
     private fetchusersdataservice: FetchuserdataService
