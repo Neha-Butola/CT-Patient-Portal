@@ -1,21 +1,21 @@
 {
   "users": [
     {
-      "id": "Siti12",
-      "email": "sitikanta42@gmail.com",
-      "password": "$2a$10$Vf2628PU8gY.ZrypdsWqmO4mmOu8wvy6Q4RDqF2Ob2l5aNnuO69nW",
-      "firstName": "Sitikanta",
-      "lastName": "Satapathy",
+      "email": "nehabtola14@gmail.com",
+      "password": "$2a$10$h384bpRKoQSX8T7LJF1Zce4W2s9yvuMYF033lXYuochErsfUOJmE6",
+      "firstName": "Neha",
+      "lastName": "Butola",
       "confirmPassword": "123456",
-      "dob": "2003-09-04T18:30:00.000Z",
-      "phoneNumber": 23424342424,
-      "role": "Admin",
+      "dob": "2003-09-08T18:30:00.000Z",
+      "phoneNumber": 1234567890,
+      "role": "Physician",
+      "id": "Siti12",
       "status": "Active"
     },
     {
       "id": "Vamsi12",
       "email": "krishnavamsi@gmail.com",
-      "password": "$2a$10$Vf2628PU8gY.ZrypdsWqmO4mmOu8wvy6Q4RDqF2Ob2l5aNnuO69nW",
+      "password": "$2a$10$ZwEAGIawVek1iX9riNg0Tuf2kdVxTP4Y2BEp1n.BsH9MWCFsaH2cu",
       "firstName": "Vamsi",
       "lastName": "Jakka",
       "confirmPassword": "123456",
@@ -26,7 +26,7 @@
     },
     {
       "email": "neha@demo.com",
-      "password": "$2a$10$MdsiM0iLb8VZLyKQnwDeJuzRXPvhlCc2d5Mhfrzve/r9Ph8JgmId.",
+      "password": "$2a$10$yRhTmIXQBu6BzewurvYzguypidALlmCxGJcffYugYnF1J1D3WO2Py",
       "firstName": "neha",
       "lastName": "butola",
       "confirmPassword": "123456",
@@ -38,7 +38,7 @@
     },
     {
       "email": "neha13@test.com",
-      "password": "$2a$10$pL0YPq33GEPig0RiguJcjOdjyOhxmmC0IUvcroFG8tB83yiPAXCBi",
+      "password": "$2a$10$hTfRX./.nIrBTJLRq6H1ZuWAMWb4gx0so5rY2E8KfwgYjL.5uOTDK",
       "firstName": "Neha",
       "lastName": "Butola",
       "confirmPassword": "123456",

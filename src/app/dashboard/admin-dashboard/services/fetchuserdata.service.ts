@@ -23,12 +23,7 @@ export class FetchuserdataService {
     }
     return this.getUsersData();
   }
-  chnageUserStatus(pid: any, status: any): Observable<any> {
-    let userId;
-    userId = this.authService.userData.id;
-    return this.httpClient.put(
-      this.api + '/' + pid + '?' + 'userId' + '=' + userId + '/' + pid,
-      status
-    );
+  changeUserStatus(pid: any, data: any): Observable<any> {
+    return this.httpClient.put(this.api + '/' + pid, data);
   }
 }

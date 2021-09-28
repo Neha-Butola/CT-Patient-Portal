@@ -82,6 +82,8 @@ export class MedicationHistoryComponent implements OnInit {
     // console.log(m.otcmedication);
   }
   updateMedicationData() {
+    console.log(this.currentData, 'ctdyaa');
+
     // location.reload();
     console.log(this.medicationDetails);
     this.currentData.currentmedication = this.formValue.value.currentmedication;
