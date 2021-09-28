@@ -8,12 +8,22 @@ import { environment } from 'src/environments/environment';
 })
 export class ImmDetailsService {
   api = environment.baseUrl + 'immunization';
+  othervaccineapi = environment.baseUrl + 'otherimmunization';
   constructor(private http: HttpClient) {}
 
   submitImmunization(data: any) {
     return this.http.post(this.api, data);
   }
-  getImmunization(patientId: number): Observable<any> {
+  submitotherImm(data: any) {
+    return this.http.post(this.othervaccineapi, data);
+  }
+  /*getImmunization(patientId: number): Observable<any> {
     return this.http.get(this.api + '/' + patientId);
+  }*/
+  getImmunizationList(): Observable<any> {
+    return this.http.get(this.api);
+  }
+  getotherList(): Observable<any> {
+    return this.http.get(this.othervaccineapi);
   }
 }

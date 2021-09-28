@@ -87,6 +87,17 @@
       "phoneNumber": 8744904863,
       "role": "Patient",
       "id": "Bhartesh31"
+    },
+    {
+      "email": "ss@gmail.com",
+      "password": "$2a$10$YnihIOZqKhTpP.ukOw5U1uMhNLqvfNmJ8IUR7GMfb5WlGRSlPYUBK",
+      "firstName": "swati",
+      "lastName": "mukhija",
+      "confirmPassword": "123456",
+      "dob": "2003-09-09T18:30:00.000Z",
+      "phoneNumber": 9283728444,
+      "role": "Physician",
+      "id": "swati81"
     }
   ],
   "medication-and-allergies": [
@@ -323,6 +334,32 @@
       "date": "2021-09-21T18:30:00.000Z",
       "doses1": true,
       "id": 5
+    }
+  ],
+  "otherimmunization": [
+    {
+      "vaccinetype": "Human papillomavirus",
+      "id": 1
+    },
+    {
+      "vaccinetype": "HIB",
+      "id": 2
+    },
+    {
+      "vaccinetype": "DTap",
+      "id": 3
+    },
+    {
+      "vaccinetype": "Zoster",
+      "id": 4
+    },
+    {
+      "vaccinetype": "Zoster",
+      "id": 5
+    },
+    {
+      "vaccinetype": "Pneumococcal conjugate",
+      "id": 6
     }
   ]
 }

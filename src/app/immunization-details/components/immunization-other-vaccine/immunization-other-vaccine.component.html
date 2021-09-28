@@ -1,0 +1,86 @@
+<div class="container">
+  <mat-horizontal-stepper
+    [linear]="isLinear"
+    #stepper="matHorizontalStepper"
+    (selectionChange)="changeEvent($event)"
+  >
+    <mat-step [stepControl]="immForm">
+      <form
+        (ngSubmit)="onSubmit(immForm, formDirective)"
+        class="p-3 w-100"
+        [formGroup]="immForm"
+        #formDirective="ngForm"
+      >
+        <ng-template matStepLabel
+          ><span [ngStyle]="{ color: isNameValid() ? 'black' : 'red' }"
+            >Fill out your other vaccination</span
+          ></ng-template
+        >
+        <mat-card class="mb-2 px-lg-5">
+          <mat-card-header class="text-primary"
+            >Other general Vaccines
+          </mat-card-header>
+          <div class="row">
+            <div class="col-sm-12 col-md-12">
+              <mat-form-field *ngIf="isEdit">
+                <mat-label>Vaccine Type</mat-label>
+                <mat-select formControlName="vaccinetype">
+                  <mat-option value="Hepatitis A">Hepatitis A</mat-option>
+                  <mat-option value="Hepatitis B">Hepatitis B</mat-option>
+                  <mat-option value="Human papillomavirus"
+                    >Human papillomavirus</mat-option
+                  >
+                  <mat-option value="HIB">HIB</mat-option>
+                  <mat-option value="HIB">IPV</mat-option>
+                  <mat-option value="MMR">MMR</mat-option>
+                  <mat-option value="Rotavirus">Rotavirus</mat-option>
+                  <mat-option value="DTap">DTap</mat-option>
+                  <mat-option value="Meningococcal ACWY"
+                    >Meningococcal ACWY</mat-option
+                  >
+                  <mat-option value="Influenza">Influenza</mat-option>
+                  <mat-option value="Pneumococcal conjugate"
+                    >Pneumococcal conjugate</mat-option
+                  >
+                  <mat-option value="Zoster">Zoster</mat-option>
+                  <mat-option value="Other">Other</mat-option>
+                </mat-select>
+                <mat-error>Please choose a vaccine type</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card>
+
+        <div class="d-flex justify-content-center mt-4">
+          <button
+            type="submit"
+            class="btn"
+            mat-raised-button
+            color="primary"
+            required
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <mat-card
+        ><span class="message"
+          >Your vaccination form is successfully done.</span
+        >
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperPrevious>
+            <a
+              routerLink="/immunization-details"
+              routerLinkActive="router-link-active"
+              >view</a
+            >
+          </button>
+        </div>
+      </mat-card>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

@@ -1,136 +1,60 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-  FormGroupDirective,
-} from '@angular/forms';
-import { Router } from '@angular/router';
-import { Immunization } from '../../model/immunization';
+import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { ImmDetailsService } from '../../services/imm-details.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { DatePipe } from '@angular/common';
+import { Immunization } from '../../model/immunization';
+import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-imm-details',
   templateUrl: './imm-details.component.html',
   styleUrls: ['./imm-details.component.scss'],
-  providers: [DatePipe],
 })
 export class ImmDetailsComponent implements OnInit {
-  errors: any = {};
-  immForm: FormGroup;
-  immunizationForm: FormGroup;
-  isEdit: boolean = true;
-  issecondEdit: boolean = true;
-  immunization: Immunization;
-  isDisabled: boolean = true;
-  isLinear = true;
-  isCompleted: boolean = false;
-  myDate = new Date();
+  myDate: Date = new Date();
+  constructor(private demo: ImmDetailsService) {}
+  columns: string[] = [
+    'Id',
+    'Vaccine Name',
+    'Dose1',
+    'Date1',
+    'Doses2',
+    'Date2',
+  ];
 
-  constructor(
-    private formbuilder: FormBuilder,
-    private router: Router,
-    private ImmDetailsService: ImmDetailsService,
-    private snackBar: MatSnackBar,
-    private datePipe: DatePipe
-  ) {}
+  index = ['id', 'vaccinename', 'doses1', 'date', 'doses2', 'date1'];
+  other: string[] = ['Current Date', 'Vaccine Type'];
 
-  //field validation
-  createForm(immunization?: Immunization) {
-    this.immForm = this.formbuilder.group({
-      vaccinename: new FormControl(immunization?.vaccinename || '', [
-        Validators.required,
-      ]),
-      vaccinetype: new FormControl(immunization?.vaccinetype || ''),
-      date: new FormControl(immunization?.date || '', [Validators.required]),
-      doses1: new FormControl(immunization?.doses1 || '', [
-        Validators.required,
-      ]),
-    });
-    this.immunizationForm = this.formbuilder.group({
-      date1: new FormControl(immunization?.date1 || '', [Validators.required]),
-      doses2: new FormControl(immunization?.doses2 || '', [
-        Validators.required,
-      ]),
-    });
-  }
-  //validation for mat-step1
-  isNameValid() {
-    return this.immForm.pristine || this.immForm.valid;
-  }
-  //validation for mat-step2
-  issecondValid() {
-    return this.immunizationForm.pristine || this.immunizationForm.valid;
-  }
-  //alert message when go to another form without submit
-  changeEvent(e) {
-    if (e.selectedIndex == 1 && this.isCompleted == false) {
-      this.snackBar.open('Please fill the first form', 'cancel');
-    }
-    if (e.selectedIndex == 2 && this.isCompleted == false) {
-      this.snackBar.open('Please fill the second form', 'cancel');
-    }
-  }
-  //first form for submit method
-  onSubmit(formData: any, formDirective: FormGroupDirective): void {
-    if (this.immForm.valid) {
-      if (this.immForm.value.date != 'undefined') {
-        this.ImmDetailsService.submitImmunization(this.immForm.value).subscribe(
-          (res: any) => {
-            this.isCompleted = true;
-            this.immunization = { ...this.immForm.value };
-            this.isEdit = false;
-            this.snackBar.open(
-              'Your first vaccination successfully.',
-              'cancel'
-            );
-          },
-          (err: any) => {
-            console.log(JSON.stringify(err));
-            this.errors = err.error;
-          }
-        );
-      }
-    }
-  }
-  //second form for submit method
-  onformSubmit(formData: any, formsecondDirective: FormGroupDirective): void {
-    if (this.immunizationForm.valid) {
-      var date = this.immForm.value.date.toLocaleDateString();
-      var b = new Date(date);
-      var date2 = new Date(b.getTime() + 45 * 24 * 60 * 60 * 1000);
-      if (this.immunizationForm.value.date1 >= date2) {
-        this.ImmDetailsService.submitImmunization(
-          this.immunizationForm.value
-        ).subscribe((res: any) => {
-          this.isCompleted = true;
-          this.immunization = {
-            ...this.immForm.value,
-            ...this.immunizationForm.value,
-          };
-          this.issecondEdit = false;
+  otherindex = ['vaccinetype'];
+  viewdemo: Immunization[] = [];
+  viewotherdemo: Immunization[] = [];
+  // viewdemo: any[] = [];
+  state: boolean = false;
 
-          this.snackBar.open('Your second vaccination successfully.', 'cancel');
-        });
-        (err: any) => {
-          console.log(JSON.stringify(err));
-          this.errors = err.error;
-        };
-      } else {
-        this.snackBar.open('Your next due date after 45 days', 'cancel');
-      }
-    }
-  }
+  isAllowed = (id) => {
+    return id < 5 ? true : this.state;
+  };
+  changeState = () => {
+    this.state = !this.state;
+  };
 
   ngOnInit(): void {
-    if ((this.isEdit = true)) {
-      this.createForm();
-    }
-    if ((this.issecondEdit = true)) {
-      this.createForm();
-    }
+    this.demo.getImmunizationList().subscribe(
+      (res) => {
+        this.viewdemo = [...res];
+      },
+      (error) => {
+        console.log('error' + error);
+      }
+    );
+    this.demo.getotherList().subscribe(
+      (data) => {
+        this.viewotherdemo = [...data];
+      },
+      (error) => {
+        console.log('error' + error);
+      }
+    );
   }
 }
