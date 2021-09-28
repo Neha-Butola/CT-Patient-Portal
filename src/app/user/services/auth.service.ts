@@ -49,6 +49,7 @@ export class AuthService {
     const authToken = localStorage.getItem(AUTH_TOKEN_KEY);
     const userData = localStorage.getItem(AUTH_USER_DATA);
     this.autToken = authToken;
+
     if (userData) {
       this.userData = JSON.parse(userData) as any;
     } else {
@@ -58,8 +59,9 @@ export class AuthService {
 
   // to check if user token is logged in
   public isLoggedIn() {
-    // console.log(this.autToken);
+    // console.log(this.autToken, 'dta');
     this.checkStorage();
+
     return this.autToken !== null;
   }
 
@@ -74,5 +76,6 @@ export class AuthService {
   getUserData() {
     this.checkStorage();
     return this.userData;
+    console.log(this.userData, 'userdata');
   }
 }

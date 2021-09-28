@@ -30,7 +30,9 @@ export class MainApplicationComponent implements OnInit, OnDestroy {
 
   ngDoCheck(): void {
     this.authService.checkStorage();
+
     // if user is logged in then get user data
+    console.log(this.authService.isLoggedIn());
 
     if (this.authService.isLoggedIn()) {
       this.isAuthenticated = true;

@@ -486,13 +486,10 @@
         <thead class="bg-primary text-white">
           <tr>
             <th *ngIf="user.role === 'Admin'" scope="col">Name</th>
-            <th style="width: 13%" scope="col">Medication</th>
+            <th scope="col">Current Medication</th>
             <th scope="col">OTC Medication</th>
             <th scope="col">Herbs</th>
             <th scope="col">Social Drug</th>
-            <th scope="col">Past Medication</th>
-            <th scope="col">Drug Allergies</th>
-            <th scope="col">Other Reaction</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -507,9 +504,7 @@
             <td>{{ m.otcmedication }}</td>
             <td>{{ m.herbsmineralandvitamin }}</td>
             <td>{{ m.socialdrug }}</td>
-            <td>{{ m.pastprescribedmedication }}</td>
-            <td>{{ m.drugallergies }}</td>
-            <td>{{ m.reactionother }}</td>
+
             <td>
               <a [routerLink]="['/medication-and-allergies/details', m.id]"
                 ><i class="fa fa-eye cursor-pointer"></i

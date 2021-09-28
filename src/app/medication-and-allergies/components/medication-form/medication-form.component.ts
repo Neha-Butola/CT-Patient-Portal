@@ -3,13 +3,14 @@ import { Router } from '@angular/router';
 import { MedicationFormDetails } from '../../model/medication-form-details';
 import { FetchpostService } from '../../services/fetchpost.service';
 import { AuthService } from 'src/app/user/services/auth.service';
-
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-medication-form',
   templateUrl: './medication-form.component.html',
   styleUrls: ['./medication-form.component.scss'],
 })
 export class MedicationFormComponent implements OnInit {
+  selected: string = '';
   medication: MedicationFormDetails = {
     currentmedication: '',
     otcmedication: '',
@@ -32,7 +33,7 @@ export class MedicationFormComponent implements OnInit {
   ) {}
   //To create medication & allergiea data set
 
-  medicationForm() {
+  medicationForm(form: NgForm) {
     this.fetchpostservice
       .createMedicationAndAllergies(this.medication)
       .subscribe(

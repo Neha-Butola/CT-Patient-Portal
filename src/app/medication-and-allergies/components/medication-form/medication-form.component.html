@@ -7,7 +7,11 @@
   </ol>
 </nav>
 <div class="container">
-  <form (ngSubmit)="medicationForm()" class="p-3 w-100 myform">
+  <form
+    #form="ngForm"
+    (ngSubmit)="medicationForm(form)"
+    class="p-3 w-100 myform"
+  >
     <mat-card-header class="bg-primary text-white mb-2 p-2 rounded"
       ><h4>Medication & Allergies</h4>
     </mat-card-header>
@@ -68,14 +72,17 @@
         </mat-form-field>
         <mat-form-field class="col-sm-12 col-md-6">
           <mat-label>Social Drugs</mat-label>
-          <input
-            type="text"
-            matInput
-            placeholder="Social Drugs"
-            name="socialdrug"
-            required
-            [(ngModel)]="medication.socialdrug"
-          />
+          <mat-select name="socialdrug" [(ngModel)]="medication.socialdrug">
+            <mat-option value="Antibiotics ">Antibiotics </mat-option>
+            <mat-option value="Nonsteroidal anti-inflammatory"
+              >Nonsteroidal anti-inflammatory
+            </mat-option>
+            <mat-option value="Aspirin">Aspirin</mat-option>
+            <mat-option value="Sulfa drugs">Sulfa drugs</mat-option>
+            <mat-option value="Chemotherapy drugs."
+              >Chemotherapy drugs.</mat-option
+            >
+          </mat-select>
         </mat-form-field>
         <mat-form-field class="col-sm-12 col-md-6">
           <mat-label>Any past prescribed medication</mat-label>
@@ -90,16 +97,27 @@
         </mat-form-field>
         <mat-form-field class="col-sm-12 col-md-6">
           <mat-label>Drug Allergies</mat-label>
-          <input
-            type="text"
-            matInput
-            placeholder="Drug Allergies"
+          <mat-select
             name="drugallergies"
-            required
             [(ngModel)]="medication.drugallergies"
-          />
+            required
+          >
+            <mat-option value="Pharmaceutical Agent"
+              >Pharmaceutical Agent</mat-option
+            >
+            <mat-option value="Anaphylaxis">Anaphylaxis</mat-option>
+            <mat-option value="Cephalosporins">Cephalosporins.</mat-option>
+            <mat-option value="Novocaine">Novocaine</mat-option>
+            <mat-option value="Body Aches">Body Aches</mat-option>
+            <mat-option value="Drug-induced anemia"
+              >Drug-induced anemia</mat-option
+            >
+            <mat-option value="Inflammation in the kidneys"
+              >Inflammation in the kidneys</mat-option
+            >
+          </mat-select>
         </mat-form-field>
-        <mat-form-field class="col-sm-12 col-md-6">
+        <!-- <mat-form-field class="col-sm-12 col-md-6">
           <mat-label>Allergies/Reaction Other</mat-label>
           <input
             type="text"
@@ -109,11 +127,38 @@
             required
             [(ngModel)]="medication.reactionother"
           />
+        </mat-form-field> -->
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label>Allergies/Reaction Other</mat-label>
+          <mat-select
+            name="reactionother"
+            [(ngModel)]="medication.reactionother"
+            required
+          >
+            <mat-option value="Aseptic meningitis"
+              >Aseptic meningitis</mat-option
+            >
+            <mat-option value="Domestic guinea pig"
+              >Domestic guinea pig</mat-option
+            >
+            <mat-option value="Parasitic roundworm"
+              >Parasitic roundworm</mat-option
+            >
+            <mat-option value="Red fire ant">Red fire ant</mat-option>
+            <mat-option value="Hornet">Hornet</mat-option>
+            <mat-option value="Wasp">Wasp</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
     </mat-card>
     <div class="d-flex justify-content-center mt-4">
-      <button type="submit" class="btn" mat-raised-button color="primary">
+      <button
+        [disabled]="form.invalid"
+        type="submit"
+        class="btn"
+        mat-raised-button
+        color="primary"
+      >
         Submit
       </button>
     </div>

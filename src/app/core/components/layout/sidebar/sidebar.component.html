@@ -1,9 +1,8 @@
-<!-- Side bar for admin -->
 <ng-container>
   <ul
     class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
     id="accordionSidebar"
-    *ngIf="isPhysician"
+    *ngIf="user.role == 'Admin'"
   >
     <li class="nav-item menu-button">
       <a
@@ -15,41 +14,14 @@
         <span>Dashboard</span>
       </a>
     </li>
-    <mat-divider></mat-divider>
     <li class="nav-item">
       <a
         class="nav-link"
-        [routerLink]="['/medication-and-allergies/history']"
+        [routerLink]="['/dashboard/admin-dashboard/manage-users']"
         routerLinkActive="active"
       >
-        <mat-icon>local_hospital</mat-icon>
-        <span>Medication</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a
-        class="nav-link"
-        [routerLink]="['/demographics']"
-        routerLinkActive="active"
-      >
-        <mat-icon>graphic_eq</mat-icon>
-        <span>Demographics</span>
-      </a>
-    </li>
-  </ul>
-  <ul
-    class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-    id="accordionSidebar"
-    *ngIf="isAdmin"
-  >
-    <li class="nav-item menu-button">
-      <a
-        class="nav-link"
-        [routerLink]="['/dashboard/admin-dashboard']"
-        routerLinkActive="active"
-      >
-        <mat-icon>dashboard</mat-icon>
-        <span>Dashboard</span>
+        <mat-icon>user</mat-icon>
+        <span>Users</span>
       </a>
     </li>
     <mat-divider></mat-divider>
@@ -68,7 +40,7 @@
   <ul
     class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
     id="accordionSidebar"
-    *ngIf="isPatient"
+    *ngIf="user.role == 'Patient'"
   >
     <li class="nav-item menu-button">
       <a
