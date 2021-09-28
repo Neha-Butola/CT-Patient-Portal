@@ -20,8 +20,47 @@
         [routerLink]="['/dashboard/admin-dashboard/manage-users']"
         routerLinkActive="active"
       >
+<<<<<<< HEAD
         <mat-icon>user</mat-icon>
         <span>Users</span>
+=======
+        <mat-icon>local_hospital</mat-icon>
+        <span>Medication</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [routerLink]="['/demographics']"
+        routerLinkActive="active"
+      >
+        <mat-icon>graphic_eq</mat-icon>
+        <span>Demographics</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item menu-button">
+      <a class="nav-link" [routerLink]="['/appointments/schedule-appointment']">
+        <mat-icon>calendar_today</mat-icon>
+        <span>Appointments</span>
+      </a>
+    </li>
+  </ul>
+  <ul
+    class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+    id="accordionSidebar"
+    *ngIf="isAdmin"
+  >
+    <li class="nav-item menu-button">
+      <a
+        class="nav-link"
+        [routerLink]="['/dashboard/admin-dashboard']"
+        routerLinkActive="active"
+      >
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+>>>>>>> f848296774f143ced615113ddbb737d85fab6a9f
       </a>
     </li>
     <mat-divider></mat-divider>
