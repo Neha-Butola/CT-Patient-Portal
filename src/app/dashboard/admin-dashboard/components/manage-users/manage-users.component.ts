@@ -14,12 +14,27 @@ export class ManageUsersComponent implements OnInit {
     private fetchusersdataservice: FetchuserdataService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllUsersData();
+  }
   getAllUsersData() {
     this.fetchusersdataservice.getUsersData().subscribe(
       (res) => {
         console.log(JSON.stringify(res));
-        this.usersDetails = JSON.stringify(res);
+        this.usersDetails = res;
+        console.log(res, 'get users');
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+  toggleEditable(event) {
+    this.fetchusersdataservice.getUsersData().subscribe(
+      (res) => {
+        console.log(JSON.stringify(res));
+        this.usersDetails = res;
+        console.log(res, 'get users');
       },
       (err) => {
         console.log(err);

@@ -20,11 +20,17 @@
         [routerLink]="['/dashboard/admin-dashboard/manage-users']"
         routerLinkActive="active"
       >
-<<<<<<< HEAD
-        <mat-icon>user</mat-icon>
+        <mat-icon>local_profile</mat-icon>
         <span>Users</span>
-=======
-        <mat-icon>local_hospital</mat-icon>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [routerLink]="['/medication-and-allergies/history']"
+        routerLinkActive="active"
+      >
+        <mat-icon>local_profile</mat-icon>
         <span>Medication</span>
       </a>
     </li>
@@ -50,7 +56,7 @@
   <ul
     class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
     id="accordionSidebar"
-    *ngIf="isAdmin"
+    *ngIf="user.role == 'Physician'"
   >
     <li class="nav-item menu-button">
       <a
@@ -60,7 +66,6 @@
       >
         <mat-icon>dashboard</mat-icon>
         <span>Dashboard</span>
->>>>>>> f848296774f143ced615113ddbb737d85fab6a9f
       </a>
     </li>
     <mat-divider></mat-divider>

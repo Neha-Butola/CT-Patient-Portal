@@ -2,6 +2,7 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
 />
+
 <div id="wrapper">
   <div id="content-wrapper" class="d-flex flex-column">
     <div id="content">
@@ -21,7 +22,7 @@
       <table class="table table-striped table-bordered table-hover">
         <thead class="bg-primary text-white">
           <tr>
-            <th scope="col">Sl No</th>
+            <!-- <th scope="col">Sl No</th> -->
             <th scope="col">User Name</th>
             <th scope="col">User Role</th>
             <th scope="col">Status</th>
@@ -29,13 +30,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let u of usersDetails">
+            <!-- <td>{{ u.(0+1)}}</td> -->
+            <td>{{ u.firstName }}</td>
+            <td>{{ u.role }}</td>
+            <td>{{ u.status }}</td>
             <td>
-              <a><i class="fa fa-eye cursor-pointer"></i></a>
+              <!-- Material checked -->
+              <div class="custom-control custom-switch custom-switch-md">
+                <input
+                  (change)="toggleEditable($event)"
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="{{ u.id }}"
+                  checked=""
+                />
+                <label class="custom-control-label" for="{{ u.id }}"></label>
+              </div>
             </td>
           </tr>
         </tbody>

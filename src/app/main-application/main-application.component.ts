@@ -32,7 +32,7 @@ export class MainApplicationComponent implements OnInit, OnDestroy {
     this.authService.checkStorage();
 
     // if user is logged in then get user data
-    console.log(this.authService.isLoggedIn());
+    // console.log(this.authService.isLoggedIn());
 
     if (this.authService.isLoggedIn()) {
       this.isAuthenticated = true;
