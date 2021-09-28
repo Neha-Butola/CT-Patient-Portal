@@ -7,4 +7,5 @@ export interface MedicationFormDetails {
   reactionother: string;
   id: string;
   otcmedication: string;
+  pname: string;
 }

@@ -10,8 +10,8 @@ import { Appointment } from '../schedule-appointment/model/appointment.model';
 })
 export class AppointmentService {
   api = environment.baseUrl + 'appointments';
-  api2 = environment.baseUrl + 'users';
-  apiPhysician = environment.baseUrl + 'physicians';
+  apiUsers = environment.baseUrl + 'users';
+  apiProviders = environment.baseUrl + 'providers';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
@@ -40,14 +40,25 @@ export class AppointmentService {
     let userId;
     userId = this.authService.userData.id;
     return this.http.get(
-      this.api2 + '/' + userId + '/' + 'medication-and-allergies'
+      this.apiUsers + '/' + userId + '/' + 'medication-and-allergies'
     );
   }
 
   // get physician relted to medication
-  getPhysicianList(title): Observable<any> {
+  getPhysicianList(): Observable<any> {
+    return this.http.get(this.apiUsers + '?role = Physician');
+  }
+
+  // get physician relted to medication
+  getProvidersList(title): Observable<any> {
     return this.http.get(
-      this.apiPhysician + '?' + 'treatments for' + '=' + title
+      this.apiProviders + '?' + 'treatments for' + '=' + title
     );
   }
+
+  //post
+  // postTreatment(): Observable<any> {
+  //   let userId;
+  //   userId = this.authService.userData.id;
+  // }
 }

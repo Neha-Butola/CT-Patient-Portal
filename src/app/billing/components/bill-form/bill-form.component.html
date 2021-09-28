@@ -1,54 +1,122 @@
-<h3 class="text-center mb-4">conforming order</h3>
+<div class="container" *ngIf="!isLoading" id="demo">
+  <mat-card class="theme text-white mb-2 px-lg-5" *ngIf="!isEdit">
+    <h1>Invoice</h1>
+    <div class="date-d">{{ today | date }}</div>
+  </mat-card>
+  <form [formGroup]="billForm" (ngSubmit)="onSubmit()" class="p-3 w-100">
+    <mat-card-header
+      class="bg-primary text-white mb-2 p-2 rounded"
+      *ngIf="isEdit"
+      ><h4>Confirm Order</h4>
+    </mat-card-header>
+    <mat-card class="mb-2 px-lg-5">
+      <div class="row">
+        <div class="col-sm-6 col-md-3">
+          <!-- <mat-form-field *ngIf="isEdit">
+            <mat-label for="id">Id </mat-label>
+            <input
+              id="id"
+              type="text"
+              matInput
+              name="id"
+              formControlName="id"
+            />
+          </mat-form-field> -->
+          <div *ngIf="isEdit">
+            <img alt="Lab Logo" src="assets/images/medicare.jfif" />
+          </div>
+          <div class="mb-2" *ngIf="!isEdit">
+            <div class="field-label">ID</div>
+            <div>{{ billing.id }}</div>
+          </div>
+        </div>
 
-<form [formGroup]="billForm" (ngSubmit)="conformBill()">
-  <mat-form-field appearance="standard" class="w-100">
-    <mat-label>Bill No</mat-label>
-    <mat-select formControlName="billNo">
-      <!-- <mat-option *ngFor="let bill of billing">
-        {{ bill.billNo }}
-      </mat-option> -->
-    </mat-select>
-  </mat-form-field>
+        <div class="col-sm-6 col-md-3">
+          <mat-form-field *ngIf="isEdit">
+            <mat-label>Appointment</mat-label>
+            <mat-select
+              formControlName="appointment"
+              (selectionChange)="appointmentChange($event)"
+            >
+              <mat-option
+                *ngFor="let appointment of appointments"
+                [value]="appointment.id"
+                [disabled]="appointment.exist"
+              >
+                {{ appointment.title }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="mb-2" *ngIf="!isEdit">
+            <div class="field-label">Appointment</div>
+            <div>{{ billing.appointment }}</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <!-- <mat-form-field *ngIf="isEdit">
+          <mat-label for="physician">Physician</mat-label>
+          <input
+            id="physician"
+            type="text"
+            matInput
+            name="physician"
+            formControlName="physician"
+          />
+        </mat-form-field> -->
+          <!-- <div class="mb-2" *ngIf="isEdit">
+            <div>Physician</div>
+            <div>{{ physician }}</div>
+          </div> -->
+          <div class="mb-2">
+            <div class="field-label">Physician</div>
+            <div>{{ physician }}</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <mat-form-field *ngIf="isEdit">
+            <mat-label for="consultationFee">Consultation Fee ₹</mat-label>
+            <input
+              id="consultationFee"
+              type="text"
+              matInput
+              name="consultationFee"
+              formControlName="consultationFee"
+            />
+          </mat-form-field>
+          <div class="mb-2" *ngIf="!isEdit">
+            <div class="field-label">Consultation Fee</div>
+            <div>₹{{ billing.consultationFee }}</div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
 
-  <mat-form-field appearance="standard" class="w-100">
-    <mat-select formControlName="title">
-      <!-- <mat-option *ngFor="let t of billing">
-        {{ t.title }}
-      </mat-option> -->
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="standard" class="w-100">
-    <!-- <mat-label>Physician</mat-label> -->
-    <mat-select formControlName="physician">
-      <!-- <mat-option *ngFor="let p of billing">
-        {{ p.physician }}
-      </mat-option> -->
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="standard" class="w-100">
-    <mat-label>Pick a date</mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="date" />
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
-  <mat-form-field appearance="standard" class="w-100">
-    <!-- <mat-label>Available slots</mat-label> -->
-    <mat-select formControlName="consultation">
-      <!-- <mat-option *ngFor="let c of billing" [value]="c">
-        {{ c.consultation }}
-      </mat-option> -->
-    </mat-select>
-  </mat-form-field>
-
-  <button
-    class="my-4"
-    type="submit"
-    mat-raised-button
-    color="primary"
-    [disabled]="billForm.invalid"
-  >
-    Payment
-  </button>
-</form>
+    <div class="d-flex justify-content-center mt-4" *ngIf="!isEdit">
+      <button
+        type="button"
+        class="btn"
+        mat-raised-button
+        color="primary"
+        (click)="checkout()"
+      >
+        Make Payment
+      </button>
+    </div>
+    <div class="d-flex justify-content-center mt-4" *ngIf="isEdit">
+      <button type="submit" class="btn" mat-raised-button color="primary">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+<button
+  printSectionId="demo"
+  type="button"
+  class="btn ngxbutton"
+  mat-raised-button
+  color="primary"
+  ngxPrint
+  *ngIf="!isEdit"
+>
+  Print
+</button>

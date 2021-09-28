@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FetchpostService } from '../../services/fetchpost.service';
 import { MedicationFormDetails } from '../../model/medication-form-details';
-import { MatDialog } from '@angular/material/dialog';
-import { EditMedicationComponent } from './modal/edit-medication/edit-medication.component';
+import { AuthService } from 'src/app/user/services/auth.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
@@ -16,13 +15,17 @@ export class MedicationHistoryComponent implements OnInit {
   formValue!: FormGroup;
   medicationDetails: any;
   currentData: any;
+  user: any;
   constructor(
     private router: Router,
     private fetchpostservice: FetchpostService,
-    private formbuilder: FormBuilder
+    private formbuilder: FormBuilder,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.user = this.authService.userData;
+
     this.formValue = this.formbuilder.group({
       currentmedication: [],
       otcmedication: [],
@@ -39,11 +42,12 @@ export class MedicationHistoryComponent implements OnInit {
       // reactionother: new FormControl(),
     });
     this.getAllMedicationData();
+    console.log(this.authService, 'authentication');
   }
   getAllMedicationData() {
     this.fetchpostservice.getMedicationData().subscribe(
       (res) => {
-        console.log(res);
+        console.log(res, 'username res');
         this.medicationDetails = res;
       },
 

@@ -2,8 +2,10 @@ import { DatePipe } from '@angular/common';
 import { Component, OnChanges, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AppointmentService } from 'src/app/appointment/services/appointment.service';
+import { AuthService } from 'src/app/user/services/auth.service';
 
 @Component({
   selector: 'app-create-appointment',
@@ -12,25 +14,40 @@ import { AppointmentService } from 'src/app/appointment/services/appointment.ser
 })
 export class CreateAppointmentComponent implements OnInit {
   appointmentForm: FormGroup;
+  treatmentForm: FormGroup;
   maxDate: any;
   minDate: any;
+  user_role: string;
   medications: any[] = [];
-  physicians: any[];
-
+  physicians: any[] = [];
+  providers: any[];
   slots = ['10 AM', '11 PM', '1 PM', '4 PM', '5 PM'];
-
+  treatments = [
+    'common body illnesses',
+    'cardiovascular conditions',
+    'injuries of internal organ systems',
+    'mental, emotional, and behavioral disorders',
+  ];
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<CreateAppointmentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: [],
     public apService: AppointmentService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    if (this.authService.isLoggedIn) {
+      this.user_role = this.authService.userData.role;
+    }
     this.initForm();
     this.setDateValidation();
-    this.getMedication();
+    if (this.user_role == 'Patient') {
+      this.getPhysician();
+    } else {
+      this.getMedication();
+    }
   }
 
   // appointment form bulider
@@ -40,6 +57,10 @@ export class CreateAppointmentComponent implements OnInit {
       date: ['', Validators.required],
       physician: ['', Validators.required],
       slot: ['', Validators.required],
+    });
+    this.treatmentForm = this.fb.group({
+      name: ['', Validators.required],
+      physician: ['', Validators.required],
     });
   }
 
@@ -86,18 +107,36 @@ export class CreateAppointmentComponent implements OnInit {
   }
 
   // get all physician related to the selected medication
-  getPhysician(e: any) {
-    this.physicians = [];
-    this.apService.getPhysicianList(e.value).subscribe((res) => {
+  getProviders(e: any) {
+    this.providers = [];
+    this.apService.getProvidersList(e.value).subscribe((res) => {
       console.log(res);
       res.forEach((element) => {
-        this.physicians.push(element);
+        this.providers.push(element);
       });
       console.log(this.physicians);
     });
   }
 
+  getPhysician() {
+    this.apService.getPhysicianList().subscribe((res) => {
+      res.forEach((elm) => {
+        if (elm.role == 'Physician') {
+          let physician = `${elm.firstName} ${elm.lastName}`;
+          console.log('physician');
+          console.log(physician);
+          this.physicians.push(physician);
+        }
+      });
+    });
+  }
+
   cancel() {
     this.dialogRef.close();
+  }
+
+  SubmitTreatment() {
+    console.log(this.treatmentForm.value);
+    // this.apService.postTreatment();
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MedicationFormDetails } from '../../model/medication-form-details';
 import { FetchpostService } from '../../services/fetchpost.service';
+import { AuthService } from 'src/app/user/services/auth.service';
 
 @Component({
   selector: 'app-medication-form',
@@ -9,18 +10,25 @@ import { FetchpostService } from '../../services/fetchpost.service';
   styleUrls: ['./medication-form.component.scss'],
 })
 export class MedicationFormComponent implements OnInit {
-  // medication: MedicationFormDetails = {
-  //   currentmedication: '',
-  //   otcmedication: '',
-  //   herbsmineralandvitamin: '',
-  //   socialdrug: '',
-  //   pastprescribedmedication: '',
-  // };
-  medication: any = {};
+  medication: MedicationFormDetails = {
+    currentmedication: '',
+    otcmedication: '',
+    herbsmineralandvitamin: '',
+    socialdrug: '',
+    pastprescribedmedication: '',
+    drugallergies: '',
+    reactionother: '',
+    id: '',
+    pname: this.authService.userData.firstName,
+  };
+
+  // medication: any = {};
   errors: any = {};
+  user: any;
   constructor(
     private router: Router,
-    private fetchpostservice: FetchpostService
+    private fetchpostservice: FetchpostService,
+    private authService: AuthService
   ) {}
   //To create medication & allergiea data set
 
@@ -36,5 +44,7 @@ export class MedicationFormComponent implements OnInit {
       );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = this.authService.userData;
+  }
 }

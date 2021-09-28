@@ -31,6 +31,15 @@ export class RegisterComponent implements OnInit {
   authSubscription: Subscription;
   maxDate: any;
   minDate: any;
+  userRole: string;
+
+  profiles: string[] = [
+    'Radiologist',
+    'Cardiologist',
+    'Psychiatrist',
+    'Internist',
+    'Neurologist',
+  ];
 
   @ViewChild(PlaceholderDirective, { static: false })
   alertHost: PlaceholderDirective;
@@ -43,6 +52,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.setProfileValidators();
     this.setDOBVal();
   }
 
@@ -65,6 +75,7 @@ export class RegisterComponent implements OnInit {
           ],
         ],
         role: ['', Validators.required],
+        profile: [''],
       },
       {
         validator: ConfirmPasswordValidator('password', 'confirmPassword'),
@@ -77,32 +88,6 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  // to submit registration data and get the response data or error
-  onSubmit() {
-    this.isLoading = true; // show the loader after registrion form submit
-    this.authSubscription = this.authServive
-      .registerUser(this.registerForm.value)
-      .pipe(
-        finalize(() => {
-          this.isLoading = false; //hide the loader after request happens
-          setTimeout(() => {
-            this.router.navigate(['/']);
-          }, 1000);
-        })
-      )
-      .subscribe(
-        (res) => {
-          console.log(res);
-          this.showAlert('You are Registered Successfully');
-        },
-        (err) => {
-          console.log(err);
-          this.error = err.message;
-          this.isLoading = false; //hide the loader after request fails
-        }
-      );
-  }
-
   //to set max and min values for date of birth.
   setDOBVal() {
     this.maxDate = new Date();
@@ -111,6 +96,41 @@ export class RegisterComponent implements OnInit {
     this.minDate.setFullYear(this.minDate.getFullYear() - 200);
   }
 
+  // set profile validations
+  setProfileValidators() {
+    const profileControl = this.registerForm.get('profile');
+    this.registerForm.get('role').valueChanges.subscribe((role) => {
+      if (role === 'Physician') {
+        profileControl.setValidators([Validators.required]);
+      }
+    });
+  }
+
+  // to submit registration data and get the response data or error
+  onSubmit() {
+    this.isLoading = true; // show the loader after registrion form submit
+    this.authSubscription = this.authServive
+      .registerUser(this.registerForm.value)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false; //hide the loader after request happens
+        })
+      )
+      .subscribe(
+        (res) => {
+          console.log(res);
+          this.showAlert('You are Registered Successfully');
+          setTimeout(() => {
+            this.router.navigate(['/']);
+          }, 1500);
+        },
+        (err) => {
+          console.log(err);
+          this.error = err.error;
+          this.isLoading = false; //hide the loader after request fails
+        }
+      );
+  }
   // to show alert when user regiterd successfully
   private showAlert(message: string) {
     const alertCmpFactory = this.cfResolver.resolveComponentFactory(

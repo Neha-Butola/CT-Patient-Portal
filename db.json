@@ -30,7 +30,7 @@
       "confirmPassword": "123456",
       "dob": "2003-09-02T18:30:00.000Z",
       "phoneNumber": 2321231312,
-      "role": "Patient",
+      "role": "Physician",
       "id": "neha21"
     },
     {
@@ -96,23 +96,36 @@
       "confirmPassword": "Bhartesh@7448",
       "dob": "1994-11-10T18:30:00.000Z",
       "phoneNumber": 8744904863,
-      "role": "Patient",
+      "role": "Physician",
       "id": "Bhartesh31"
+    },
+    {
+      "email": "neha11@gmail.com",
+      "password": "$2a$10$l3MVUi29owzClA1s52mOAeuzRMti6YofiFtS95naXhXwECmk3ijiC",
+      "firstName": "neha",
+      "lastName": "test",
+      "confirmPassword": "123456",
+      "dob": "2003-09-10T18:30:00.000Z",
+      "phoneNumber": 1234567890,
+      "role": "Patient",
+      "id": "neha61"
+    },
+    {
+      "email": "john_brown@gmail.com",
+      "password": "$2a$10$3aNBtWutWDJ9RzYznkAJmetAkqT1KH16cYBryeQvir97njD2j.0MG",
+      "firstName": "john",
+      "lastName": "brown",
+      "confirmPassword": "123456",
+      "dob": "2003-09-25T18:30:00.000Z",
+      "phoneNumber": 1234567890,
+      "role": "Physician",
+      "profile": "Psychiatrist",
+      "id": "john91"
     }
   ],
   "medication-and-allergies": [
     {
-      "currentmedication": "Latest medication",
-      "otcmedication": "yes ",
-      "herbsmineralandvitamin": "Once in a week",
-      "socialdrug": "Not suggested",
-      "pastprescribedmedication": "Yes",
-      "drugallergies": "NO",
-      "reactionother": "no reaction",
-      "id": 3,
-      "userId": "Bhartesh31"
-    },
-    {
+      "pname": "Neha",
       "currentmedication": "common body illnesses",
       "otcmedication": "2 years ago",
       "herbsmineralandvitamin": "5 years ago",
@@ -124,6 +137,7 @@
       "userId": "neha21"
     },
     {
+      "pname": "Neha",
       "currentmedication": "cardiovascular condition",
       "otcmedication": "2 years ago",
       "herbsmineralandvitamin": "two years ago",
@@ -133,6 +147,7 @@
       "userId": "neha21"
     },
     {
+      "pname": "Vamsi",
       "currentmedication": "injuries of internal organ systems",
       "herbsmineralandvitamin": "no vitamins",
       "socialdrug": "yes taken",
@@ -143,17 +158,51 @@
       "userId": "Vamsi12"
     },
     {
-      "currentmedication": "cardiovascular condition",
+      "pname": "Vamsi",
+      "currentmedication": "common body illnesses",
       "otcmedication": "2 years ago",
       "herbsmineralandvitamin": "5 years ago",
       "socialdrug": "Not in Current",
       "pastprescribedmedication": "Yes",
       "drugallergies": "No",
-      "reactionother": "no",
+      "reactionother": "nO",
+      "id": 4,
+      "userId": "Vamsi12"
+    },
+    {
+      "pname": "Neha",
+      "currentmedication": "cardiovascular condition",
+      "otcmedication": "2 years ago",
+      "herbsmineralandvitamin": "two years ago",
+      "socialdrug": "not taken",
+      "pastprescribedmedication": "yes",
+      "id": 2,
+      "userId": "neha21"
+    },
+    {
+      "pname": "Vamsi",
+      "currentmedication": "injuries of internal organ systems",
+      "herbsmineralandvitamin": "no vitamins",
+      "socialdrug": "yes taken",
+      "pastprescribedmedication": "not taken",
+      "drugallergies": "yes i have",
+      "reactionother": "no reaction",
+      "id": 5,
+      "userId": "Vamsi12"
+    },
+    {
+      "pname": "Vamsi",
+      "currentmedication": "cardiovascular condition",
+      "herbsmineralandvitamin": "vfdvsfdvfvvf",
+      "socialdrug": "vdfvdsfsfdv",
+      "pastprescribedmedication": "vfdvfsdvvdfv",
+      "drugallergies": "vdfvsdfv",
+      "reactionother": "vdfvsdfv",
       "id": 6,
       "userId": "Vamsi12"
     },
     {
+      "pname": "Vamsi",
       "currentmedication": "dsdsds",
       "otcmedication": "ddfdf",
       "herbsmineralandvitamin": "dfdfdf",
@@ -164,13 +213,12 @@
       "id": 7
     },
     {
-      "currentmedication": "dsdsds",
-      "otcmedication": "ddfdf",
-      "herbsmineralandvitamin": "dfdfdf",
-      "socialdrug": "dvcvc",
-      "pastprescribedmedication": "dvdd",
-      "drugallergies": "sdsds",
-      "reactionother": "sdsds",
+      "currentmedication": "NoMEDICATION",
+      "herbsmineralandvitamin": "Herbs",
+      "socialdrug": "drugs",
+      "pastprescribedmedication": "prescribed Medication",
+      "drugallergies": "DRUGS",
+      "reactionother": "ALLERGIES",
       "id": 8
     }
   ],
@@ -226,42 +274,47 @@
   ],
   "appointments": [
     {
-      "title": "cardiovascular condition",
-      "date": "2021-09-20",
-      "physician": "Taylor Brown",
-      "slot": "11 PM",
-      "status": false,
-      "userId": "neha21",
-      "id": "cardiovascular condition51"
+      "title": "injuries of internal organ systems",
+      "date": "2021-09-30",
+      "physician": "Will Smith",
+      "slot": "4 PM",
+      "userId": "Vamsi12",
+      "id": "injuries of internal organ systems51"
     },
     {
       "title": "cardiovascular condition",
-      "date": "2021-09-13",
+      "date": "2021-09-30",
       "physician": "Taylor Brown",
       "slot": "5 PM",
-      "status": true,
-      "userId": "neha21",
+      "userId": "Vamsi12",
       "id": "cardiovascular condition91"
     },
     {
+      "title": "cardiovascular condition",
+      "date": "2021-09-23",
+      "physician": "Maria Garcia",
+      "slot": "11 PM",
+      "userId": "neha21",
+      "id": "cardiovascular condition21"
+    },
+    {
       "title": "common body illnesses",
-      "date": "2021-09-27",
+      "date": "2021-09-28",
       "physician": "Rachel Lopez",
       "slot": "1 PM",
       "userId": "neha21",
-      "status": true,
-      "id": "common body illnesses51"
+      "id": "common body illnesses31"
     },
     {
       "title": "cardiovascular condition",
-      "date": "2021-09-28",
+      "date": "2021-09-29",
       "physician": "Taylor Brown",
       "slot": "4 PM",
       "userId": "neha21",
-      "id": "cardiovascular condition01"
+      "id": "cardiovascular condition21"
     }
   ],
-  "physicians": [
+  "providers": [
     {
       "name": "James Smith",
       "profile": "Radiologists",
@@ -270,43 +323,43 @@
     },
     {
       "name": "Rachel Lopez",
-      "profile": "Radiologists",
+      "profile": "Radiologist",
       "id": "Radiologists15",
       "treatments for": "common body illnesses"
     },
     {
       "name": "Will Smith",
-      "profile": "Internists",
+      "profile": "Internist",
       "id": "Internists12",
       "treatments for": "injuries of internal organ systems"
     },
     {
       "name": "Kevin Winson",
-      "profile": "Internists",
+      "profile": "Internist",
       "id": "Internists12",
       "treatments for": "injuries of internal organ systems"
     },
     {
       "name": "A.k Moore",
-      "profile": "Psychiatrists",
+      "profile": "Psychiatrist",
       "id": "Psychiatrists12",
       "treatments for": "mental, emotional, and behavioral disorders"
     },
     {
       "name": "Maria Garcia",
-      "profile": "Cardiologists",
+      "profile": "Cardiologist",
       "id": "Cardiologists12",
       "treatments for": "cardiovascular condition"
     },
     {
       "name": "Taylor Brown",
-      "profile": "Cardiologists",
+      "profile": "Cardiologist",
       "id": "Cardiologists13",
       "treatments for": "cardiovascular condition"
     },
     {
       "name": "Natalie",
-      "profile": "Neurologists",
+      "profile": "Neurologist",
       "id": "Neurologists15",
       "treatments for": "diseases of the nervous system, brain"
     }
@@ -346,6 +399,243 @@
       "date": "2021-09-21T18:30:00.000Z",
       "doses1": true,
       "id": 5
+    }
+  ],
+  "billing": [
+    {
+      "id": 1,
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "physician": "Will Smith",
+      "paymentMethod": "Debit Card",
+      "billingDate": "2021-09-25T16:23:37.812Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "id": 2,
+      "physician": "Will Smith",
+      "paymentMethod": "Net Banking",
+      "billingDate": "2021-09-26T20:11:28.978Z"
+    },
+    {
+      "appointment": "cardiovascular condition91",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "id": 3,
+      "physician": "Taylor Brown",
+      "paymentMethod": null,
+      "billingDate": "2021-09-26T20:11:58.315Z"
+    },
+    {
+      "appointment": "cardiovascular condition91",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "id": 4,
+      "physician": "Taylor Brown",
+      "paymentMethod": "Paytm",
+      "billingDate": "2021-09-26T20:12:24.850Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "id": 5,
+      "physician": "Will Smith",
+      "paymentMethod": "UPI",
+      "billingDate": "2021-09-26T20:12:40.619Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "id": 6,
+      "physician": "Will Smith",
+      "paymentMethod": null,
+      "billingDate": "2021-09-26T20:13:03.546Z"
+    },
+    {
+      "appointment": "cardiovascular condition91",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "id": 7,
+      "physician": "Taylor Brown",
+      "paymentMethod": "Debit Card",
+      "billingDate": "2021-09-27T04:10:43.507Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "id": 8,
+      "physician": "Will Smith",
+      "paymentMethod": "Net Banking",
+      "billingDate": "2021-09-27T04:29:02.612Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "id": 9,
+      "physician": "Will Smith",
+      "paymentMethod": "Wallet",
+      "billingDate": "2021-09-27T14:48:09.360Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "2000",
+      "userId": "Vamsi12",
+      "id": 10,
+      "physician": "Will Smith",
+      "paymentMethod": "Net Banking",
+      "billingDate": "2021-09-27T15:19:32.640Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "2000",
+      "userId": "Vamsi12",
+      "id": 11,
+      "physician": "Will Smith",
+      "paymentMethod": "Debit Card",
+      "billingDate": "2021-09-27T15:20:33.847Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "2000",
+      "id": 12
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1500",
+      "id": 13
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "id": 14
+    },
+    {
+      "appointment": "cardiovascular condition91",
+      "consultationFee": "1050",
+      "userId": "Vamsi12",
+      "id": 15,
+      "physician": "Taylor Brown",
+      "paymentMethod": "Debit Card",
+      "billingDate": "2021-09-27T15:31:12.198Z"
+    },
+    {
+      "appointment": "cardiovascular condition91",
+      "consultationFee": "11",
+      "id": 16
+    },
+    {
+      "appointment": "cardiovascular condition91",
+      "consultationFee": "2500",
+      "userId": "Vamsi12",
+      "id": 17,
+      "physician": "Taylor Brown",
+      "paymentMethod": "Wallet",
+      "billingDate": "2021-09-27T15:35:06.719Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "2500",
+      "userId": "Vamsi12",
+      "id": 18,
+      "physician": "Will Smith",
+      "paymentMethod": "Net Banking",
+      "billingDate": "2021-09-27T15:36:01.176Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "10",
+      "userId": "Vamsi12",
+      "id": 19,
+      "physician": "Will Smith",
+      "paymentMethod": "Paytm",
+      "billingDate": "2021-09-27T15:37:07.676Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "id": 20,
+      "physician": "Will Smith",
+      "paymentMethod": null,
+      "billingDate": "2021-09-27T15:38:47.285Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "id": 21
+    },
+    {
+      "appointment": "cardiovascular condition91",
+      "consultationFee": "1500",
+      "id": 22
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "id": 23
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1500",
+      "id": 24
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "id": 25
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "2500",
+      "userId": "Vamsi12",
+      "id": 26,
+      "physician": "Will Smith"
+    },
+    {
+      "appointment": "cardiovascular condition91",
+      "consultationFee": "111",
+      "userId": "Vamsi12",
+      "id": 27,
+      "physician": "Taylor Brown"
+    },
+    {
+      "appointment": "cardiovascular condition91",
+      "consultationFee": "2000",
+      "userId": "Vamsi12",
+      "id": 28,
+      "physician": "Taylor Brown"
+    },
+    {
+      "appointment": "cardiovascular condition91",
+      "consultationFee": "1500",
+      "userId": "Vamsi12",
+      "id": 29,
+      "physician": "Taylor Brown"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "id": 30,
+      "physician": "Will Smith",
+      "paymentMethod": "Consultation Fee",
+      "billingDate": "2021-09-27T16:29:35.750Z"
+    },
+    {
+      "appointment": "injuries of internal organ systems51",
+      "consultationFee": "1000",
+      "userId": "Vamsi12",
+      "id": 31,
+      "physician": "Will Smith",
+      "paymentMethod": "Consultation Fee",
+      "billingDate": "2021-09-27T16:30:39.324Z"
     }
   ]
 }
