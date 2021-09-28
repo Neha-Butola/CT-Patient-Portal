@@ -26,6 +26,7 @@
         <span>Medication</span>
       </a>
     </li>
+    <mat-divider></mat-divider>
     <li class="nav-item">
       <a
         class="nav-link"
@@ -34,6 +35,13 @@
       >
         <mat-icon>graphic_eq</mat-icon>
         <span>Demographics</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item menu-button">
+      <a class="nav-link" [routerLink]="['/appointments/schedule-appointment']">
+        <mat-icon>calendar_today</mat-icon>
+        <span>Appointments</span>
       </a>
     </li>
   </ul>
