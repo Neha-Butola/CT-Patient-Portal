@@ -6,6 +6,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AppointmentService } from 'src/app/appointment/services/appointment.service';
 import { AuthService } from 'src/app/user/services/auth.service';
+import { Appointment } from '../../model/appointment.model';
 
 @Component({
   selector: 'app-create-appointment',
@@ -18,7 +19,7 @@ export class CreateAppointmentComponent implements OnInit {
   maxDate: any;
   minDate: any;
   user_role: string;
-  medications: any[] = [];
+  medication: string;
   physicians: any[] = [];
   providers: any[];
   slots = ['10 AM', '11 PM', '1 PM', '4 PM', '5 PM'];
@@ -31,7 +32,7 @@ export class CreateAppointmentComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<CreateAppointmentComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: [],
+    @Inject(MAT_DIALOG_DATA) public data,
     public apService: AppointmentService,
     private datePipe: DatePipe,
     private authService: AuthService
@@ -41,21 +42,21 @@ export class CreateAppointmentComponent implements OnInit {
     if (this.authService.isLoggedIn) {
       this.user_role = this.authService.userData.role;
     }
-    this.initForm();
-    this.setDateValidation();
     if (this.user_role == 'Patient') {
       this.getPhysician();
-    } else {
-      this.getMedication();
+    } else if (this.user_role == 'Physician') {
+      this.setTreatment();
     }
+    this.initForm();
+    this.setDateValidation();
   }
 
   // appointment form bulider
   initForm() {
     this.appointmentForm = this.fb.group({
-      title: ['', Validators.required],
+      title: [this.medication, Validators.required],
       date: ['', Validators.required],
-      physician: ['', Validators.required],
+      provider: ['', Validators.required],
       slot: ['', Validators.required],
     });
     this.treatmentForm = this.fb.group({
@@ -85,36 +86,20 @@ export class CreateAppointmentComponent implements OnInit {
     this.minDate = new Date();
   }
   // subscribe to  medicationlist function in appointment service to get medication.
-  getMedication() {
-    this.apService.getMedicationList().subscribe((res) => {
-      console.log(res);
-      let values: any[] = [];
-
-      console.log(this.data);
-      res.forEach((element) => {
-        let value = {};
-        value['title'] = element.currentmedication;
-        value['exist'] = false;
-        this.data.forEach((el) => {
-          if (value['title'] == el) {
-            value['exist'] = true;
-          }
-        });
-        this.medications.push(value);
-      });
-      console.log(this.medications);
-    });
+  setTreatment() {
+    this.medication = this.data.name;
+    this.getProviders(this.medication);
   }
 
   // get all physician related to the selected medication
-  getProviders(e: any) {
+  getProviders(name) {
     this.providers = [];
-    this.apService.getProvidersList(e.value).subscribe((res) => {
+    this.apService.getProvidersList(name).subscribe((res) => {
       console.log(res);
       res.forEach((element) => {
-        this.providers.push(element);
+        console.log(element);
+        this.providers.push(element.name);
       });
-      console.log(this.physicians);
     });
   }
 
@@ -136,7 +121,8 @@ export class CreateAppointmentComponent implements OnInit {
   }
 
   SubmitTreatment() {
-    console.log(this.treatmentForm.value);
-    // this.apService.postTreatment();
+    this.apService.postTreatment(this.treatmentForm.value).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

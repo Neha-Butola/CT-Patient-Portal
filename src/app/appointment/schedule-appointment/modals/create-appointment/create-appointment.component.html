@@ -13,25 +13,14 @@
 >
   <mat-form-field appearance="standard" class="w-100">
     <mat-label>Appointment for</mat-label>
-    <mat-select
-      formControlName="title"
-      (selectionChange)="getProviders($event)"
-    >
-      <mat-option
-        *ngFor="let medication of medications"
-        [value]="medication.title"
-        [disabled]="medication.exist"
-      >
-        {{ medication.title | titlecase }}
-      </mat-option>
-    </mat-select>
+    <input formControlName="title" type="text" matInput [value]="medication" />
   </mat-form-field>
 
-  <mat-form-field appearance="standard" class="w-100" *ngIf="f.title.value">
-    <mat-label>Physician</mat-label>
-    <mat-select formControlName="physician">
-      <mat-option *ngFor="let p of physicians" [value]="p.name">
-        {{ p.name }} - {{ p.profile }}
+  <mat-form-field appearance="standard" class="w-100">
+    <mat-label>Provider</mat-label>
+    <mat-select formControlName="provider">
+      <mat-option *ngFor="let p of providers" [value]="p">
+        {{ p }}
       </mat-option>
     </mat-select>
   </mat-form-field>

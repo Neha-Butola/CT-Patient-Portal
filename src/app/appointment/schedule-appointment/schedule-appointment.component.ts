@@ -7,6 +7,7 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { DeleteAppointmentComponent } from './modals/delete-appointment/delete-appointment.component';
 import { AppointmentService } from '../services/appointment.service';
 import { finalize, tap, filter, map } from 'rxjs/operators';
+import { AuthService } from 'src/app/user/services/auth.service';
 
 @Component({
   selector: 'app-schedule-appointment',
@@ -16,7 +17,8 @@ import { finalize, tap, filter, map } from 'rxjs/operators';
 export class ScheduleAppointmentComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
-    private appointmentService: AppointmentService
+    private appointmentService: AppointmentService,
+    private authService: AuthService
   ) {}
   appointments: Appointment[] = [];
   appointmentName: string[] = [];
@@ -25,16 +27,26 @@ export class ScheduleAppointmentComponent implements OnInit {
     'date',
     'physician',
     'slot',
+    'approved',
     'status',
     'actions',
   ];
   dataSource = new MatTableDataSource<Appointment>(this.appointments);
   clickedRows = new Set<Appointment>();
   isData = false;
+  user_role: string;
+  treatments: any[] = [];
   @ViewChild(MatTable) table: MatTable<Appointment>;
 
   ngOnInit(): void {
-    this.fetchData();
+    if (this.authService.isLoggedIn) {
+      this.user_role = this.authService.userData.role;
+      if (this.user_role == 'Patient') {
+        this.fetchData();
+      } else {
+        this.fetchTreatments();
+      }
+    }
   }
 
   // to open book appointment dialog
@@ -46,16 +58,24 @@ export class ScheduleAppointmentComponent implements OnInit {
     });
 
     // push data to table when dialog is closed
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
+
+  //
+  appointmentDialog(data): void {
+    const dialogRef = this.dialog.open(CreateAppointmentComponent, {
+      width: '400px',
+      data: data,
+    });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         result.date = result.date;
+        let id = data.userId;
         this.appointmentService
-          .postAppointment(result)
+          .postAppointment(result, id)
           .pipe(
             tap(() => {
-              this.appointments.push(result);
               this.isData = true;
-              this.table.renderRows();
             })
           )
           .subscribe(
@@ -129,5 +149,13 @@ export class ScheduleAppointmentComponent implements OnInit {
           console.log('no data');
         }
       );
+  }
+
+  fetchTreatments() {
+    this.appointmentService.getTreatment().subscribe((res) => {
+      res.forEach((elm) => {
+        this.treatments.push(elm);
+      });
+    });
   }
 }

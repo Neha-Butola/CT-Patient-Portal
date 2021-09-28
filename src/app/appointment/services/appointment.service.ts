@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/user/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { Appointment } from '../schedule-appointment/model/appointment.model';
+import { Treatment } from '../schedule-appointment/model/treatment.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,14 +13,14 @@ export class AppointmentService {
   api = environment.baseUrl + 'appointments';
   apiUsers = environment.baseUrl + 'users';
   apiProviders = environment.baseUrl + 'providers';
+  apiTreatments = environment.baseUrl + 'treatments';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   //post appointment for current user
-  postAppointment(appointmentData: Appointment): Observable<any> {
-    appointmentData.userId = this.authService.userData.id;
-    appointmentData.id =
-      appointmentData.title + Math.floor(Math.random() * 10) + 1;
+  postAppointment(appointmentData: Appointment, userId): Observable<any> {
+    appointmentData.userId = userId;
+    appointmentData.approved = true;
     return this.http.post(this.api, appointmentData);
   }
 
@@ -57,8 +58,14 @@ export class AppointmentService {
   }
 
   //post
-  // postTreatment(): Observable<any> {
-  //   let userId;
-  //   userId = this.authService.userData.id;
-  // }
+  postTreatment(treatment: Treatment): Observable<any> {
+    treatment.userId = this.authService.userData.id;
+    return this.http.post(this.apiTreatments, treatment);
+  }
+
+  //get
+  getTreatment(): Observable<any> {
+    let user_name = `${this.authService.userData.firstName} ${this.authService.userData.lastName} `;
+    return this.http.get(this.apiTreatments + '?' + 'physician=' + user_name);
+  }
 }

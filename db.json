@@ -274,22 +274,6 @@
   ],
   "appointments": [
     {
-      "title": "injuries of internal organ systems",
-      "date": "2021-09-30",
-      "physician": "Will Smith",
-      "slot": "4 PM",
-      "userId": "Vamsi12",
-      "id": "injuries of internal organ systems51"
-    },
-    {
-      "title": "cardiovascular condition",
-      "date": "2021-09-30",
-      "physician": "Taylor Brown",
-      "slot": "5 PM",
-      "userId": "Vamsi12",
-      "id": "cardiovascular condition91"
-    },
-    {
       "title": "cardiovascular condition",
       "date": "2021-09-23",
       "physician": "Maria Garcia",
@@ -312,6 +296,15 @@
       "slot": "4 PM",
       "userId": "neha21",
       "id": "cardiovascular condition21"
+    },
+    {
+      "title": "cardiovascular conditions",
+      "date": "2021-09-29",
+      "provider": "Taylor Brown",
+      "slot": "11 PM",
+      "userId": "Vamsi12",
+      "status": true,
+      "id": "kLQDp99"
     }
   ],
   "providers": [
@@ -349,13 +342,13 @@
       "name": "Maria Garcia",
       "profile": "Cardiologist",
       "id": "Cardiologists12",
-      "treatments for": "cardiovascular condition"
+      "treatments for": "cardiovascular conditions"
     },
     {
       "name": "Taylor Brown",
       "profile": "Cardiologist",
       "id": "Cardiologists13",
-      "treatments for": "cardiovascular condition"
+      "treatments for": "cardiovascular conditions"
     },
     {
       "name": "Natalie",
@@ -636,6 +629,38 @@
       "physician": "Will Smith",
       "paymentMethod": "Consultation Fee",
       "billingDate": "2021-09-27T16:30:39.324Z"
+    }
+  ],
+  "treatments": [
+    {
+      "name": "cardiovascular conditions",
+      "physician": "Neha Butola",
+      "userId": "Vamsi12",
+      "id": 1
+    },
+    {
+      "name": "cardiovascular conditions",
+      "physician": "Neha Butola",
+      "userId": "Vamsi12",
+      "id": 2
+    },
+    {
+      "name": "common",
+      "physician": "Neha Butola",
+      "userId": "neha21",
+      "id": 4
+    },
+    {
+      "name": "cardiovascular conditions",
+      "physician": "Bhartesh Singh",
+      "userId": "Vamsi12",
+      "id": 3
+    },
+    {
+      "name": "cardiovascular conditions",
+      "physician": "neha butoal",
+      "userId": "Vamsi12",
+      "id": 5
     }
   ]
 }
