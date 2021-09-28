@@ -24,7 +24,7 @@ export class ImmDetailsComponent implements OnInit {
   ];
 
   index = ['id', 'vaccinename', 'doses1', 'date', 'doses2', 'date1'];
-  other: string[] = ['Current Date', 'Vaccine Type'];
+  other: string[] = ['Vaccine Date', 'Vaccine Type'];
 
   otherindex = ['vaccinetype'];
   viewdemo: Immunization[] = [];
