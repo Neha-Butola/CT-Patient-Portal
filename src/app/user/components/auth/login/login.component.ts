@@ -79,8 +79,9 @@ export class LoginComponent implements OnInit {
   }
 
   private showAlert(message: string) {
-    const alertCmpFactory =
-      this.cfResolver.resolveComponentFactory(AlertComponent);
+    const alertCmpFactory = this.cfResolver.resolveComponentFactory(
+      AlertComponent
+    );
     const hostViewContRef = this.alertHost.viewContainerRef;
     hostViewContRef.clear();
 

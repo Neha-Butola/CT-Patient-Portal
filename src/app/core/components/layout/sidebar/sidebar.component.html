@@ -1,150 +1,160 @@
 <!-- Side bar for admin -->
-<ul
-  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-  id="accordionSidebar"
-  *ngIf="user.role == 'Physician'"
->
-  <li class="nav-item menu-button">
-    <a
-      class="nav-link"
-      [routerLink]="['/dashboard/admin-dashboard']"
-      routerLinkActive="active"
-    >
-      <mat-icon>dashboard</mat-icon>
-      <span>Dashboard</span>
-    </a>
-  </li>
-  <mat-divider></mat-divider>
-  <li class="nav-item">
-    <a
-      class="nav-link"
-      [routerLink]="['/medication-and-allergies/history']"
-      routerLinkActive="active"
-    >
-      <mat-icon>local_hospital</mat-icon>
-      <span>Medication</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a
-      class="nav-link"
-      [routerLink]="['/demographics']"
-      routerLinkActive="active"
-    >
-      <mat-icon>graphic_eq</mat-icon>
-      <span>Demographics</span>
-    </a>
-  </li>
-</ul>
-<ul
-  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-  id="accordionSidebar"
-  *ngIf="user.role == 'Admin'"
->
-  <li class="nav-item menu-button">
-    <a
-      class="nav-link"
-      [routerLink]="['/dashboard/admin-dashboard']"
-      routerLinkActive="active"
-    >
-      <mat-icon>dashboard</mat-icon>
-      <span>Dashboard</span>
-    </a>
-  </li>
-  <mat-divider></mat-divider>
-  <li class="nav-item">
-    <a
-      class="nav-link"
-      [routerLink]="['/medication-and-allergies/history']"
-      routerLinkActive="active"
-    >
-      <mat-icon>local_hospital</mat-icon>
-      <span>Medication</span>
-    </a>
-  </li>
-</ul>
-<!-- Side bar for Patient -->
-<ul
-  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-  id="accordionSidebar"
-  *ngIf="user.role == 'Patient'"
->
-  <li class="nav-item menu-button">
-    <a
-      class="nav-link"
-      [routerLink]="['/dashboard/patient-dashboard']"
-      routerLinkActive="active"
-    >
-      <mat-icon>dashboard</mat-icon>
-      <span>Dashboard</span>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a
-      class="nav-link"
-      [routerLink]="['/demographics']"
-      routerLinkActive="active"
-    >
-      <mat-icon>graphic_eq</mat-icon>
-      <span>Demographics</span>
-    </a>
-  </li>
-  <mat-divider></mat-divider>
-  <li class="nav-item">
-    <a
-      class="nav-link"
-      [routerLink]="['/medication-and-allergies/form']"
-      routerLinkActive="active"
-    >
-      <mat-icon>local_hospital</mat-icon>
-      <span>Medication</span>
-    </a>
-  </li>
-  <mat-divider></mat-divider>
-  <li class="nav-item menu-button">
-    <a
-      class="nav-link"
-      routerLinkActive="active"
-      routerLink="./immunization-details"
-    >
-      <mat-icon>info</mat-icon>
-      <span>Immunization</span>
-    </a>
-  </li>
-  <mat-divider></mat-divider>
-  <li class="nav-item menu-button">
-    <a class="nav-link" [routerLink]="['/appointments/schedule-appointment']">
-      <mat-icon>calendar_today</mat-icon>
-      <span>Appointments</span>
-    </a>
-  </li>
-  <mat-divider></mat-divider>
-  <li class="nav-item menu-button">
-    <a class="nav-link" [routerLink]="['/appointments/calender']">
-      <mat-icon>calendar_today</mat-icon>
-      <span>Appointments Calender</span>
-    </a>
-  </li>
-  <mat-divider></mat-divider>
-  <li class="nav-item menu-button">
-    <a class="nav-link">
-      <mat-icon>schedule</mat-icon>
-      <span>Plan of Care</span>
-    </a>
-  </li>
-  <mat-divider></mat-divider>
-  <li class="nav-item menu-button">
-    <a class="nav-link" [routerLink]="['/billing']">
-      <mat-icon>payment</mat-icon>
-      <span>Billing</span>
-    </a>
-  </li>
-  <mat-divider></mat-divider>
-  <li class="nav-item menu-button">
-    <a class="nav-link">
-      <mat-icon>person_add</mat-icon>
-      <span>Profile</span>
-    </a>
-  </li>
-  <mat-divider></mat-divider>
-</ul>
+<ng-container>
+  <ul
+    class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+    id="accordionSidebar"
+    *ngIf="isPhysician"
+  >
+    <li class="nav-item menu-button">
+      <a
+        class="nav-link"
+        [routerLink]="['/dashboard/admin-dashboard']"
+        routerLinkActive="active"
+      >
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [routerLink]="['/medication-and-allergies/history']"
+        routerLinkActive="active"
+      >
+        <mat-icon>local_hospital</mat-icon>
+        <span>Medication</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [routerLink]="['/demographics']"
+        routerLinkActive="active"
+      >
+        <mat-icon>graphic_eq</mat-icon>
+        <span>Demographics</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item menu-button">
+      <a class="nav-link" [routerLink]="['/appointments/schedule-appointment']">
+        <mat-icon>calendar_today</mat-icon>
+        <span>Appointments</span>
+      </a>
+    </li>
+  </ul>
+  <ul
+    class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+    id="accordionSidebar"
+    *ngIf="isAdmin"
+  >
+    <li class="nav-item menu-button">
+      <a
+        class="nav-link"
+        [routerLink]="['/dashboard/admin-dashboard']"
+        routerLinkActive="active"
+      >
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [routerLink]="['/medication-and-allergies/history']"
+        routerLinkActive="active"
+      >
+        <mat-icon>local_hospital</mat-icon>
+        <span>Medication</span>
+      </a>
+    </li>
+  </ul>
+  <!-- Side bar for Patient -->
+  <ul
+    class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+    id="accordionSidebar"
+    *ngIf="isPatient"
+  >
+    <li class="nav-item menu-button">
+      <a
+        class="nav-link"
+        [routerLink]="['/dashboard/patient-dashboard']"
+        routerLinkActive="active"
+      >
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [routerLink]="['/demographics']"
+        routerLinkActive="active"
+      >
+        <mat-icon>graphic_eq</mat-icon>
+        <span>Demographics</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [routerLink]="['/medication-and-allergies/form']"
+        routerLinkActive="active"
+      >
+        <mat-icon>local_hospital</mat-icon>
+        <span>Medication</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item menu-button">
+      <a
+        class="nav-link"
+        routerLinkActive="active"
+        routerLink="./immunization-details"
+      >
+        <mat-icon>info</mat-icon>
+        <span>Immunization</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item menu-button">
+      <a class="nav-link" [routerLink]="['/appointments/schedule-appointment']">
+        <mat-icon>calendar_today</mat-icon>
+        <span>Appointments</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item menu-button">
+      <a class="nav-link" [routerLink]="['/appointments/calender']">
+        <mat-icon>calendar_today</mat-icon>
+        <span>Appointments Calender</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item menu-button">
+      <a class="nav-link">
+        <mat-icon>schedule</mat-icon>
+        <span>Plan of Care</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item menu-button">
+      <a class="nav-link" [routerLink]="['/billing']">
+        <mat-icon>payment</mat-icon>
+        <span>Billing</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+    <li class="nav-item menu-button">
+      <a class="nav-link">
+        <mat-icon>person_add</mat-icon>
+        <span>Profile</span>
+      </a>
+    </li>
+    <mat-divider></mat-divider>
+  </ul>
+</ng-container>
