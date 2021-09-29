@@ -1,60 +1,62 @@
-<div class="table-responsive">
-  <div class="bg-primary position">
-    <h2 colspan="13">COVID-19 Vaccine</h2>
-    <button
-      mat-button
-      color="accent"
-      routerLink="immunization-covid"
-      routerLinkActive="router-link-active"
-    >
-      Add
-    </button>
+<div class="container">
+  <div class="table-responsive">
+    <div class="bg-primary position mobile-width">
+      <h2 colspan="13">COVID-19 Vaccine</h2>
+      <button
+        mat-button
+        color="accent"
+        routerLink="immunization-covid"
+        routerLinkActive="router-link-active"
+      >
+        Add
+      </button>
+    </div>
+    <table class="table table-bordered table-hover border-primary">
+      <thead>
+        <tr>
+          <th scope="column" *ngFor="let col of columns">{{ col }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of viewdemo">
+          <ng-container *ngIf="isAllowed(user.id)">
+            <td scope="row" *ngFor="let col of index">
+              {{ user[col] }}
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+    <br />
   </div>
-  <table class="table table-bordered table-hover border-primary">
-    <thead>
-      <tr>
-        <th scope="column" *ngFor="let col of columns">{{ col }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of viewdemo">
-        <ng-container *ngIf="isAllowed(user.id)">
-          <td scope="row" *ngFor="let col of index">
-            {{ user[col] }}
-          </td>
-        </ng-container>
-      </tr>
-    </tbody>
-  </table>
-  <br />
-</div>
 
-<div class="table-responsive">
-  <div class="bg-primary position">
-    <h2 colspan="13">Other general Vaccines</h2>
-    <button mat-button color="accent" routerLink="immunization-other-vaccine">
-      Add
+  <div class="table-responsive">
+    <div class="bg-primary position">
+      <h2 colspan="13">Other general Vaccines</h2>
+      <button mat-button color="accent" routerLink="immunization-other-vaccine">
+        Add
+      </button>
+    </div>
+    <table class="table table-bordered table-hover border-primary">
+      <thead>
+        <tr>
+          <th scope="column" *ngFor="let col of other">{{ col }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let otherv of viewotherdemo">
+          <ng-container *ngIf="isAllowed(otherv.id)">
+            <td>{{ myDate | date: "dd-MM-yyyy" }}</td>
+            <td scope="row" *ngFor="let col of otherindex">
+              {{ otherv[col] }}
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <button color="primary" (click)="changeState()" class="btn btn-primary">
+      Show/Hide
     </button>
   </div>
-  <table class="table table-bordered table-hover border-primary">
-    <thead>
-      <tr>
-        <th scope="column" *ngFor="let col of other">{{ col }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let otherv of viewotherdemo">
-        <ng-container *ngIf="isAllowed(otherv.id)">
-          <td>{{ myDate | date: "dd-MM-yyyy" }}</td>
-          <td scope="row" *ngFor="let col of otherindex">
-            {{ otherv[col] }}
-          </td>
-        </ng-container>
-      </tr>
-    </tbody>
-  </table>
-  <br />
-  <button color="primary" (click)="changeState()" class="btn btn-primary">
-    Show/Hide
-  </button>
 </div>
