@@ -14,16 +14,9 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ImmDetailsComponent implements OnInit {
   myDate: Date = new Date();
   constructor(private demo: ImmDetailsService) {}
-  columns: string[] = [
-    'Id',
-    'Vaccine Name',
-    'Dose1',
-    'Date1',
-    'Doses2',
-    'Date2',
-  ];
+  columns: string[] = ['Id', 'Vaccine Name', 'Vaccine Dose1', 'Vaccine Doses2'];
 
-  index = ['id', 'vaccinename', 'doses1', 'date', 'doses2', 'date1'];
+  index = ['id', 'vaccinename', 'doses1', 'doses2'];
   other: string[] = ['Vaccine Date', 'Vaccine Type'];
 
   otherindex = ['vaccinetype'];
