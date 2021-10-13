@@ -100,17 +100,6 @@
       "id": "Bhartesh31"
     },
     {
-<<<<<<< HEAD
-      "email": "ss@gmail.com",
-      "password": "$2a$10$YnihIOZqKhTpP.ukOw5U1uMhNLqvfNmJ8IUR7GMfb5WlGRSlPYUBK",
-      "firstName": "swati",
-      "lastName": "mukhija",
-      "confirmPassword": "123456",
-      "dob": "2003-09-09T18:30:00.000Z",
-      "phoneNumber": 9283728444,
-      "role": "Physician",
-      "id": "swati81"
-=======
       "email": "neha11@gmail.com",
       "password": "$2a$10$l3MVUi29owzClA1s52mOAeuzRMti6YofiFtS95naXhXwECmk3ijiC",
       "firstName": "neha",
@@ -132,7 +121,6 @@
       "role": "Physician",
       "profile": "Psychiatrist",
       "id": "john91"
->>>>>>> feature/billing
     }
   ],
   "medication-and-allergies": [
@@ -406,7 +394,6 @@
       "id": 5
     }
   ],
-<<<<<<< HEAD
   "otherimmunization": [
     {
       "vaccinetype": "Human papillomavirus",
@@ -431,7 +418,8 @@
     {
       "vaccinetype": "Pneumococcal conjugate",
       "id": 6
-=======
+    }
+  ],
   "billing": [
     {
       "id": 1,
@@ -699,7 +687,6 @@
       "physician": "neha butoal",
       "userId": "Vamsi12",
       "id": 5
->>>>>>> feature/billing
     }
   ]
 }
