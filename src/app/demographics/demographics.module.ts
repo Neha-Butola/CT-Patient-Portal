@@ -13,20 +13,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { DemographicsService } from './services/demographics.service';
 import { ViewDemographicsComponent } from './components/view-demographics/view-demographics.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [DemographicsComponent, ViewDemographicsComponent],
   imports: [
     CommonModule,
-    DemographicsRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    ReactiveFormsModule,
     MatDatepickerModule,
     MatButtonModule,
-    HttpClientModule,
     MatCardModule,
+    MatTableModule,
+    MatSnackBarModule,
+    DemographicsRoutingModule,
   ],
-  providers: [DemographicsService],
+  // providers: [DemographicsService],
 })
 export class DemographicsModule {}

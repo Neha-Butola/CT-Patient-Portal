@@ -1,12 +1,15 @@
 export interface RegisterData {
-  firstname: string;
-  lastname: string;
+  id: string;
+  firstName: string;
+  lastName: string;
   dob: Date;
   role: string;
+  profile?: string;
   email: string;
   password: string;
   confirmPassword: string;
-  phoneNo: number;
+  phoneNumber: number;
+  status: boolean;
 }
 
 export interface LoginData {

@@ -1,0 +1,55 @@
+h4 {
+  color: #fff;
+}
+mat-card-header {
+  display: block;
+  font-weight: 500;
+}
+mat-form-field {
+  width: 100%;
+}
+.doses {
+  color: #18beb7;
+  font-weight: 700;
+}
+
+.dflex {
+  display: flex;
+  justify-content: space-between;
+  .field-label {
+    font-weight: bold;
+  }
+}
+.message {
+  color: #18beb7;
+  text-align: center;
+  display: inherit;
+  font-size: 18px;
+}
+.number {
+  color: #18beb7;
+}
+.flex1 {
+  flex: 1;
+}
+.ml16 {
+  margin-left: 16px;
+}
+:host {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    background: #e9ecef;
+    ol {
+      margin-bottom: 0;
+    }
+  }
+  ::ng-deep {
+    .bg-primary .mat-card-header-text {
+      margin: 0 8px;
+    }
+    .text-primary .mat-card-header-text {
+      margin: 0;
+    }
+  }
+}

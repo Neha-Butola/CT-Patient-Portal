@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { MedicationAndAllergiesRoutingModule } from './medication-and-allergies-routing.module';
 import { MedicationFormComponent } from './components/medication-form/medication-form.component';
@@ -12,12 +12,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { RouterModule } from '@angular/router';
+import { EditMedicationComponent } from './components/medication-history/modal/edit-medication/edit-medication.component';
 
 @NgModule({
   declarations: [
     MedicationFormComponent,
     MedicationHistoryComponent,
     MedicationDetailsComponent,
+    EditMedicationComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +33,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    RouterModule,
+    ReactiveFormsModule,
   ],
 })
 export class MedicationAndAllergiesModule {}

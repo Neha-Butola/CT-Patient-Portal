@@ -1,0 +1,57 @@
+<div class="container" id="demo">
+  <!-- <button mat-raised-button color="primary" (click)="goToPayment()">
+    Make Payment
+  </button> -->
+  <mat-card-header class="bg-primary text-white mb-2 p-2 rounded"
+    ><h4>Payment History</h4>
+  </mat-card-header>
+  <table mat-table class="w-100" [dataSource]="billingDetails">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Bill No</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="appointment">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element">{{ element.appointment }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="physician">
+      <th mat-header-cell *matHeaderCellDef>Physician</th>
+      <td mat-cell *matCellDef="let element">{{ element.physician }}</td>
+    </ng-container>
+    <ng-container matColumnDef="billingDate">
+      <th mat-header-cell *matHeaderCellDef>BillDate</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.billingDate | date: "MMM dd, yyyy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="consultationFee">
+      <th mat-header-cell *matHeaderCellDef>Amount</th>
+      <td mat-cell *matCellDef="let element">{{ element.consultationFee }}</td>
+    </ng-container>
+    <ng-container matColumnDef="paymentMethod">
+      <th mat-header-cell *matHeaderCellDef>Payment For</th>
+      <td mat-cell *matCellDef="let element">{{ element.paymentMethod }}</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element">Paid</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<button
+  printSectionId="demo"
+  type="button"
+  class="btn"
+  mat-raised-button
+  color="primary"
+  ngxPrint
+>
+  Print
+</button>

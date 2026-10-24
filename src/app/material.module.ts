@@ -12,9 +12,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatRadioModule } from '@angular/material/radio';
+
 @NgModule({
   imports: [
-    MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
@@ -28,7 +34,14 @@ import { MatSelectModule } from '@angular/material/select';
     MatListModule,
     MatTabsModule,
     MatMenuModule,
+    MatStepperModule,
     MatSelectModule,
+    MatStepperModule,
+    MatTableModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatCardModule,
+    MatRadioModule,
   ],
   exports: [
     MatButtonModule,
@@ -46,6 +59,12 @@ import { MatSelectModule } from '@angular/material/select';
     MatTabsModule,
     MatMenuModule,
     MatSelectModule,
+    MatStepperModule,
+    MatTableModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatCardModule,
+    MatRadioModule,
   ],
 })
 export class MaterialModule {}

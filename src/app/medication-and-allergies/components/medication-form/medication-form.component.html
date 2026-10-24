@@ -17,6 +17,17 @@
       >
 
       <div class="row">
+        <mat-form-field class="col-sm-12 col-md-6" style="display: none">
+          <mat-label>Your Name</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Your Name"
+            name="pname"
+            required
+            [(ngModel)]="medication.pname"
+          />
+        </mat-form-field>
         <mat-form-field class="col-sm-12 col-md-6">
           <mat-label>Current Medication</mat-label>
           <input
@@ -27,25 +38,19 @@
             required
             [(ngModel)]="medication.currentmedication"
           />
-          <mat-error *ngIf="fName.hasError('required')"
-            >Field must not be empty</mat-error
-          >
         </mat-form-field>
         <mat-form-field class="col-sm-12 col-md-6">
           <mat-label>OTC Medication</mat-label>
           <input
             type="text"
             matInput
-            placeholder="Your Last name"
+            placeholder="OTC Medication"
             name="otcmedication"
             required
-            #fName="ngModel"
-            [ngModel]="medication.otcmedication"
+            [(ngModel)]="medication.otcmedication"
           />
-          <mat-error *ngIf="fName.hasError('required')"
-            >Field must not be empty</mat-error
-          >
         </mat-form-field>
+
         <mat-form-field class="col-sm-12 col-md-6">
           <mat-label>Herbs/Minerals/Vitamin/Antibiotic</mat-label>
           <input
@@ -81,6 +86,28 @@
             name="pastprescribedmedication"
             required
             [(ngModel)]="medication.pastprescribedmedication"
+          />
+        </mat-form-field>
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label>Drug Allergies</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Drug Allergies"
+            name="drugallergies"
+            required
+            [(ngModel)]="medication.drugallergies"
+          />
+        </mat-form-field>
+        <mat-form-field class="col-sm-12 col-md-6">
+          <mat-label>Allergies/Reaction Other</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Allergies/Reaction Other"
+            name="reactionother"
+            required
+            [(ngModel)]="medication.reactionother"
           />
         </mat-form-field>
       </div>
